@@ -1,6 +1,6 @@
-import React from "react";
 import "./medicare.css";
 import { FaSearch, FaUserMd, FaHeart, FaMapMarkerAlt, FaStar, FaVideo, FaHome, FaMap, FaBell, FaCubes, FaCalendar, FaUser } from "react-icons/fa";
+import Homepage from './src/Patients Flow/Homepage/Home'
 
 const providers = [
   {
@@ -25,6 +25,10 @@ const providers = [
     image: "https://randomuser.me/api/portraits/women/3.jpg",
   },
 ];
+
+const handleHome = () =>{
+  <Homepage />
+}
 
 const Medicare = () => {
   return (
@@ -87,7 +91,7 @@ const Medicare = () => {
       {/* Navigation Bar */}
       <div className="navbar">
         <div className="nav-item active"><FaHome /><span>Home</span></div>
-        <div className="nav-item"><FaMap /></div>
+        <div className="nav-item" onClick={handleHome}><FaMap /></div>
         <div className="nav-item"><FaBell /></div>
         <div className="nav-item"><FaCubes /></div>
         <div className="nav-item"><FaCalendar /></div>
