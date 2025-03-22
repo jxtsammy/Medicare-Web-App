@@ -1,0 +1,161 @@
+/* Main Container */
+.account-settings-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FDFAEE;
+  }
+  
+  /* Header Styles */
+  .settings-header {
+    background-color: #fff8dc;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e6e0c0;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .user-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .notification-btn {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 5px 15px;
+  }
+  
+  .username {
+    font-weight: bold;
+  }
+  
+  .user-status {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .verified-icon {
+    color: #00a884;
+    margin-left: 4px;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Main Content Styles */
+  .settings-main {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+    background-color: #FDFAEE;
+    gap: 40px;
+  }
+  
+  /* Sidebar Navigation */
+  .settings-nav {
+    width: 250px;
+    flex-shrink: 0;
+  }
+  
+  .settings-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .settings-nav li {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .settings-nav li.active {
+    border-left: 4px solid #000;
+    padding-left: 10px;
+    font-weight: bold;
+  }
+  
+  .settings-nav a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  
+  /* Settings Content */
+  .settings-content {
+    flex: 1;
+  }
+  
+  .settings-section {
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    
+  }
+  
+  .item-details h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+  }
+  
+  .item-description {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .action-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .action-button:hover {
+    background-color: #f5f5f5;
+  } 

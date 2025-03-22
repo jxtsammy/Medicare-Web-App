@@ -1,0 +1,240 @@
+/* Main Container */
+.maps-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Map Background */
+  .map-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* User Location Marker */
+  .user-marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .marker-pin {
+    width: 24px;
+    height: 24px;
+    background-color: #000;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .marker-label {
+    margin-top: 4px;
+    background-color: #000;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  /* Provider Markers */
+  .provider-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .provider-marker:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 3;
+  }
+  
+  .marker-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+  }
+  
+  /* Special Location Markers */
+  .special-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+  
+  /* Sidebar Navigation */
+  .sidebar {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background-color: #ffd700;
+    border-radius: 30px;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar-item {
+    padding: 15px;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .sidebar-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 24px;
+    background-color: #333;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+  
+  .sidebar-item:hover {
+    color: #000;
+  }
+  
+  /* Provider Carousel */
+  .provider-carousel {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffd700;
+    border-radius: 30px;
+    padding: 10px 15px;
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    max-width: 90%;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .provider-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+  
+  .carousel-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .carousel-item:hover {
+    transform: scale(1.1);
+  }
+  
+  .carousel-item.selected .carousel-image {
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #ffa500;
+  }
+  
+  .carousel-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+  }
+  
+  .online-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #00a884;
+    border-radius: 50%;
+    border: 2px solid #ffd700;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .sidebar {
+      left: 10px;
+      padding: 10px 0;
+    }
+    
+    .sidebar-item {
+      padding: 12px;
+    }
+    
+    .carousel-image {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .marker-image {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .special-marker {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  
+  /* Floating action button for mobile */
+  .floating-action-button {
+    position: absolute;
+    bottom: 100px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffd700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    cursor: pointer;
+    display: none;
+  }
+  
+  @media (max-width: 576px) {
+    .floating-action-button {
+      display: flex;
+    }
+  }
