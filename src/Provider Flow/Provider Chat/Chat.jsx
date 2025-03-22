@@ -1,4 +1,4 @@
-import  { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Chat.css';
 import {
   FaHome,
@@ -174,7 +174,7 @@ function App() {
     return `${hours}:${minutes} ${ampm}`;
   };
 
-  // Send a new message
+  // Send a new message (without auto-response)
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {
@@ -207,59 +207,7 @@ function App() {
 
       // Clear input
       setMessage('');
-
-      // Simulate response after a delay
-      setTimeout(() => {
-        simulateResponse();
-      }, 1000 + Math.random() * 2000);
     }
-  };
-
-  // Simulate receiving a response
-  const simulateResponse = () => {
-    const responses = [
-      'That sounds great!',
-      'I agree with you',
-      'Let me think about that',
-      'Interesting point',
-      'Can we discuss this later?',
-      'Perfect! ✅',
-      'Wow, that\'s amazing',
-      'I\'ll be there soon',
-      'Thanks for letting me know',
-      'Haha 😂',
-      'Awesome!',
-      'I appreciate that'
-    ];
-
-    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-
-    const responseMessage = {
-      id: activeChat.messages.length + 1,
-      sender: 'them',
-      text: randomResponse,
-      time: getCurrentTime()
-    };
-
-    // Update active chat with response
-    const updatedMessages = [...activeChat.messages, responseMessage];
-    setActiveChat({
-      ...activeChat,
-      messages: updatedMessages
-    });
-
-    // Update chat list
-    const updatedChatList = chatList.map(chat => {
-      if (chat.id === activeChat.id) {
-        return {
-          ...chat,
-          lastMessage: randomResponse,
-          time: 'now'
-        };
-      }
-      return chat;
-    });
-    setChatList(updatedChatList);
   };
 
   // Change active chat
@@ -349,7 +297,7 @@ function App() {
           {/* Chat List */}
           <div className="chat-list-container">
             <div className="chat-list-header">
-              <h2 className="chat-title">Chats <FaChevronDown/></h2>
+              <h2 className="chat-title">Chats <FaChevronDown /></h2>
               <span className="chat-count">12</span>
             </div>
 
@@ -402,9 +350,12 @@ function App() {
                   {activeChat.online && <span className="contact-status">Online</span>}
                 </div>
               </div>
-              <button className="call-btn">
-                <FaPhone style={{ color: "black" }}/>
-              </button>
+              <div className="call-btn-container">
+                <button className="call-btn">
+                  <FaPhone />
+                  <span className="call-btn-text">Call</span>
+                </button>
+              </div>
             </div>
 
             <div className="messages-container">
@@ -446,13 +397,16 @@ function App() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
-              <button
-                type="submit"
-                className="send-btn"
-                disabled={!message.trim()}
-              >
-                <FaPaperPlane />
-              </button>
+              <div className="send-btn-container">
+                <button
+                  type="submit"
+                  className="send-btn"
+                  disabled={!message.trim()}
+                >
+                  <FaPaperPlane />
+                  <span className="send-btn-text">Send</span>
+                </button>
+              </div>
             </form>
           </div>
         </div>

@@ -17,6 +17,8 @@
   --border-color: #e0e0e0;
   --message-bg-sent: #fff5cc;
   --message-bg-received: #f0f0f0;
+  --button-color: #ff9800;
+  --button-hover: #f57c00;
 }
 
 html, body {
@@ -29,7 +31,6 @@ html, body {
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
-  width: 100vw;
 }
 
 /* Sidebar Styles */
@@ -227,7 +228,7 @@ html, body {
   width: 100%;
   padding: 0.6rem 0.8rem;
   border: 1px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 0.85rem;
   background-color: white;
 }
@@ -355,18 +356,37 @@ html, body {
   color: #4caf50;
 }
 
+/* Highly Visible Call Button */
+.call-btn-container {
+  display: flex;
+  align-items: center;
+}
+
 .call-btn {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: var(--primary-yellow);
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
-  color: black;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+.call-btn:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.call-btn-text {
+  display: inline-block;
 }
 
 .messages-container {
@@ -429,6 +449,7 @@ html, body {
   border-top: 1px solid var(--border-color);
   gap: 0.8rem;
   height: 60px;
+  background-color: var(--white);
 }
 
 .attachment-btn {
@@ -437,29 +458,60 @@ html, body {
   font-size: 1.1rem;
   color: #666;
   cursor: pointer;
+  transition: color 0.2s;
+}
+
+.attachment-btn:hover {
+  color: var(--dark-gray);
 }
 
 .message-input {
   flex: 1;
   padding: 0.6rem 0.8rem;
-  border: 1px solid #000;
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   font-size: 0.85rem;
-  background-color: white;
+}
+
+/* Highly Visible Send Button */
+.send-btn-container {
+  display: flex;
+  align-items: center;
 }
 
 .send-btn {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: var(--primary-yellow);
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
   font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
-  color: #0000;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+.send-btn:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.send-btn:disabled {
+  background-color: #cccccc;
+  color: #888888;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.send-btn-text {
+  display: inline-block;
 }
 
 /* Compact mode for smaller screens */
@@ -502,6 +554,14 @@ html, body {
 
   .chat-list-container {
     width: 250px;
+  }
+
+  .call-btn-text, .send-btn-text {
+    display: none;
+  }
+
+  .call-btn, .send-btn {
+    padding: 8px;
   }
 }
 
@@ -555,4 +615,4 @@ html, body {
   .chat-messages-container {
     height: calc(100vh - 310px);
   }
-  }
+}
