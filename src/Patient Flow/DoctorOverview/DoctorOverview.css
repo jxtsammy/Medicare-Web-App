@@ -1,0 +1,470 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .doctor-overview {
+    
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+  
+  /* Header Styles */
+  .doctor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items:end;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .doctor-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .doctor-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px
+  }
+  
+  .rating-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .star-icon {
+    color: #ffb400;
+  }
+  
+  .rating-text {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .availability-btn {
+    background-color: #ffdd00;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Main Content Styles */
+  .main-content {
+    display: flex;
+    padding: 20px;
+    background-color: #fffdf5;
+    gap: 20px;
+  }
+  
+  .left-column {
+    flex: 2;
+  }
+  
+  .right-column {
+    flex: 1;
+  }
+  
+  /* Doctor Profile Styles */
+  .doctor-profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .doctor-avatar-large {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .doctor-details h2 {
+    margin-bottom: 5px;
+  }
+  
+  .doctor-details p {
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .communication-icons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+  }
+  
+  .icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffdd00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Featured Review Styles */
+  .featured-review {
+    display: flex;
+    background-color: #fffbe5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .review-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 20px;
+    border-right: 1px solid #e0e0e0;
+    margin-right: 20px;
+  }
+  
+  .review-rating h2 {
+    font-size: 32px;
+    margin-bottom: 5px;
+  }
+  
+  .stars {
+    display: flex;
+  }
+  
+  .review-content {
+    flex: 1;
+  }
+  
+  .review-text {
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  .review-author {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .review-date {
+    color: #666;
+  }
+  
+  .see-all-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  /* Tabs Styles */
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .tab.active {
+    font-weight: bold;
+  }
+  
+  .tab.active::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+  }
+  
+  /* Highlights Section Styles */
+  .highlights-section {
+    margin-bottom: 30px;
+  }
+  
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .highlight-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e6f7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  }
+  
+  .highlight-icon-inner {
+    color: #0077cc;
+    font-size: 24px;
+  }
+  
+  .highlight-text h3 {
+    margin-bottom: 5px;
+  }
+  
+  .highlight-text p {
+    color: #666;
+  }
+  
+  /* Patient Reviews Section Styles */
+  .patients-reviews {
+    margin-top: 30px;
+  }
+  
+  .patients-reviews h2 {
+    margin-bottom: 10px;
+  }
+  
+  .patients-reviews > p {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+  
+  .trust-banner {
+    display: flex;
+    align-items: center;
+    background-color: #fffbe5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .shield-icon {
+    color: #666;
+    font-size: 24px;
+    margin-right: 15px;
+  }
+  
+  .trust-banner p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .trust-banner a {
+    color: #666;
+  }
+  
+  .reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .reviews-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .sort-dropdown {
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    height: 48px;
+  }
+  
+  .search-input {
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    height: 46px;
+    color:#000000;
+  }
+  .search-input::placeholder {
+    color: #000000; /* Sets placeholder text color to black */
+    opacity: 1; /* Ensures full visibility in some browsers */
+}
+  
+  .reviews-list {
+    margin-bottom: 30px;
+  }
+  
+  .review-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+  }
+  
+  .review-stars {
+    margin-bottom: 10px;
+  }
+  
+  .review-meta {
+    display: flex;
+    gap: 15px;
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .verified {
+    color: #0077cc;
+  }
+  
+  .see-more-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 8px 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: none;
+    cursor: pointer;
+  }
+  
+  /* Add Review Styles */
+  .add-review {
+    margin-top: 30px;
+  }
+  
+  .add-review h3 {
+    margin-bottom: 15px;
+  }
+  
+  .add-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .rating-stars {
+    display: flex;
+  }
+  
+  .rating-star {
+    color: #ccc;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .review-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    resize: none;
+  }
+  
+  .submit-review-btn {
+    padding: 8px 20px;
+    background-color: #f5e7c3;
+    border: 1px solid #e0d0a8;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  /* Booking Card Styles */
+  .booking-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .booking-card h2 {
+    margin-bottom: 5px;
+  }
+  
+  .booking-card > p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .patient-type-selector {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .patient-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .patient-btn.active {
+    background-color: #f5e7c3;
+    font-weight: bold;
+  }
+  
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .form-group.half {
+    flex: 1;
+  }
+  
+  .form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .book-btn {
+    background-color: #f5e7c3;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  
