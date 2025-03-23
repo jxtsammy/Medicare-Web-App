@@ -32,10 +32,10 @@ export default function Dashboard() {
   const Sidebar = () => (
     <div className="dashboard-sidebar">
       <nav className="dashboard-nav">
-        <a href="#" className="dashboard-nav-item">
+        <Link to="/provider-dashboard" className="dashboard-nav-item">
           <LayoutGrid size={20} />
           <span>Overview</span>
-        </a>
+        </Link>
         <Link to="/chat" className="dashboard-nav-item">
           <MessageSquare size={20} />
           <span>Messages</span>

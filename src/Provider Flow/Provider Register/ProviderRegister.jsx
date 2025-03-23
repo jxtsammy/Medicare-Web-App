@@ -12,7 +12,7 @@ function App() {
     // Perform login logic here...
 
     // Redirect to dashboard after successful login
-    navigate("/dashboard");
+    navigate("/provider-dashboard");
   };
 
   return (

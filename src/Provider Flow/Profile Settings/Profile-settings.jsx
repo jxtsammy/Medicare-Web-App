@@ -13,7 +13,7 @@ export default function ProfileSettings() {
       <div className="provider-sidebar">
         <nav className="provider-sidebar-nav">
           <div className="provider-nav-item">
-            <Link to="/dashboard" className="provider-nav-icon">
+            <Link to="/provider-dashboard" className="provider-nav-icon">
               <LayoutGrid size={24} />
             </Link>
           </div>

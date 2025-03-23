@@ -126,7 +126,7 @@ export default function AppointmentPage() {
       {/* Sidebar */}
       <div className="appointment-sidebar">
         <nav className="appointment-nav">
-          <Link to="/dashboard" className="appointment-nav-item">
+          <Link to="/provider-dashboard" className="appointment-nav-item">
             <LayoutGrid size={20} />
             <span>Overview</span>
           </Link>

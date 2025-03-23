@@ -247,7 +247,7 @@ function App() {
           <nav className="chat-sidebar-nav">
             <ul>
               <li>
-                <Link to="/dashboard"><LayoutGrid size={24} color="black" /></Link>
+                <Link to="/provider-dashboard"><LayoutGrid size={24} color="black" /></Link>
               </li>
               <li className="chat-active">
                 <Link to="/chat"><MessageSquare size={24} color="black" /></Link>
