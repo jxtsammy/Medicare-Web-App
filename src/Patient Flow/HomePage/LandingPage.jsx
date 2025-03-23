@@ -96,30 +96,30 @@ const LandingPage = () => {
   }
 
   return (
-    <div className="app">
-      <header className="header">
-        <div className="header-container">
-        <div className="logo">
-            <img src={Medicaresrc} alt="Medicare Logo" className="logo-img"/>
+    <div className="landing-page-app">
+      <header className="landing-page-header">
+        <div className="landing-page-header-container">
+        <div className="landing-page-logo">
+            <img src={Medicaresrc || "/placeholder.svg"} alt="Medicare Logo" className="landing-page-logo-img"/>
           </div>
-          <nav className="nav">
-            <div className="auth-buttons">
-              <div className="dropdown">
-                <button className="login-btn" onClick={toggleLoginDropdown}>
+          <nav className="landing-page-nav">
+            <div className="landing-page-auth-buttons">
+              <div className="landing-page-dropdown">
+                <button className="landing-page-login-btn" onClick={toggleLoginDropdown}>
                   Log In <span>▼</span>
                 </button>
                 {loginOpen && (
-                  <div className="dropdown-menu">
-                    <a href="#" className="dropdown-item" onClick={() => handleLogin()}>
+                  <div className="landing-page-dropdown-menu">
+                    <a href="#" className="landing-page-dropdown-item" onClick={() => handleLogin()}>
                       Patient Login
                     </a>
-                    <Link to="provider-login" className="dropdown-item">
+                    <Link to="provider-login" className="landing-page-dropdown-item">
                       Provider Login
                     </Link>
                   </div>
                 )}
               </div>
-              <button className="register-btn" onClick={handleRegister}>
+              <button className="landing-page-register-btn" onClick={handleRegister}>
                 Register
               </button>
             </div>
@@ -127,17 +127,17 @@ const LandingPage = () => {
         </div>
       </header>
 
-      <section className="hero">
-        <div className="container">
+      <section className="landing-page-hero">
+        <div className="landing-page-container">
           <h1>
             Book local dermatologists
             <br />
             who take your insurance
           </h1>
 
-          <form className="search-form" onSubmit={handleSearch}>
-            <div className="search-input">
-              <FaSearch className="search-icon" />
+          <form className="landing-page-search-form" onSubmit={handleSearch}>
+            <div className="landing-page-search-input">
+              <FaSearch className="landing-page-search-icon" />
               <input
                 type="text"
                 placeholder="Condition, Procedure, Doctor"
@@ -145,8 +145,8 @@ const LandingPage = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <div className="search-input">
-              <FaMapMarkerAlt className="search-icon" />
+            <div className="landing-page-search-input">
+              <FaMapMarkerAlt className="landing-page-search-icon" />
               <input
                 type="text"
                 placeholder="Akosombo, ER"
@@ -154,8 +154,8 @@ const LandingPage = () => {
                 onChange={(e) => setLocation(e.target.value)}
               />
             </div>
-            <div className="search-input">
-              <FaCalendarAlt className="search-icon" />
+            <div className="landing-page-search-input">
+              <FaCalendarAlt className="landing-page-search-icon" />
               <input
                 type="text"
                 placeholder="Insurance Carrier Plan"
@@ -163,7 +163,7 @@ const LandingPage = () => {
                 onChange={(e) => setInsurance(e.target.value)}
               />
             </div>
-            <button type="submit" className="search-btn">
+            <button type="submit" className="landing-page-search-btn">
               <FaSearch />
             </button>
           </form>
@@ -171,116 +171,116 @@ const LandingPage = () => {
       </section>
 
       {/* Insurance Section */}
-      <section className="insurance-section">
-        <div className="section-container">
-          <h2 className="section-title">Find an in-network doctor from over 1,000 insurance plans</h2>
-          <p className="section-subtitle">Add your insurance to see in-network primary care doctors</p>
+      <section className="landing-page-insurance-section">
+        <div className="landing-page-section-container">
+          <h2 className="landing-page-section-title">Find an in-network doctor from over 1,000 insurance plans</h2>
+          <p className="landing-page-section-subtitle">Add your insurance to see in-network primary care doctors</p>
 
-          <div className="insurance-logos">
-            <div className="insurance-logo">
-              <img src={aetna} alt="Aetna" />
+          <div className="landing-page-insurance-logos">
+            <div className="landing-page-insurance-logo">
+              <img src={aetna || "/placeholder.svg"} alt="Aetna" />
             </div>
-            <div className="insurance-logo">
-              <img src={cigna} alt="Cigna" />
+            <div className="landing-page-insurance-logo">
+              <img src={cigna || "/placeholder.svg"} alt="Cigna" />
             </div>
-            <div className="insurance-logo">
-              <img src={united} alt="United Health" />
+            <div className="landing-page-insurance-logo">
+              <img src={united || "/placeholder.svg"} alt="United Health" />
             </div>
-            <div className="insurance-logo">
-              <img src={medicare} alt="Medicare" />
+            <div className="landing-page-insurance-logo">
+              <img src={medicare || "/placeholder.svg"} alt="Medicare" />
             </div>
-            <div className="insurance-logo">
-              <img src={BlueCross} alt="Blue Cross" />
+            <div className="landing-page-insurance-logo">
+              <img src={BlueCross || "/placeholder.svg"} alt="Blue Cross" />
             </div>
-            <div className="insurance-logo see-all" onClick={handleAddInsurance}>
+            <div className="landing-page-insurance-logo landing-page-see-all" onClick={handleAddInsurance}>
               <span>See all (1,000+)</span>
             </div>
           </div>
 
-          <button className="add-insurance-btn" onClick={handleAddInsurance}>
+          <button className="landing-page-add-insurance-btn" onClick={handleAddInsurance}>
             Add Your Insurance Coverage
           </button>
         </div>
       </section>
 
       {/* Specialists Section */}
-      <section className="specialists-section">
-        <div className="section-container">
-          <h2 className="section-title">Top-Searched Specialists</h2>
+      <section className="landing-page-specialists-section">
+        <div className="landing-page-section-container">
+          <h2 className="landing-page-section-title">Top-Searched Specialists</h2>
 
-          <div className="specialists-grid">
-            <div className="specialist-card" onClick={() => handleSpecialistClick("Heart")}>
-              <div className="specialist-icon">
-                <img src={heart} alt="Heart Specialist" className="specialist-img" />
+          <div className="landing-page-specialists-grid">
+            <div className="landing-page-specialist-card" onClick={() => handleSpecialistClick("Heart")}>
+              <div className="landing-page-specialist-icon">
+                <img src={heart || "/placeholder.svg"} alt="Heart Specialist" className="landing-page-specialist-img" />
               </div>
-              <span className="specialist-name">Heart Specialist</span>
+              <span className="landing-page-specialist-name">Heart Specialist</span>
             </div>
-            <div className="specialist-card" onClick={() => handleSpecialistClick("Dentist")}>
-              <div className="specialist-icon">
-                <img src={dentist} alt="Dentist" className="specialist-img" />
+            <div className="landing-page-specialist-card" onClick={() => handleSpecialistClick("Dentist")}>
+              <div className="landing-page-specialist-icon">
+                <img src={dentist || "/placeholder.svg"} alt="Dentist" className="landing-page-specialist-img" />
               </div>
-              <span className="specialist-name">Dentist</span>
+              <span className="landing-page-specialist-name">Dentist</span>
             </div>
-            <div className="specialist-card" onClick={() => handleSpecialistClick("Doctor")}>
-              <div className="specialist-icon">
-                <img src={doctor} alt="Doctor" className="specialist-img" />
+            <div className="landing-page-specialist-card" onClick={() => handleSpecialistClick("Doctor")}>
+              <div className="landing-page-specialist-icon">
+                <img src={doctor || "/placeholder.svg"} alt="Doctor" className="landing-page-specialist-img" />
               </div>
-              <span className="specialist-name">Doctor</span>
+              <span className="landing-page-specialist-name">Doctor</span>
             </div>
-            <div className="specialist-card" onClick={() => handleSpecialistClick("Dermatologist")}>
-              <div className="specialist-icon">
-                <img src={dermatologist} alt="Dermatologist" className="specialist-img" />
+            <div className="landing-page-specialist-card" onClick={() => handleSpecialistClick("Dermatologist")}>
+              <div className="landing-page-specialist-icon">
+                <img src={dermatologist || "/placeholder.svg"} alt="Dermatologist" className="landing-page-specialist-img" />
               </div>
-              <span className="specialist-name">Dermatologist</span>
+              <span className="landing-page-specialist-name">Dermatologist</span>
             </div>
-            <div className="specialist-card" onClick={() => handleSpecialistClick("Psychiatrist")}>
-              <div className="specialist-icon">
-                <img src={psychiatrist} alt="Psychiatrist" className="specialist-img" />
+            <div className="landing-page-specialist-card" onClick={() => handleSpecialistClick("Psychiatrist")}>
+              <div className="landing-page-specialist-icon">
+                <img src={psychiatrist || "/placeholder.svg"} alt="Psychiatrist" className="landing-page-specialist-img" />
               </div>
-              <span className="specialist-name">Psychiatrist</span>
+              <span className="landing-page-specialist-name">Psychiatrist</span>
             </div>
-            <div className="specialist-card" onClick={() => handleSpecialistClick("Eye Doctor")}>
-              <div className="specialist-icon">
-                <img src={eye} alt="Eye Doctor" className="specialist-img" />
+            <div className="landing-page-specialist-card" onClick={() => handleSpecialistClick("Eye Doctor")}>
+              <div className="landing-page-specialist-icon">
+                <img src={eye || "/placeholder.svg"} alt="Eye Doctor" className="landing-page-specialist-img" />
               </div>
-              <span className="specialist-name">Eye Doctor</span>
+              <span className="landing-page-specialist-name">Eye Doctor</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="features-section">
-        <div className="features-container">
-          <h2 className="section-title">Lets get you a doc who gets you</h2>
+      <section className="landing-page-features-section">
+        <div className="landing-page-features-container">
+          <h2 className="landing-page-section-title">Lets get you a doc who gets you</h2>
 
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-image">
-                <img src={help} alt="Browse providers" />
+          <div className="landing-page-features-grid">
+            <div className="landing-page-feature-card">
+              <div className="landing-page-feature-image">
+                <img src={help || "/placeholder.svg"} alt="Browse providers" />
               </div>
-              <h3 className="feature-title">Browse providers who take your insurance</h3>
-              <button className="feature-btn" onClick={() => handleFeatureClick("specialists")}>
+              <h3 className="landing-page-feature-title">Browse providers who take your insurance</h3>
+              <button className="landing-page-feature-btn" onClick={() => handleFeatureClick("specialists")}>
                 See specialists
               </button>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-image">
-                <img src={girl} alt="Read reviews" />
+            <div className="landing-page-feature-card">
+              <div className="landing-page-feature-image">
+                <img src={girl || "/placeholder.svg"} alt="Read reviews" />
               </div>
-              <h3 className="feature-title">Read reviews from users</h3>
-              <button className="feature-btn" onClick={() => handleFeatureClick("providers")}>
+              <h3 className="landing-page-feature-title">Read reviews from users</h3>
+              <button className="landing-page-feature-btn" onClick={() => handleFeatureClick("providers")}>
                 See Providers
               </button>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-image">
-                <img src={book} alt="Book appointment" />
+            <div className="landing-page-feature-card">
+              <div className="landing-page-feature-image">
+                <img src={book || "/placeholder.svg"} alt="Book appointment" />
               </div>
-              <h3 className="feature-title">Book an appointment today online</h3>
-              <button className="feature-btn" onClick={() => handleFeatureClick("availability")}>
+              <h3 className="landing-page-feature-title">Book an appointment today online</h3>
+              <button className="landing-page-feature-btn" onClick={() => handleFeatureClick("availability")}>
                 See Availability
               </button>
             </div>
@@ -289,22 +289,22 @@ const LandingPage = () => {
       </section>
 
       {/* Provider Section */}
-      <section className="provider-section">
-        <div className="section-container provider-container">
-          <div className="provider-image">
-            <img src={provider} alt="Provider" />
+      <section className="landing-page-provider-section">
+        <div className="landing-page-section-container landing-page-provider-container">
+          <div className="landing-page-provider-image">
+            <img src={provider || "/placeholder.svg"} alt="Provider" />
           </div>
 
-          <div className="provider-content">
-            <h2 className="section-title">Are you a healthcare provider interested in reaching new patients?</h2>
+          <div className="landing-page-provider-content">
+            <h2 className="landing-page-section-title">Are you a healthcare provider interested in reaching new patients?</h2>
 
-            <ul className="provider-benefits">
+            <ul className="landing-page-provider-benefits">
               <li>Reach patients in your area looking for new providers</li>
               <li>Fill last-minute openings in your schedule</li>
               <li>Strengthen your online reputation with verified reviews</li>
             </ul>
 
-            <button className="get-registered-btn" onClick={handleGetRegistered}>
+            <button className="landing-page-get-registered-btn" onClick={handleGetRegistered}>
               Get Registered
             </button>
           </div>
@@ -312,27 +312,27 @@ const LandingPage = () => {
       </section>
 
       {/* Trust Section */}
-      <section className="trust-section">
-        <div className="section-container">
-          <div className="trust-header">
-            <div className="trust-title-container">
-              <p className="trust-subtitle">Medicare for health systems</p>
-              <h2 className="section-title">We're trusted by top health systems</h2>
-              <button className="get-registered-btn" onClick={handleGetRegistered}>
+      <section className="landing-page-trust-section">
+        <div className="landing-page-section-container">
+          <div className="landing-page-trust-header">
+            <div className="landing-page-trust-title-container">
+              <p className="landing-page-trust-subtitle">Medicare for health systems</p>
+              <h2 className="landing-page-section-title">We're trusted by top health systems</h2>
+              <button className="landing-page-get-registered-btn" onClick={handleGetRegistered}>
                 Get Registered
               </button>
             </div>
 
-            <div className="trust-logos">
-              <div className="trust-logo-row">
-                <img src={medstar} alt="Medstar" />
-                <img src={sinai} alt="Mount Sinai" />
-                <img src={tufts} alt="Tufts" />
+            <div className="landing-page-trust-logos">
+              <div className="landing-page-trust-logo-row">
+                <img src={medstar || "/placeholder.svg"} alt="Medstar" />
+                <img src={sinai || "/placeholder.svg"} alt="Mount Sinai" />
+                <img src={tufts || "/placeholder.svg"} alt="Tufts" />
               </div>
-              <div className="trust-logo-row">
-                <img src={montefiore} alt="Montefiore" />
-                <img src={health}alt="Health" />
-                <img src={methodist} alt="Methodist" />
+              <div className="landing-page-trust-logo-row">
+                <img src={montefiore || "/placeholder.svg"} alt="Montefiore" />
+                <img src={health || "/placeholder.svg"}alt="Health" />
+                <img src={methodist || "/placeholder.svg"} alt="Methodist" />
               </div>
             </div>
           </div>
@@ -340,11 +340,11 @@ const LandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-column">
-            <h3 className="footer-title">Medicare</h3>
-            <ul className="footer-links">
+      <footer className="landing-page-footer">
+        <div className="landing-page-footer-container">
+          <div className="landing-page-footer-column">
+            <h3 className="landing-page-footer-title">Medicare</h3>
+            <ul className="landing-page-footer-links">
               <li>
                 <a href="#">Home</a>
               </li>
@@ -363,9 +363,9 @@ const LandingPage = () => {
             </ul>
           </div>
 
-          <div className="footer-column">
-            <h3 className="footer-title">Discover</h3>
-            <ul className="footer-links">
+          <div className="landing-page-footer-column">
+            <h3 className="landing-page-footer-title">Discover</h3>
+            <ul className="landing-page-footer-links">
               <li>
                 <a href="#">Get Connected to patients every time anytime</a>
               </li>
@@ -378,9 +378,9 @@ const LandingPage = () => {
             </ul>
           </div>
 
-          <div className="footer-column">
-            <h3 className="footer-title">Are you a top doctor or health service?</h3>
-            <ul className="footer-links">
+          <div className="landing-page-footer-column">
+            <h3 className="landing-page-footer-title">Are you a top doctor or health service?</h3>
+            <ul className="landing-page-footer-links">
               <li>
                 <a href="#">
                   Medicare is here to help you connect and help both new and returning patients in your vicinity.
@@ -396,27 +396,27 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <div className="footer-copyright">
+        <div className="landing-page-footer-bottom">
+          <div className="landing-page-footer-copyright">
             <span>© 2025 Medicare, Inc</span>
-            <div className="footer-legal">
+            <div className="landing-page-footer-legal">
               <a href="#">Terms</a>
               <a href="#">Privacy</a>
               <a href="#">Customer Health</a>
             </div>
           </div>
 
-          <div className="footer-social">
-            <a href="#" className="social-icon">
+          <div className="landing-page-footer-social">
+            <a href="#" className="landing-page-social-icon">
               <FaInstagram />
             </a>
-            <a href="#" className="social-icon">
+            <a href="#" className="landing-page-social-icon">
               <FaTwitter />
             </a>
-            <a href="#" className="social-icon">
+            <a href="#" className="landing-page-social-icon">
               <FaFacebook />
             </a>
-            <a href="#" className="social-icon">
+            <a href="#" className="landing-page-social-icon">
               <FaLinkedin />
             </a>
           </div>
@@ -425,26 +425,26 @@ const LandingPage = () => {
 
       {/* Modals */}
       {showLoginModal && (
-        <div className="modal-overlay" onClick={closeModals}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModals}>
+        <div className="landing-page-modal-overlay" onClick={closeModals}>
+          <div className="landing-page-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="landing-page-modal-close" onClick={closeModals}>
               ×
             </button>
             <h2>Log In</h2>
-            <form className="modal-form">
-              <div className="form-group">
+            <form className="landing-page-modal-form">
+              <div className="landing-page-form-group">
                 <label>Email</label>
                 <input type="email" placeholder="Enter your email" />
               </div>
-              <div className="form-group">
+              <div className="landing-page-form-group">
                 <label>Password</label>
                 <input type="password" placeholder="Enter your password" />
               </div>
-              <button type="submit" className="modal-submit">
+              <button type="submit" className="landing-page-modal-submit">
                 Log In
               </button>
             </form>
-            <p className="modal-footer">
+            <p className="landing-page-modal-footer">
               Don't have an account?{" "}
               <a
                 href="#"
@@ -461,39 +461,39 @@ const LandingPage = () => {
       )}
 
       {showRegisterModal && (
-        <div className="modal-overlay" onClick={closeModals}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModals}>
+        <div className="landing-page-modal-overlay" onClick={closeModals}>
+          <div className="landing-page-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="landing-page-modal-close" onClick={closeModals}>
               ×
             </button>
             <h2>Register</h2>
-            <form className="modal-form">
-              <div className="form-group">
+            <form className="landing-page-modal-form">
+              <div className="landing-page-form-group">
                 <label>Full Name</label>
                 <input type="text" placeholder="Enter your full name" />
               </div>
-              <div className="form-group">
+              <div className="landing-page-form-group">
                 <label>Email</label>
                 <input type="email" placeholder="Enter your email" />
               </div>
-              <div className="form-group">
+              <div className="landing-page-form-group">
                 <label>Password</label>
                 <input type="password" placeholder="Create a password" />
               </div>
-              <div className="form-group">
+              <div className="landing-page-form-group">
                 <label>Confirm Password</label>
                 <input type="password" placeholder="Confirm your password" />
               </div>
-              <div className="form-group">
+              <div className="landing-page-form-group">
                 <label>
                   <input type="checkbox" /> I am a healthcare provider
                 </label>
               </div>
-              <button type="submit" className="modal-submit">
+              <button type="submit" className="landing-page-modal-submit">
                 Register
               </button>
             </form>
-            <p className="modal-footer">
+            <p className="landing-page-modal-footer">
               Already have an account?{" "}
               <a
                 href="#"
@@ -510,14 +510,14 @@ const LandingPage = () => {
       )}
 
       {showInsuranceModal && (
-        <div className="modal-overlay" onClick={closeModals}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModals}>
+        <div className="landing-page-modal-overlay" onClick={closeModals}>
+          <div className="landing-page-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="landing-page-modal-close" onClick={closeModals}>
               ×
             </button>
             <h2>Add Your Insurance</h2>
-            <form className="modal-form">
-              <div className="form-group">
+            <form className="landing-page-modal-form">
+              <div className="landing-page-form-group">
                 <label>Insurance Provider</label>
                 <select>
                   <option value="">Select your insurance provider</option>
@@ -529,7 +529,7 @@ const LandingPage = () => {
                   <option value="other">Other</option>
                 </select>
               </div>
-              <div className="form-group">
+              <div className="landing-page-form-group">
                 <label>Plan Type</label>
                 <select>
                   <option value="">Select your plan type</option>
@@ -540,11 +540,11 @@ const LandingPage = () => {
                   <option value="other">Other</option>
                 </select>
               </div>
-              <div className="form-group">
+              <div className="landing-page-form-group">
                 <label>Member ID (Optional)</label>
                 <input type="text" placeholder="Enter your member ID" />
               </div>
-              <button type="submit" className="modal-submit">
+              <button type="submit" className="landing-page-modal-submit">
                 Save Insurance
               </button>
             </form>

@@ -8,7 +8,7 @@ import Sarah from "../../assets/Sarah.png"
 import Robert from "../../assets/Robert.png"
 import Ellis from "../../assets/Ellis.png"
 import Michael from "../../assets/Michael.png"
-import Greg from "../../assets/Greg.png"
+import Greg from "../../assets/21.png"
 import Wilson from "../../assets/Wilson.png"
 
 const MediChats = () => {
@@ -255,57 +255,55 @@ const MediChats = () => {
   // Filter contacts based on search term
   useEffect(() => {
     if (searchTerm.trim() === "") {
-      setFilteredContacts(contacts);
+      setFilteredContacts(contacts)
     } else {
       const filtered = contacts.filter(
-        contact =>
+        (contact) =>
           contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           contact.lastMessage.toLowerCase().includes(searchTerm.toLowerCase()) ||
           // Also search in messages
-          messagesByContact[contact.name]?.some(msg =>
-            msg.text.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-      );
-      setFilteredContacts(filtered);
+          messagesByContact[contact.name]?.some((msg) => msg.text.toLowerCase().includes(searchTerm.toLowerCase())),
+      )
+      setFilteredContacts(filtered)
     }
-  }, [searchTerm, contacts, messagesByContact]);
+  }, [searchTerm, contacts, messagesByContact])
 
   // Initialize filtered contacts
   useEffect(() => {
-    setFilteredContacts(contacts);
-  }, [contacts]);
+    setFilteredContacts(contacts)
+  }, [contacts])
 
   // Scroll to bottom of messages when they change
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messagesByContact, activeChat]);
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [messagesByContact, activeChat])
 
   // Function to get the correct avatar for a message
   const getMessageAvatar = (msg) => {
     if (msg.isUser) {
-      return Wilson;
+      return Wilson
     } else {
-      const contact = contacts.find((c) => c.name === msg.sender);
-      return contact ? contact.avatar : "/placeholder.svg?height=50&width=50";
+      const contact = contacts.find((c) => c.name === msg.sender)
+      return contact ? contact.avatar : "/placeholder.svg?height=50&width=50"
     }
   }
 
   // Function to format current time
   const getCurrentTime = () => {
-    const now = new Date();
-    let hours = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const now = new Date()
+    let hours = now.getHours()
+    const minutes = now.getMinutes().toString().padStart(2, "0")
+    const ampm = hours >= 12 ? "PM" : "AM"
 
-    hours = hours % 12;
-    hours = hours ? hours : 12; // Convert 0 to 12
+    hours = hours % 12
+    hours = hours ? hours : 12 // Convert 0 to 12
 
-    return `${hours}:${minutes} ${ampm}`;
+    return `${hours}:${minutes} ${ampm}`
   }
 
   // Handle sending a new message
   const handleSendMessage = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (message.trim() !== "") {
       // Create a new message object
       const newMessage = {
@@ -314,41 +312,42 @@ const MediChats = () => {
         text: message,
         time: getCurrentTime(),
         isUser: true,
-      };
+      }
 
       // Update messages for the active chat
       const updatedMessages = {
         ...messagesByContact,
         [activeChat]: [...messagesByContact[activeChat], newMessage],
-      };
+      }
 
       // Update the last message and time for the contact
-      const updatedContacts = contacts.map(contact => {
+      const updatedContacts = contacts.map((contact) => {
         if (contact.name === activeChat) {
           return {
             ...contact,
             lastMessage: message,
             time: "now",
-          };
+          }
         }
-        return contact;
-      });
+        return contact
+      })
 
       // Sort contacts to put the active chat at the top
       const sortedContacts = [...updatedContacts].sort((a, b) => {
-        if (a.name === activeChat) return -1;
-        if (b.name === activeChat) return 1;
-        return 0;
-      });
+        if (a.name === activeChat) return -1
+        if (b.name === activeChat) return 1
+        return 0
+      })
 
       // Update state
-      setMessagesByContact(updatedMessages);
-      setContacts(sortedContacts);
-      setMessage("");
+      setMessagesByContact(updatedMessages)
+      setContacts(sortedContacts)
+      setMessage("")
 
       // Simulate a reply after a random delay (1-3 seconds)
-      if (Math.random() > 0.3) { // 70% chance of reply
-        const replyDelay = Math.floor(Math.random() * 2000) + 1000;
+      if (Math.random() > 0.3) {
+        // 70% chance of reply
+        const replyDelay = Math.floor(Math.random() * 2000) + 1000
 
         setTimeout(() => {
           const replies = [
@@ -361,147 +360,150 @@ const MediChats = () => {
             "Hmm, let me think about that.",
             "Perfect! 😊",
             "I appreciate your message.",
-            "Let's discuss this further."
-          ];
+            "Let's discuss this further.",
+          ]
 
-          const randomReply = replies[Math.floor(Math.random() * replies.length)];
+          const randomReply = replies[Math.floor(Math.random() * replies.length)]
 
           const replyMessage = {
             id: Date.now(),
             sender: activeChat,
             text: randomReply,
             time: getCurrentTime(),
-          };
+          }
 
           // Update messages with the reply
           const updatedMessagesWithReply = {
             ...messagesByContact,
             [activeChat]: [...updatedMessages[activeChat], replyMessage],
-          };
+          }
 
           // Update the last message for the contact
-          const contactsWithReply = contacts.map(contact => {
+          const contactsWithReply = contacts.map((contact) => {
             if (contact.name === activeChat) {
               return {
                 ...contact,
                 lastMessage: randomReply,
                 time: "now",
-              };
+              }
             }
-            return contact;
-          });
+            return contact
+          })
 
-          setMessagesByContact(updatedMessagesWithReply);
-          setContacts(contactsWithReply);
-        }, replyDelay);
+          setMessagesByContact(updatedMessagesWithReply)
+          setContacts(contactsWithReply)
+        }, replyDelay)
       }
     }
-  };
+  }
 
   // Clear search
   const clearSearch = () => {
-    setSearchTerm("");
-  };
+    setSearchTerm("")
+  }
 
-  const activeContact = contacts.find((contact) => contact.name === activeChat);
+  const activeContact = contacts.find((contact) => contact.name === activeChat)
 
   return (
-    <div className="medichats-container">
+    <div className="MediChats-container">
       {/* Sidebar */}
-      <div className="sidebar">
-        <div className="sidebar-header">
-          <button className="back-button">
+      <div className="MediChats-sidebar">
+        <div className="MediChats-sidebar-header">
+          <button className="MediChats-back-button">
             <FaArrowLeft />
           </button>
-          <h1 className="app-title">MediChats</h1>
-          <span className="notification-badge">12</span>
+          <h1 className="MediChats-app-title">MediChats</h1>
+          <span className="MediChats-notification-badge">12</span>
         </div>
 
-        <div className="search-container">
-          <div className="search-input-wrapper">
-            <FaSearch className="search-icon" />
+        <div className="MediChats-search-container">
+          <div className="MediChats-search-input-wrapper">
+            <FaSearch className="MediChats-search-icon" />
             <input
               type="text"
               placeholder="Search messages"
-              className="search-input"
+              className="MediChats-search-input"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             {searchTerm && (
-              <button className="clear-search" onClick={clearSearch}>
+              <button className="MediChats-clear-search" onClick={clearSearch}>
                 <FaTimes />
               </button>
             )}
           </div>
           {searchTerm && (
-            <div className="search-results-count">
-              {filteredContacts.length} {filteredContacts.length === 1 ? 'result' : 'results'} found
+            <div className="MediChats-search-results-count">
+              {filteredContacts.length} {filteredContacts.length === 1 ? "result" : "results"} found
             </div>
           )}
         </div>
 
-        <div className="contacts-list">
+        <div className="MediChats-contacts-list">
           {filteredContacts.length > 0 ? (
             filteredContacts.map((contact) => (
               <div
                 key={contact.id}
-                className={`contact-item ${activeChat === contact.name ? "active" : ""}`}
+                className={`MediChats-contact-item ${activeChat === contact.name ? "MediChats-active" : ""}`}
                 onClick={() => setActiveChat(contact.name)}
               >
-                <div className="contact-avatar">
+                <div className="MediChats-contact-avatar">
                   <img src={contact.avatar || "/placeholder.svg?height=50&width=50"} alt={contact.name} />
-                  {contact.online && <span className="online-indicator"></span>}
+                  {contact.online && <span className="MediChats-online-indicator"></span>}
                 </div>
-                <div className="contact-info">
-                  <div className="contact-name">{contact.name}</div>
-                  <div className="contact-last-message">{contact.lastMessage}</div>
+                <div className="MediChats-contact-info">
+                  <div className="MediChats-contact-name">{contact.name}</div>
+                  <div className="MediChats-contact-last-message">{contact.lastMessage}</div>
                 </div>
-                <div className="contact-time">{contact.time}</div>
+                <div className="MediChats-contact-time">{contact.time}</div>
               </div>
             ))
           ) : (
-            <div className="no-results">No matching contacts or messages found</div>
+            <div className="MediChats-no-results">No matching contacts or messages found</div>
           )}
         </div>
       </div>
 
       {/* Chat Area */}
-      <div className="chat-area">
-        <div className="chat-header">
-          <div className="chat-contact">
-            <div className="contact-avatar">
+      <div className="MediChats-chat-area">
+        <div className="MediChats-chat-header">
+          <div className="MediChats-chat-contact">
+            <div className="MediChats-contact-avatar">
               <img src={activeContact?.avatar || "/placeholder.svg?height=50&width=50"} alt={activeContact?.name} />
-              {activeContact?.online && <span className="online-indicator"></span>}
+              {activeContact?.online && <span className="MediChats-online-indicator"></span>}
             </div>
-            <div className="contact-info">
-              <div className="contact-name">{activeContact?.name}</div>
-              {activeContact?.online && <div className="contact-status">Online</div>}
+            <div className="MediChats-contact-info">
+              <div className="MediChats-contact-name">{activeContact?.name}</div>
+              {activeContact?.online && <div className="MediChats-contact-status">Online</div>}
             </div>
           </div>
-          <div className="chat-actions">
-            <button className="action-button phone">
+          <div className="MediChats-chat-actions">
+            <button className="MediChats-action-button MediChats-phone">
               <FaPhone />
             </button>
-            <button className="action-button video">
+            <button className="MediChats-action-button MediChats-video">
               <FaVideo />
             </button>
           </div>
         </div>
 
-        <div className="messages-container">
+        <div className="MediChats-messages-container">
           {messagesByContact[activeChat]?.map((msg) => (
-            <div key={msg.id} className={`message ${msg.isUser ? "user-message" : "contact-message"}`}>
+            <div
+              key={msg.id}
+              className={`MediChats-message ${msg.isUser ? "MediChats-user-message" : "MediChats-contact-message"}`}
+            >
               {!msg.isUser && (
-                <div className="message-avatar">
+                <div className="MediChats-message-avatar">
                   <img src={getMessageAvatar(msg) || "/placeholder.svg"} alt={msg.sender} />
                 </div>
               )}
-              <div className="message-bubble">
-                <div className="message-text">{msg.text}</div>
-                <div className="message-time">{msg.time}</div>
+              <div className="MediChats-message-bubble">
+                <div className="MediChats-message-text">{msg.text}</div>
+                <div className="MediChats-message-time">{msg.time}</div>
               </div>
               {msg.isUser && (
-                <div className="message-avatar">
+                <div className="MediChats-message-avatar">
                   <img src={Wilson || "/placeholder.svg"} alt="You" />
                 </div>
               )}
@@ -510,20 +512,20 @@ const MediChats = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        <form className="message-input-container" onSubmit={handleSendMessage}>
-          <button type="button" className="attachment-button">
+        <form className="MediChats-message-input-container" onSubmit={handleSendMessage}>
+          <button type="button" className="MediChats-attachment-button">
             <FaPaperclip />
           </button>
           <input
             type="text"
             placeholder="Type a message"
-            className="message-input"
+            className="MediChats-message-input"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
           <button
             type="submit"
-            className={`send-button ${message.trim() ? 'active' : ''}`}
+            className={`MediChats-send-button ${message.trim() ? "MediChats-active" : ""}`}
             disabled={!message.trim()}
           >
             <FaPaperPlane />

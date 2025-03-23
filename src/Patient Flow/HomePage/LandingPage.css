@@ -31,37 +31,37 @@ h3 {
   margin-bottom: 15px;
 }
 
-.container {
+.landing-page-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.section-container {
+.landing-page-section-container {
   width: 100vw;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.section-title {
+.landing-page-section-title {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
-.section-subtitle {
+.landing-page-section-subtitle {
   font-size: 16px;
   color: #666;
   margin-bottom: 30px;
 }
 
 /* Header Styles */
-.header {
+.landing-page-header {
   background-color: #fff9e6;
   width: 100%;
 }
 
-.header-container {
+.landing-page-header-container {
   background-color: #fff9e6;
   height: 80px;
   display: flex;
@@ -72,22 +72,22 @@ h3 {
   padding: 0 20px;
 }
 
-.logo-img {
+.landing-page-logo-img {
   width: 150px;
   align-items: center;
 }
 
-.nav {
+.landing-page-nav {
   display: flex;
   align-items: center;
 }
 
-.nav-links {
+.landing-page-nav-links {
   display: flex;
   margin-right: 20px;
 }
 
-.nav-link {
+.landing-page-nav-link {
   background: none;
   border: none;
   padding: 8px 12px;
@@ -95,18 +95,18 @@ h3 {
   font-size: 14px;
 }
 
-.auth-buttons {
+.landing-page-auth-buttons {
   display: flex;
 }
 
-.login-btn {
+.landing-page-login-btn {
   background: none;
   border: none;
   padding: 8px 15px;
   margin-right: 10px;
 }
 
-.register-btn {
+.landing-page-register-btn {
   background-color: #ffeb3b;
   border: none;
   padding: 8px 15px;
@@ -115,11 +115,11 @@ h3 {
 }
 
 /* Dropdown Styles */
-.dropdown {
+.landing-page-dropdown {
   position: relative;
 }
 
-.dropdown-menu {
+.landing-page-dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -132,29 +132,29 @@ h3 {
   margin-top: 5px;
 }
 
-.dropdown-item {
+.landing-page-dropdown-item {
   display: block;
   padding: 8px 16px;
   color: #333;
   transition: background-color 0.2s;
 }
 
-.dropdown-item:hover {
+.landing-page-dropdown-item:hover {
   background-color: #f5f5f5;
 }
 
 /* Hero Section */
-.hero {
+.landing-page-hero {
   background-color: #fff9e6;
   padding: 60px 0;
 }
 
-.hero h1 {
+.landing-page-hero h1 {
   font-size: 32px;
   margin-bottom: 30px;
 }
 
-.search-form {
+.landing-page-search-form {
   display: flex;
   background-color: white;
   border-radius: 8px;
@@ -162,7 +162,7 @@ h3 {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.search-input {
+.landing-page-search-input {
   flex: 1;
   position: relative;
   border: none;
@@ -170,7 +170,7 @@ h3 {
   color: white;
 }
 
-.search-icon {
+.landing-page-search-icon {
   position: absolute;
   left: 15px;
   top: 50%;
@@ -178,7 +178,7 @@ h3 {
   color: #777;
 }
 
-.search-input input {
+.landing-page-search-input input {
   width: 100%;
   padding: 15px 15px 15px 40px;
   border: none;
@@ -187,7 +187,7 @@ h3 {
   background-color: white;
 }
 
-.search-btn {
+.landing-page-search-btn {
   background-color: #ffeb3b;
   border-radius: 0;
   border: none;
@@ -198,19 +198,19 @@ h3 {
 }
 
 /* Insurance Section */
-.insurance-section {
+.landing-page-insurance-section {
   padding: 60px 0;
   background-color: #fff;
 }
 
-.insurance-logos {
+.landing-page-insurance-logos {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 30px;
 }
 
-.insurance-logo {
+.landing-page-insurance-logo {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 10px 20px;
@@ -221,17 +221,17 @@ h3 {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.insurance-logo:hover {
+.landing-page-insurance-logo:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.insurance-logo img {
+.landing-page-insurance-logo img {
   max-height: 40px;
   max-width: 100px;
 }
 
-.features-container {
+.landing-page-features-container {
   background-color: #fff0bb;
   max-width: 1200px;
   margin: 0 auto;
@@ -239,13 +239,13 @@ h3 {
   border-radius: 8px;
 }
 
-.see-all {
+.landing-page-see-all {
   color: #0066cc;
   font-weight: 500;
   cursor: pointer;
 }
 
-.add-insurance-btn {
+.landing-page-add-insurance-btn {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -255,23 +255,23 @@ h3 {
   transition: background-color 0.2s;
 }
 
-.add-insurance-btn:hover {
+.landing-page-add-insurance-btn:hover {
   background-color: #f5f5f5;
 }
 
 /* Specialists Section */
-.specialists-section {
+.landing-page-specialists-section {
   padding: 40px 0 60px;
   background-color: #fff;
 }
 
-.specialists-grid {
+.landing-page-specialists-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
 
-.specialist-card {
+.landing-page-specialist-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -283,12 +283,12 @@ h3 {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.specialist-card:hover {
+.landing-page-specialist-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.specialist-icon {
+.landing-page-specialist-icon {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -298,31 +298,31 @@ h3 {
   justify-content: center;
 }
 
-.specialist-img {
+.landing-page-specialist-img {
   width: 50px;
   height: 50px;
   object-fit: contain;
 }
 
-.specialist-name {
+.landing-page-specialist-name {
   font-size: 14px;
   font-weight: 500;
   text-align: center;
 }
 
 /* Features Section */
-.features-section {
+.landing-page-features-section {
   background-color: #fff8e1;
   padding: 60px 0;
 }
 
-.features-grid {
+.landing-page-features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.feature-card {
+.landing-page-feature-card {
   background-color: #fff0bb;
   border-radius: 8px;
   padding: 30px;
@@ -333,28 +333,28 @@ h3 {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.feature-card:hover {
+.landing-page-feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.feature-image {
+.landing-page-feature-image {
   margin-bottom: 20px;
   background-color: #fff0bb;
 }
 
-.feature-image img {
+.landing-page-feature-image img {
   max-width: 100%;
   height: auto;
 }
 
-.feature-title {
+.landing-page-feature-title {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
-.feature-btn {
+.landing-page-feature-btn {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -364,39 +364,39 @@ h3 {
   transition: background-color 0.2s;
 }
 
-.feature-btn:hover {
+.landing-page-feature-btn:hover {
   background-color: #f5f5f5;
 }
 
 /* Provider Section */
-.provider-section {
+.landing-page-provider-section {
   padding: 80px 0;
   background-color: #fff;
 }
 
-.provider-container {
+.landing-page-provider-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
 }
 
-.provider-image img {
+.landing-page-provider-image img {
   max-width: 100%;
   height: auto;
 }
 
-.provider-benefits {
+.landing-page-provider-benefits {
   list-style-type: disc;
   padding-left: 20px;
   margin-bottom: 30px;
 }
 
-.provider-benefits li {
+.landing-page-provider-benefits li {
   margin-bottom: 10px;
 }
 
-.get-registered-btn {
+.landing-page-get-registered-btn {
   background-color: #ffeb3b;
   border: none;
   border-radius: 4px;
@@ -407,60 +407,60 @@ h3 {
   transition: background-color 0.2s;
 }
 
-.get-registered-btn:hover {
+.landing-page-get-registered-btn:hover {
   background-color: #fdd835;
 }
 
 /* Trust Section */
-.trust-section {
+.landing-page-trust-section {
   background-color: #fff8e1;
   padding: 60px 0;
 }
 
-.trust-header {
+.landing-page-trust-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: start;
 }
 
-.trust-subtitle {
+.landing-page-trust-subtitle {
   font-size: 14px;
   color: #666;
   margin-bottom: 8px;
 }
 
-.trust-logos {
+.landing-page-trust-logos {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.trust-logo-row {
+.landing-page-trust-logo-row {
   display: flex;
   justify-content: space-between;
   gap: 20px;
 }
 
-.trust-logo-row img {
+.landing-page-trust-logo-row img {
   max-width: 100px;
   height: auto;
   opacity: 0.8;
   transition: opacity 0.2s;
 }
 
-.trust-logo-row img:hover {
+.landing-page-trust-logo-row img:hover {
   opacity: 1;
 }
 
 /* Footer */
-.footer {
+.landing-page-footer {
   background-color: #333;
   color: #fff;
   padding: 60px 0 30px;
 }
 
-.footer-container {
+.landing-page-footer-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
@@ -470,31 +470,31 @@ h3 {
   margin-bottom: 40px;
 }
 
-.footer-title {
+.landing-page-footer-title {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
-.footer-links {
+.landing-page-footer-links {
   list-style: none;
 }
 
-.footer-links li {
+.landing-page-footer-links li {
   margin-bottom: 12px;
 }
 
-.footer-links a {
+.landing-page-footer-links a {
   color: #ccc;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.footer-links a:hover {
+.landing-page-footer-links a:hover {
   color: #fff;
 }
 
-.footer-bottom {
+.landing-page-footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -504,7 +504,7 @@ h3 {
   border-top: 1px solid #555;
 }
 
-.footer-copyright {
+.landing-page-footer-copyright {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -512,39 +512,39 @@ h3 {
   color: #ccc;
 }
 
-.footer-legal {
+.landing-page-footer-legal {
   display: flex;
   gap: 20px;
 }
 
-.footer-legal a {
+.landing-page-footer-legal a {
   color: #ccc;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.footer-legal a:hover {
+.landing-page-footer-legal a:hover {
   color: #fff;
 }
 
-.footer-social {
+.landing-page-footer-social {
   display: flex;
   gap: 15px;
 }
 
-.social-icon {
+.landing-page-social-icon {
   color: #ccc;
   text-decoration: none;
   font-size: 18px;
   transition: color 0.2s;
 }
 
-.social-icon:hover {
+.landing-page-social-icon:hover {
   color: #fff;
 }
 
 /* Modal Styles */
-.modal-overlay {
+.landing-page-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -557,7 +557,7 @@ h3 {
   z-index: 1000;
 }
 
-.modal-content {
+.landing-page-modal-content {
   background-color: white;
   border-radius: 8px;
   padding: 30px;
@@ -567,7 +567,7 @@ h3 {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.modal-close {
+.landing-page-modal-close {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -578,22 +578,22 @@ h3 {
   color: #999;
 }
 
-.modal-form {
+.landing-page-modal-form {
   margin-top: 20px;
 }
 
-.form-group {
+.landing-page-form-group {
   margin-bottom: 20px;
 }
 
-.form-group label {
+.landing-page-form-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
 }
 
-.form-group input,
-.form-group select {
+.landing-page-form-group input,
+.landing-page-form-group select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -601,7 +601,7 @@ h3 {
   font-size: 14px;
 }
 
-.modal-submit {
+.landing-page-modal-submit {
   background-color: #ffeb3b;
   border: none;
   border-radius: 4px;
@@ -613,74 +613,74 @@ h3 {
   transition: background-color 0.2s;
 }
 
-.modal-submit:hover {
+.landing-page-modal-submit:hover {
   background-color: #fdd835;
 }
 
-.modal-footer {
+.landing-page-modal-footer {
   margin-top: 20px;
   text-align: center;
   font-size: 14px;
   color: #666;
 }
 
-.modal-footer a {
+.landing-page-modal-footer a {
   color: #0066cc;
   text-decoration: none;
 }
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
-  .specialists-grid {
+  .landing-page-specialists-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .features-grid {
+  .landing-page-features-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .provider-container {
+  .landing-page-provider-container {
     grid-template-columns: 1fr;
   }
 
-  .trust-header {
+  .landing-page-trust-header {
     grid-template-columns: 1fr;
   }
 
-  .footer-container {
+  .landing-page-footer-container {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .nav-links {
+  .landing-page-nav-links {
     display: none;
   }
 
-  .search-form {
+  .landing-page-search-form {
     flex-direction: column;
   }
 
-  .search-input {
+  .landing-page-search-input {
     border-right: none;
     border-bottom: 1px solid #eee;
   }
 
-  .insurance-logos {
+  .landing-page-insurance-logos {
     justify-content: center;
   }
 
-  .specialists-grid {
+  .landing-page-specialists-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .footer-bottom {
+  .landing-page-footer-bottom {
     flex-direction: column;
     gap: 20px;
   }
 
-  .footer-copyright {
+  .landing-page-footer-copyright {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -688,15 +688,15 @@ h3 {
 }
 
 @media (max-width: 480px) {
-  .hero h1 {
+  .landing-page-hero h1 {
     font-size: 24px;
   }
 
-  .specialists-grid {
+  .landing-page-specialists-grid {
     grid-template-columns: 1fr 1fr;
   }
 
-  .trust-logo-row {
+  .landing-page-trust-logo-row {
     flex-direction: column;
     align-items: center;
   }

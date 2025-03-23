@@ -1,233 +1,203 @@
-/* Base styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
+/* RegisterPatient specific styling */
 
-.container {
+.RegisterPatient-container {
+  font-family: Arial, sans-serif;
+  background-color: #fff8e1;
   min-height: 100vh;
-  background-color: #fff2b8; /* Light yellow background */
   display: flex;
   flex-direction: column;
-  font-family: Arial, sans-serif;
-}
-
-/* Header styles */
-.header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 20px;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  width: 50px;
-  height: 50px;
-  background-color: #00a67e; /* Green color for Medicare logo */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.logo-text {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.profile-section {
-  display: flex;
-  align-items: center;
-}
-
-.notification-bell {
-  width: 40px;
-  height: 40px;
-  background-color: #ffd54f;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
   position: relative;
-}
-
-.notification-badge {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: #ff5722;
-  color: white;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-}
-
-.profile-info {
-  display: flex;
-  align-items: center;
-}
-
-.profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
   overflow: hidden;
 }
 
-.profile-pic img {
+.RegisterPatient-logo-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  z-index: 1000;
+}
+
+.RegisterPatient-medicare-logo {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
-.profile-text {
+.RegisterPatient-form-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  margin-bottom: 100px;
+  position: relative;
+  margin-top: 60px;
+}
+
+.RegisterPatient-form-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.RegisterPatient-name-row,
+.RegisterPatient-form-row {
   display: flex;
-  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 15px;
 }
 
-.profile-name {
-  font-weight: bold;
+.RegisterPatient-form-group {
+  margin-bottom: 15px;
+  width: 100%;
 }
 
-.profile-role {
+.RegisterPatient-half {
+  width: calc(50% - 10px);
+}
+
+.RegisterPatient-form-group label {
+  display: block;
+  margin-bottom: 5px;
   font-size: 14px;
 }
 
-/* Main content styles */
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.caller-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid white;
-}
-
-.caller-image img {
+.RegisterPatient-form-group input[type="text"],
+.RegisterPatient-form-group input[type="email"],
+.RegisterPatient-form-group input[type="password"] {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-/* Call controls styles */
-.controls-container {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+.RegisterPatient-radio-group {
   display: flex;
-  background-color: white;
-  border-radius: 50px;
-  padding: 10px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 20px;
 }
 
-.control-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+.RegisterPatient-radio-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.RegisterPatient-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffeb3b;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.RegisterPatient-button:hover {
+  background-color: #fdd835;
+}
+
+.RegisterPatient-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.RegisterPatient-divider::before,
+.RegisterPatient-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.RegisterPatient-divider span {
+  padding: 0 10px;
+  color: #777;
+}
+
+.RegisterPatient-google-button {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 10px;
-  border: none;
   cursor: pointer;
 }
 
-.red-button {
-  background-color: #f44336;
-  color: white;
+.RegisterPatient-google-button svg {
+  margin-right: 10px;
+  fill: #4285f4;
 }
 
-.dark-button {
-  background-color: #37474f;
-  color: white;
+.RegisterPatient-login-link {
+  text-align: center;
+  margin-top: 20px;
 }
 
-.control-button:hover {
-  opacity: 0.9;
+.RegisterPatient-login-link a {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.control-button.active {
-  background-color: #d32f2f;
+.RegisterPatient-hands-footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  background-color: #fff8e1;
+  padding: 10px 0;
 }
 
-.phone-icon {
-  transform: rotate(135deg);
+.RegisterPatient-hands-image {
+  width: 100%;
+  max-width: 50%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .header {
-    padding: 15px;
+  .RegisterPatient-form-card {
+    padding: 20px;
   }
 
-  .logo {
-    width: 40px;
-    height: 40px;
+  .RegisterPatient-name-row,
+  .RegisterPatient-form-row {
+    flex-direction: column;
+    gap: 0;
   }
 
-  .logo-text {
-    font-size: 20px;
-  }
-
-  .controls-container {
-    padding: 8px 15px;
-  }
-
-  .control-button {
-    width: 45px;
-    height: 45px;
-    margin: 0 5px;
+  .RegisterPatient-half {
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .profile-role {
-    display: none;
+  .RegisterPatient-logo-container {
+    width: 80px;
   }
 
-  .notification-bell {
-    width: 35px;
-    height: 35px;
+  .RegisterPatient-form-title {
+    font-size: 20px;
   }
 
-  .profile-pic {
-    width: 40px;
-    height: 40px;
-  }
-
-  .caller-image {
-    width: 120px;
-    height: 120px;
-  }
-
-  .control-button {
-    width: 40px;
-    height: 40px;
-    margin: 0 3px;
+  .RegisterPatient-hands-image {
+    max-width: 70%;
   }
 }
-

@@ -112,11 +112,11 @@ const DoctorOverview = () => {
     const hasHalfStar = rating % 1 >= 0.5
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<FaStar key={`star-${i}`} className="star-icon" />)
+      stars.push(<FaStar key={`star-${i}`} className="doctor-overview-star-icon" />)
     }
 
     if (hasHalfStar) {
-      stars.push(<FaStarHalf key="half-star" className="star-icon" />)
+      stars.push(<FaStarHalf key="half-star" className="doctor-overview-star-icon" />)
     }
 
     return stars
@@ -257,67 +257,67 @@ const DoctorOverview = () => {
   }
 
   return (
-    <div className="doctor-overview">
+    <div className="doctor-overview-container">
       {/* Header */}
-      <div className="doctor-header">
-        <div className="doctor-info">
-          <img src={kitty || "/placeholder.svg"} alt="Dr. Kitty Woo Ham" className="doctor-avatar" />
+      <div className="doctor-overview-header">
+        <div className="doctor-overview-info">
+          <img src={kitty || "/placeholder.svg"} alt="Dr. Kitty Woo Ham" className="doctor-overview-avatar" />
           <div>
             <h1>Kitty Woo Ham, NP</h1>
-            <div className="rating-container">
+            <div className="doctor-overview-rating-container">
               {renderStars(4.87)}
-              <span className="rating-text">4.87 (199 patients rating)</span>
+              <span className="doctor-overview-rating-text">4.87 (199 patients rating)</span>
             </div>
           </div>
         </div>
-        <button className="availability-btn">View availability</button>
+        <button className="doctor-overview-availability-btn">View availability</button>
       </div>
 
       {/* Main Content */}
-      <div className="main-content">
-        <div className="left-column">
+      <div className="doctor-overview-main-content">
+        <div className="doctor-overview-left-column">
           {/* Doctor Profile */}
-          <div className="doctor-profile">
-            <img src={kitty || "/placeholder.svg"} alt="Dr. Kitty Woo Ham" className="doctor-avatar-large" />
-            <div className="doctor-details">
+          <div className="doctor-overview-profile">
+            <img src={kitty || "/placeholder.svg"} alt="Dr. Kitty Woo Ham" className="doctor-overview-avatar-large" />
+            <div className="doctor-overview-details">
               <h2>Kitty Woo Ham, NP</h2>
               <p>Family Nurse Practitioner</p>
-              <div className="rating-container">
+              <div className="doctor-overview-rating-container">
                 {renderStars(4.87)}
-                <span className="rating-text">4.87 (199 patients rating)</span>
+                <span className="doctor-overview-rating-text">4.87 (199 patients rating)</span>
               </div>
             </div>
-            <div className="communication-icons">
-              <div className="icon-circle">
+            <div className="doctor-overview-communication-icons">
+              <div className="doctor-overview-icon-circle">
                 <FaCommentDots />
               </div>
-              <div className="icon-circle">
+              <div className="doctor-overview-icon-circle">
                 <FaPhoneAlt />
               </div>
             </div>
           </div>
 
           {/* Featured Review */}
-          <div className="featured-review">
-            <div className="review-rating">
+          <div className="doctor-overview-featured-review">
+            <div className="doctor-overview-review-rating">
               <h2>4.87</h2>
-              <div className="stars">{renderStars(5)}</div>
+              <div className="doctor-overview-stars">{renderStars(5)}</div>
             </div>
-            <div className="review-content">
-              <p className="review-text">
+            <div className="doctor-overview-review-content">
+              <p className="doctor-overview-review-text">
                 "Kitty really listens to you. Her prices are fully transparent on her website which is very appreciated.
                 After our first session she put a plan together and sent it to me. It was really comforting to hear her
                 say she has worked with so many people with my issue (hives) and successfully helped them achieve the
                 health and wellness goals she set for them. I'm very hopeful."
               </p>
-              <div className="review-author">
+              <div className="doctor-overview-review-author">
                 <span>Rosanne H.</span>
-                <span className="review-date">January 3, 2023</span>
+                <span className="doctor-overview-review-date">January 3, 2023</span>
               </div>
-              <a href="#" className="see-all-link" onClick={(e) => {
+              <a href="#" className="doctor-overview-see-all-link" onClick={(e) => {
                 e.preventDefault();
                 setActiveTab("reviews");
-                document.querySelector('.patients-reviews').scrollIntoView({ behavior: 'smooth' });
+                document.querySelector('.doctor-overview-patients-reviews').scrollIntoView({ behavior: 'smooth' });
               }}>
                 See all reviews
               </a>
@@ -325,18 +325,18 @@ const DoctorOverview = () => {
           </div>
 
           {/* Tabs */}
-          <div className="tabs">
+          <div className="doctor-overview-tabs">
             <button
-              className={`tab ${activeTab === "highlights" ? "active" : ""}`}
+              className={`doctor-overview-tab ${activeTab === "highlights" ? "active" : ""}`}
               onClick={() => setActiveTab("highlights")}
             >
               Highlights
             </button>
-            <button className={`tab ${activeTab === "about" ? "active" : ""}`} onClick={() => setActiveTab("about")}>
+            <button className={`doctor-overview-tab ${activeTab === "about" ? "active" : ""}`} onClick={() => setActiveTab("about")}>
               About
             </button>
             <button
-              className={`tab ${activeTab === "reviews" ? "active" : ""}`}
+              className={`doctor-overview-tab ${activeTab === "reviews" ? "active" : ""}`}
               onClick={() => setActiveTab("reviews")}
             >
               Reviews
@@ -345,32 +345,32 @@ const DoctorOverview = () => {
 
           {/* Highlights Section */}
           {activeTab === "highlights" && (
-            <div className="highlights-section">
-              <div className="highlight-item">
-                <div className="highlight-icon">
-                  <img src={celebrate || "/placeholder.svg"} alt="Highly Recommended" className="highlight-img" />
+            <div className="doctor-overview-highlights-section">
+              <div className="doctor-overview-highlight-item">
+                <div className="doctor-overview-highlight-icon">
+                  <img src={celebrate || "/placeholder.svg"} alt="Highly Recommended" className="doctor-overview-highlight-img" />
                 </div>
-                <div className="highlight-text">
+                <div className="doctor-overview-highlight-text">
                   <h3>Highly Recommended</h3>
                   <p>93% of patients gave this doctor 5 stars</p>
                 </div>
               </div>
 
-              <div className="highlight-item">
-                <div className="highlight-icon">
-                  <img src={time || "/placeholder.svg"} alt="Excellent Wait Time" className="highlight-img" />
+              <div className="doctor-overview-highlight-item">
+                <div className="doctor-overview-highlight-icon">
+                  <img src={time || "/placeholder.svg"} alt="Excellent Wait Time" className="doctor-overview-highlight-img" />
                 </div>
-                <div className="highlight-text">
+                <div className="doctor-overview-highlight-text">
                   <h3>Excellent wait time</h3>
                   <p>97% of patients waited less than 30 minutes</p>
                 </div>
               </div>
 
-              <div className="highlight-item">
-                <div className="highlight-icon">
-                  <img src={calendar || "/placeholder.svg"} alt="Excellent Wait Time" className="highlight-img" />
+              <div className="doctor-overview-highlight-item">
+                <div className="doctor-overview-highlight-icon">
+                  <img src={calendar || "/placeholder.svg"} alt="Excellent Wait Time" className="doctor-overview-highlight-img" />
                 </div>
-                <div className="highlight-text">
+                <div className="doctor-overview-highlight-text">
                   <h3>New patients appointment</h3>
                   <p>Appointments available for new patients on Medicare</p>
                 </div>
@@ -380,21 +380,21 @@ const DoctorOverview = () => {
 
           {/* About Section */}
           {activeTab === "about" && (
-            <div className="about-section">
+            <div className="doctor-overview-about-section">
               <h3>About Dr. Kitty Woo Ham</h3>
               <p>
                 Dr. Kitty Woo Ham is a board-certified Family Nurse Practitioner with over 10 years of experience in primary care.
                 She specializes in preventive care, chronic disease management, and holistic health approaches.
               </p>
-              <div className="about-details">
-                <div className="about-item">
+              <div className="doctor-overview-about-details">
+                <div className="doctor-overview-about-item">
                   <h4>Education</h4>
                   <ul>
                     <li>Master of Science in Nursing, University of California</li>
                     <li>Bachelor of Science in Nursing, Stanford University</li>
                   </ul>
                 </div>
-                <div className="about-item">
+                <div className="doctor-overview-about-item">
                   <h4>Specialties</h4>
                   <ul>
                     <li>Primary Care</li>
@@ -403,7 +403,7 @@ const DoctorOverview = () => {
                     <li>Women's Health</li>
                   </ul>
                 </div>
-                <div className="about-item">
+                <div className="doctor-overview-about-item">
                   <h4>Languages</h4>
                   <ul>
                     <li>English</li>
@@ -415,23 +415,23 @@ const DoctorOverview = () => {
           )}
 
           {/* Patient Reviews Section */}
-          <div className={`patients-reviews ${activeTab === "reviews" ? "active-section" : ""}`}>
+          <div className={`doctor-overview-patients-reviews ${activeTab === "reviews" ? "doctor-overview-active-section" : ""}`}>
             <h2>Patients Reviews</h2>
             <p>All reviews have been submitted by patients after seeing this provider</p>
 
-            <div className="trust-banner">
-              <FaShieldAlt className="shield-icon" />
+            <div className="doctor-overview-trust-banner">
+              <FaShieldAlt className="doctor-overview-shield-icon" />
               <p>
                 Your trust is our top concern, so providers can't pay to alter or remove reviews. We also don't publish
                 reviews that contain any private patient health information. <a href="#">Learn more here</a>
               </p>
             </div>
 
-            <div className="reviews-header">
+            <div className="doctor-overview-reviews-header">
               <h3>{filteredReviews.length} reviews</h3>
-              <div className="reviews-actions">
+              <div className="doctor-overview-reviews-actions">
                 <select
-                  className="sort-dropdown"
+                  className="doctor-overview-sort-dropdown"
                   value={sortOption}
                   onChange={(e) => setSortOption(e.target.value)}
                 >
@@ -440,57 +440,57 @@ const DoctorOverview = () => {
                   <option value="highest-rating">Highest rating</option>
                   <option value="lowest-rating">Lowest rating</option>
                 </select>
-                <div className="search-container">
+                <div className="doctor-overview-search-container">
                   <input
                     type="text"
                     placeholder="Search"
-                    className="search-input"
+                    className="doctor-overview-search-input"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
-                  <FaSearch className="search-icon" />
+                  <FaSearch className="doctor-overview-search-icon" />
                 </div>
               </div>
             </div>
 
-            <div className="reviews-list">
+            <div className="doctor-overview-reviews-list">
               {displayedReviews.length > 0 ? (
                 displayedReviews.map(review => (
-                  <div className={`review-item ${review.isNew ? 'new-review' : ''}`} key={review.id}>
-                    <div className="review-stars">{renderStars(review.rating)}</div>
-                    <p className="review-text">{review.text}</p>
-                    <div className="review-meta">
+                  <div className={`doctor-overview-review-item ${review.isNew ? 'doctor-overview-new-review' : ''}`} key={review.id}>
+                    <div className="doctor-overview-review-stars">{renderStars(review.rating)}</div>
+                    <p className="doctor-overview-review-text">{review.text}</p>
+                    <div className="doctor-overview-review-meta">
                       <span>{review.date}</span>
-                      <span className="reviewer">{review.reviewer}</span>
-                      {review.verified && <span className="verified">Verified Patient</span>}
+                      <span className="doctor-overview-reviewer">{review.reviewer}</span>
+                      {review.verified && <span className="doctor-overview-verified">Verified Patient</span>}
                     </div>
                   </div>
                 ))
               ) : (
-                <p className="no-reviews">No reviews match your search criteria.</p>
+                <p className="doctor-overview-no-reviews">No reviews match your search criteria.</p>
               )}
 
               {visibleReviews < filteredReviews.length && (
-                <button className="see-more-btn" onClick={handleSeeMore}>See More</button>
+                <button className="doctor-overview-see-more-btn" onClick={handleSeeMore}>See More</button>
               )}
             </div>
 
-            <div className="add-review">
+            <div className="doctor-overview-add-review">
               <h3>Add your review</h3>
               {reviewSubmitSuccess ? (
-                <div className="review-success">
+                <div className="doctor-overview-review-success">
                   <h4>Thank you for your review!</h4>
                   <p>Your review has been added successfully.</p>
                 </div>
               ) : (
                 <form onSubmit={handleReviewSubmit}>
-                  <div className="add-rating">
+                  <div className="doctor-overview-add-rating">
                     <span>Add star rating:</span>
-                    <div className="rating-stars">
+                    <div className="doctor-overview-rating-stars">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <FaStar
                           key={`rating-${star}`}
-                          className={`rating-star ${(hoverRating || userRating) >= star ? 'active' : ''}`}
+                          className={`doctor-overview-rating-star ${(hoverRating || userRating) >= star ? 'active' : ''}`}
                           onClick={() => handleRatingClick(star)}
                           onMouseEnter={() => handleRatingHover(star)}
                           onMouseLeave={handleRatingLeave}
@@ -500,31 +500,31 @@ const DoctorOverview = () => {
                   </div>
                   <textarea
                     placeholder="Add your review here"
-                    className="review-textarea"
+                    className="doctor-overview-review-textarea"
                     value={userReview}
                     onChange={(e) => setUserReview(e.target.value)}
                   ></textarea>
-                  <button type="submit" className="submit-review-btn">Submit</button>
+                  <button type="submit" className="doctor-overview-submit-review-btn">Submit</button>
                 </form>
               )}
             </div>
           </div>
         </div>
 
-        <div className="right-column">
-          <div className="booking-card">
+        <div className="doctor-overview-right-column">
+          <div className="doctor-overview-booking-card">
             <h2>Book an appointment for free</h2>
             <p>All appointments expire 1 week after scheduling</p>
 
-            <div className="patient-type-selector">
+            <div className="doctor-overview-patient-type-selector">
               <button
-                className={`patient-btn ${patientType === "new" ? "active" : ""}`}
+                className={`doctor-overview-patient-btn ${patientType === "new" ? "active" : ""}`}
                 onClick={() => setPatientType("new")}
               >
                 New patient
               </button>
               <button
-                className={`patient-btn ${patientType === "returning" ? "active" : ""}`}
+                className={`doctor-overview-patient-btn ${patientType === "returning" ? "active" : ""}`}
                 onClick={() => setPatientType("returning")}
               >
                 Returning Patient
@@ -532,67 +532,67 @@ const DoctorOverview = () => {
             </div>
 
             {submitSuccess ? (
-              <div className="booking-success">
+              <div className="doctor-overview-booking-success">
                 <h3>Booking Successful!</h3>
                 <p>Thank you for booking an appointment with Dr. Kitty Woo Ham.</p>
                 <p>We will contact you shortly to confirm your appointment.</p>
               </div>
             ) : (
-              <form className="booking-form" onSubmit={handleBookingSubmit}>
-                <div className="form-group">
+              <form className="doctor-overview-booking-form" onSubmit={handleBookingSubmit}>
+                <div className="doctor-overview-form-group">
                   <label>Full Name</label>
                   <input
                     type="text"
-                    className={`form-control ${formErrors.fullName ? 'error' : ''}`}
+                    className={`doctor-overview-form-control ${formErrors.fullName ? 'error' : ''}`}
                     name="fullName"
                     value={bookingForm.fullName}
                     onChange={handleInputChange}
                   />
-                  {formErrors.fullName && <span className="error-message">{formErrors.fullName}</span>}
+                  {formErrors.fullName && <span className="doctor-overview-error-message">{formErrors.fullName}</span>}
                 </div>
 
-                <div className="form-group">
+                <div className="doctor-overview-form-group">
                   <label>Date Intended</label>
                   <input
                     type="text"
                     placeholder="dd/mm/yy"
-                    className={`form-control ${formErrors.dateIntended ? 'error' : ''}`}
+                    className={`doctor-overview-form-control ${formErrors.dateIntended ? 'error' : ''}`}
                     name="dateIntended"
                     value={bookingForm.dateIntended}
                     onChange={handleInputChange}
                   />
-                  {formErrors.dateIntended && <span className="error-message">{formErrors.dateIntended}</span>}
+                  {formErrors.dateIntended && <span className="doctor-overview-error-message">{formErrors.dateIntended}</span>}
                 </div>
 
-                <div className="form-group">
+                <div className="doctor-overview-form-group">
                   <label>Phone Number</label>
                   <input
                     type="tel"
-                    className={`form-control ${formErrors.phoneNumber ? 'error' : ''}`}
+                    className={`doctor-overview-form-control ${formErrors.phoneNumber ? 'error' : ''}`}
                     name="phoneNumber"
                     value={bookingForm.phoneNumber}
                     onChange={handleInputChange}
                   />
-                  {formErrors.phoneNumber && <span className="error-message">{formErrors.phoneNumber}</span>}
+                  {formErrors.phoneNumber && <span className="doctor-overview-error-message">{formErrors.phoneNumber}</span>}
                 </div>
 
-                <div className="form-row">
-                  <div className="form-group half">
+                <div className="doctor-overview-form-row">
+                  <div className="doctor-overview-form-group half">
                     <label>Condition</label>
                     <input
                       type="text"
-                      className={`form-control ${formErrors.condition ? 'error' : ''}`}
+                      className={`doctor-overview-form-control ${formErrors.condition ? 'error' : ''}`}
                       name="condition"
                       value={bookingForm.condition}
                       onChange={handleInputChange}
                     />
-                    {formErrors.condition && <span className="error-message">{formErrors.condition}</span>}
+                    {formErrors.condition && <span className="doctor-overview-error-message">{formErrors.condition}</span>}
                   </div>
-                  <div className="form-group half">
+                  <div className="doctor-overview-form-group half">
                     <label>Additional Info (Optional)</label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="doctor-overview-form-control"
                       name="additionalInfo"
                       value={bookingForm.additionalInfo}
                       onChange={handleInputChange}
@@ -600,7 +600,7 @@ const DoctorOverview = () => {
                   </div>
                 </div>
 
-                <button type="submit" className="book-btn">
+                <button type="submit" className="doctor-overview-book-btn">
                   Book
                 </button>
               </form>

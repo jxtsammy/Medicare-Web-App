@@ -88,7 +88,7 @@ const Maps = () => {
   };
 
   return (
-    <div className="maps-container">
+    <div className="map-container">
       {/* Static Map Background */}
       <div className="map-background">
         {/* You can replace this with an actual map image */}
@@ -99,23 +99,23 @@ const Maps = () => {
         />
 
         {/* User Location Marker */}
-        <div className="user-marker">
-          <div className="marker-pin"></div>
-          <div className="marker-label">You</div>
+        <div className="map-user-marker">
+          <div className="map-marker-pin"></div>
+          <div className="map-marker-label">You</div>
         </div>
 
         {/* Provider Markers */}
         {providers.map(provider => (
           <div
             key={provider.id}
-            className="provider-marker"
+            className="map-provider-marker"
             style={{ top: provider.position.top, left: provider.position.left }}
             onClick={() => handleProviderClick(provider)}
           >
             <img
               src={provider.image || "/placeholder.svg"}
               alt={provider.name}
-              className="marker-image"
+              className="map-marker-image"
             />
           </div>
         ))}
@@ -124,7 +124,7 @@ const Maps = () => {
         {specialLocations.map(location => (
           <div
             key={location.id}
-            className="special-marker"
+            className="map-special-marker"
             style={{
               top: location.position.top,
               left: location.position.left,
@@ -139,41 +139,41 @@ const Maps = () => {
       </div>
 
       {/* Sidebar Navigation */}
-      <div className="sidebar">
-        <div className="sidebar-item active">
+      <div className="map-sidebar">
+        <div className="map-sidebar-item active">
           <Home size={24} />
         </div>
-        <div className="sidebar-item">
+        <div className="map-sidebar-item">
           <Calendar size={24} />
         </div>
-        <div className="sidebar-item">
+        <div className="map-sidebar-item">
           <Bell size={24} />
         </div>
-        <div className="sidebar-item">
+        <div className="map-sidebar-item">
           <MessageSquare size={24} />
         </div>
-        <div className="sidebar-item">
+        <div className="map-sidebar-item">
           <Package size={24} />
         </div>
-        <div className="sidebar-item">
+        <div className="map-sidebar-item">
           <User size={24} />
         </div>
       </div>
 
       {/* Provider Carousel */}
-      <div className="provider-carousel">
+      <div className="map-provider-carousel">
         {providers.map(provider => (
           <div
             key={provider.id}
-            className={`carousel-item ${selectedProvider?.id === provider.id ? 'selected' : ''}`}
+            className={`map-carousel-item ${selectedProvider?.id === provider.id ? 'selected' : ''}`}
             onClick={() => handleProviderClick(provider)}
           >
             <img
               src={provider.image || "/placeholder.svg"}
               alt={provider.name}
-              className="carousel-image"
+              className="map-carousel-image"
             />
-            <div className="online-indicator"></div>
+            <div className="map-online-indicator"></div>
           </div>
         ))}
       </div>

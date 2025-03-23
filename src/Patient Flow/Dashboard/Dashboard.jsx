@@ -232,26 +232,26 @@ const PackageIcon = () => (
 // Provider component
 const ProviderCard = ({ name, title, rating, reviews, onClick }) => {
   return (
-    <div className="provider-card" onClick={onClick}>
-      <div className="provider-info">
-        <img src={profilepic || "/placeholder.svg"} alt={name} className="provider-image" />
-        <div className="chat-icon">
+    <div className="dashboard-provider-card" onClick={onClick}>
+      <div className="dashboard-provider-info">
+        <img src={profilepic || "/placeholder.svg"} alt={name} className="dashboard-provider-image" />
+        <div className="dashboard-chat-icon">
           <ChatIcon />
         </div>
-        <div className="provider-details">
+        <div className="dashboard-provider-details">
           <h3>{name}</h3>
           <p>{title}</p>
-          <div className="rating">
+          <div className="dashboard-rating">
             <StarIcon />
             <span>
               {rating} - {reviews} reviews
             </span>
           </div>
-          <div className="video-call">
+          <div className="dashboard-video-call">
             <VideoIcon />
             <span>Real-time Video Call</span>
           </div>
-          <p className="appointment-label">New patient appointment, Highly Recommended</p>
+          <p className="dashboard-appointment-label">New patient appointment, Highly Recommended</p>
         </div>
       </div>
     </div>
@@ -466,23 +466,23 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="dashboard">
-      <header className="header">
-        <div className="logo">
-          <img src={medicareLogoSrc || "/placeholder.svg"} alt="Medicare Logo" className="logo-img" />
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        <div className="dashboard-logo">
+          <img src={medicareLogoSrc || "/placeholder.svg"} alt="Medicare Logo" className="dashboard-logo-img" />
         </div>
-        <div className="header-actions">
-          <button className="notification-btn">
+        <div className="dashboard-header-actions">
+          <button className="dashboard-notification-btn">
             <BellIcon />
           </button>
-          <button className="logout-btn">Logout</button>
+          <button className="dashboard-logout-btn">Logout</button>
         </div>
       </header>
 
-      <div className="search-section">
-        <h1 className="header-text">Book local doctors who are always available to help you</h1>
-        <div className="search-bar">
-          <div className="search-input">
+      <div className="dashboard-search-section">
+        <h1 className="dashboard-header-text">Book local doctors who are always available to help you</h1>
+        <div className="dashboard-search-bar">
+          <div className="dashboard-search-input">
             <UserIcon />
             <input
               type="text"
@@ -491,11 +491,11 @@ const Dashboard = () => {
               onChange={(e) => setSearchDoctor(e.target.value)}
             />
             {searchDoctor && (
-              <button className="clear-input" onClick={() => setSearchDoctor("")}>×</button>
+              <button className="dashboard-clear-input" onClick={() => setSearchDoctor("")}>×</button>
             )}
           </div>
-          <div className="search-divider"></div>
-          <div className="search-input">
+          <div className="dashboard-search-divider"></div>
+          <div className="dashboard-search-input">
             <HeartIcon />
             <input
               type="text"
@@ -504,11 +504,11 @@ const Dashboard = () => {
               onChange={(e) => setSearchCondition(e.target.value)}
             />
             {searchCondition && (
-              <button className="clear-input" onClick={() => setSearchCondition("")}>×</button>
+              <button className="dashboard-clear-input" onClick={() => setSearchCondition("")}>×</button>
             )}
           </div>
-          <div className="search-divider"></div>
-          <div className="search-input">
+          <div className="dashboard-search-divider"></div>
+          <div className="dashboard-search-input">
             <LocationIcon />
             <input
               type="text"
@@ -517,40 +517,40 @@ const Dashboard = () => {
               onChange={(e) => setSearchLocation(e.target.value)}
             />
             {searchLocation && (
-              <button className="clear-input" onClick={() => setSearchLocation("")}>×</button>
+              <button className="dashboard-clear-input" onClick={() => setSearchLocation("")}>×</button>
             )}
           </div>
-          <button className="search-btn" onClick={handleSearch}>
+          <button className="dashboard-search-btn" onClick={handleSearch}>
             <SearchIcon />
           </button>
         </div>
         {(searchDoctor || searchCondition || searchLocation) && (
-          <div className="search-tags">
+          <div className="dashboard-search-tags">
             {searchDoctor && (
-              <div className="search-tag">
+              <div className="dashboard-search-tag">
                 <span>Doctor: {searchDoctor}</span>
                 <button onClick={() => setSearchDoctor("")}>×</button>
               </div>
             )}
             {searchCondition && (
-              <div className="search-tag">
+              <div className="dashboard-search-tag">
                 <span>Condition: {searchCondition}</span>
                 <button onClick={() => setSearchCondition("")}>×</button>
               </div>
             )}
             {searchLocation && (
-              <div className="search-tag">
+              <div className="dashboard-search-tag">
                 <span>Location: {searchLocation}</span>
                 <button onClick={() => setSearchLocation("")}>×</button>
               </div>
             )}
-            <button className="clear-all" onClick={clearSearch}>Clear All</button>
+            <button className="dashboard-clear-all" onClick={clearSearch}>Clear All</button>
           </div>
         )}
       </div>
 
-      <div className="providers-section">
-        <div className="providers-header">
+      <div className="dashboard-providers-section">
+        <div className="dashboard-providers-header">
           <h2>
             {isSearching
               ? "Searching..."
@@ -559,9 +559,9 @@ const Dashboard = () => {
                 : `${filteredProviders.length} Providers Found`}
           </h2>
           {filteredProviders.length > 0 && !isSearching && (
-            <div className="sort-options">
+            <div className="dashboard-sort-options">
               <select
-                className="sort-dropdown"
+                className="dashboard-sort-dropdown"
                 value={sortOption}
                 onChange={handleSortChange}
               >
@@ -574,17 +574,17 @@ const Dashboard = () => {
         </div>
 
         {isSearching ? (
-          <div className="loading-spinner">
-            <div className="spinner"></div>
+          <div className="dashboard-loading-spinner">
+            <div className="dashboard-spinner"></div>
             <p>Searching for providers...</p>
           </div>
         ) : filteredProviders.length === 0 ? (
-          <div className="no-results">
+          <div className="dashboard-no-results">
             <p>No providers match your search criteria.</p>
-            <p>Try adjusting your search terms or <button className="clear-search-btn" onClick={clearSearch}>clear all filters</button>.</p>
+            <p>Try adjusting your search terms or <button className="dashboard-clear-search-btn" onClick={clearSearch}>clear all filters</button>.</p>
           </div>
         ) : (
-          <div className="providers-list">
+          <div className="dashboard-providers-list">
             {filteredProviders.map((provider) => (
               <ProviderCard
                 key={provider.id}
@@ -600,15 +600,15 @@ const Dashboard = () => {
       </div>
 
       {showProviderDetails && (
-        <div className="provider-details-modal">
-          <div className="modal-content">
-            <button className="close-modal" onClick={() => setShowProviderDetails(null)}>×</button>
-            <div className="provider-details-header">
-              <img src={profilepic || "/placeholder.svg"} alt="Provider" className="provider-image-large" />
+        <div className="dashboard-provider-details-modal">
+          <div className="dashboard-modal-content">
+            <button className="dashboard-close-modal" onClick={() => setShowProviderDetails(null)}>×</button>
+            <div className="dashboard-provider-details-header">
+              <img src={profilepic || "/placeholder.svg"} alt="Provider" className="dashboard-provider-image-large" />
               <div>
                 <h2>{allProviders.find(p => p.id === showProviderDetails)?.name}</h2>
                 <p>{allProviders.find(p => p.id === showProviderDetails)?.title}</p>
-                <div className="rating">
+                <div className="dashboard-rating">
                   <StarIcon />
                   <span>
                     {allProviders.find(p => p.id === showProviderDetails)?.rating} -
@@ -617,75 +617,75 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="provider-details-body">
+            <div className="dashboard-provider-details-body">
               <h3>Specialties</h3>
-              <div className="specialties-list">
+              <div className="dashboard-specialties-list">
                 {allProviders.find(p => p.id === showProviderDetails)?.specialties.map((specialty, index) => (
-                  <span key={index} className="specialty-tag">{specialty}</span>
+                  <span key={index} className="dashboard-specialty-tag">{specialty}</span>
                 ))}
               </div>
 
               <h3>Conditions Treated</h3>
-              <div className="conditions-list">
+              <div className="dashboard-conditions-list">
                 {allProviders.find(p => p.id === showProviderDetails)?.conditions.map((condition, index) => (
-                  <span key={index} className="condition-tag">{condition}</span>
+                  <span key={index} className="dashboard-condition-tag">{condition}</span>
                 ))}
               </div>
 
               <h3>Locations</h3>
-              <div className="locations-list">
+              <div className="dashboard-locations-list">
                 {allProviders.find(p => p.id === showProviderDetails)?.locations.map((location, index) => (
                   <p key={index}>{location}</p>
                 ))}
               </div>
 
-              <div className="action-buttons">
-                <button className="book-appointment-btn">Book Appointment</button>
-                <button className="contact-btn">Contact Provider</button>
+              <div className="dashboard-action-buttons">
+                <button className="dashboard-book-appointment-btn">Book Appointment</button>
+                <button className="dashboard-contact-btn">Contact Provider</button>
               </div>
             </div>
           </div>
         </div>
       )}
 
-      <nav className="bottom-nav">
+      <nav className="dashboard-bottom-nav">
         <button
-          className={`nav-item ${activeNav === "home" ? "active" : ""}`}
+          className={`dashboard-nav-item ${activeNav === "home" ? "active" : ""}`}
           onClick={() => setActiveNav("home")}
         >
           <HomeIcon />
           <span>Home</span>
         </button>
         <button
-          className={`nav-item ${activeNav === "chat" ? "active" : ""}`}
+          className={`dashboard-nav-item ${activeNav === "chat" ? "active" : ""}`}
           onClick={() => setActiveNav("chat")}
         >
           <ChatIcon />
           <span>Chat</span>
         </button>
         <button
-          className={`nav-item ${activeNav === "map" ? "active" : ""}`}
+          className={`dashboard-nav-item ${activeNav === "map" ? "active" : ""}`}
           onClick={() => setActiveNav("map")}
         >
           <MapIcon />
           <span>Map</span>
         </button>
         <button
-          className={`nav-item ${activeNav === "notifications" ? "active" : ""}`}
+          className={`dashboard-nav-item ${activeNav === "notifications" ? "active" : ""}`}
           onClick={() => setActiveNav("notifications")}
         >
           <BellIcon />
           <span>Alerts</span>
         </button>
         <button
-          className={`nav-item ${activeNav === "calendar" ? "active" : ""}`}
+          className={`dashboard-nav-item ${activeNav === "calendar" ? "active" : ""}`}
           onClick={() => setActiveNav("calendar")}
         >
           <CalendarIcon />
           <span>Calendar</span>
         </button>
         <button
-          className={`nav-item ${activeNav === "profile" ? "active" : ""}`}
+          className={`dashboard-nav-item ${activeNav === "profile" ? "active" : ""}`}
           onClick={() => setActiveNav("profile")}
         >
           <ProfileIcon />

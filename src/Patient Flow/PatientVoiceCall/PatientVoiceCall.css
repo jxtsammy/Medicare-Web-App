@@ -1,234 +1,200 @@
+/* PatientVoiceCall specific styling */
+
 /* Base styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+.PatientVoiceCall-container {
+  min-height: 100vh;
+  background-color: #fff2b8; /* Light yellow background */
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.PatientVoiceCall-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.PatientVoiceCall-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.PatientVoiceCall-medicare-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.PatientVoiceCall-user-info {
+  display: flex;
+  align-items: center;
+}
+
+.PatientVoiceCall-notification {
+  width: 40px;
+  height: 40px;
+  background-color: #ffd54f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  position: relative;
+}
+
+.PatientVoiceCall-notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff5722;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.PatientVoiceCall-provider-info {
+  display: flex;
+  align-items: center;
+}
+
+.PatientVoiceCall-provider-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.PatientVoiceCall-provider-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.PatientVoiceCall-provider-name {
+  font-weight: bold;
+}
+
+.PatientVoiceCall-provider-role {
+  font-size: 14px;
+}
+
+/* Main content styles */
+.PatientVoiceCall-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.PatientVoiceCall-avatar-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+}
+
+.PatientVoiceCall-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Call controls styles */
+.PatientVoiceCall-controls-container {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  background-color: white;
+  border-radius: 50px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.PatientVoiceCall-control-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.PatientVoiceCall-end-call {
+  background-color: #f44336;
+  color: white;
+}
+
+.PatientVoiceCall-control-button:hover {
+  opacity: 0.9;
+}
+
+.PatientVoiceCall-control-button.PatientVoiceCall-active {
+  background-color: #d32f2f;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .PatientVoiceCall-header {
+    padding: 15px;
   }
-  
-  .container {
-    min-height: 100vh;
-    background-color: #fff2b8; /* Light yellow background */
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Header styles */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 50px;
-    height: 50px;
-    background-color: #00a67e; /* Green color for Medicare logo */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .logo-text {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .profile-section {
-    display: flex;
-    align-items: center;
-  }
-  
-  .notification-bell {
+
+  .PatientVoiceCall-medicare-logo {
     width: 40px;
     height: 40px;
-    background-color: #ffd54f;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    position: relative;
   }
-  
-  .notification-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #ff5722;
-    color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
+
+  .PatientVoiceCall-controls-container {
+    padding: 8px 15px;
   }
-  
-  .profile-info {
-    display: flex;
-    align-items: center;
+
+  .PatientVoiceCall-control-button {
+    width: 45px;
+    height: 45px;
+    margin: 0 5px;
   }
-  
-  .profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .PatientVoiceCall-provider-role {
+    display: none;
   }
-  
-  .profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+  .PatientVoiceCall-notification {
+    width: 35px;
+    height: 35px;
   }
-  
-  .profile-text {
-    display: flex;
-    flex-direction: column;
+
+  .PatientVoiceCall-provider-avatar {
+    width: 40px;
+    height: 40px;
   }
-  
-  .profile-name {
-    font-weight: bold;
+
+  .PatientVoiceCall-avatar-container {
+    width: 120px;
+    height: 120px;
   }
-  
-  .profile-role {
-    font-size: 14px;
+
+  .PatientVoiceCall-control-button {
+    width: 40px;
+    height: 40px;
+    margin: 0 3px;
   }
-  
-  /* Main content styles */
-  .main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .caller-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid white;
-  }
-  
-  .caller-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Call controls styles */
-  .controls-container {
-    position: fixed;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    background-color: white;
-    border-radius: 50px;
-    padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .control-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .red-button {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .dark-button {
-    background-color: #37474f;
-    color: white;
-  }
-  
-  .control-button:hover {
-    opacity: 0.9;
-  }
-  
-  .control-button.active {
-    background-color: #d32f2f;
-  }
-  
-  .phone-icon {
-    transform: rotate(135deg);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .header {
-      padding: 15px;
-    }
-  
-    .logo {
-      width: 40px;
-      height: 40px;
-    }
-  
-    .logo-text {
-      font-size: 20px;
-    }
-  
-    .controls-container {
-      padding: 8px 15px;
-    }
-  
-    .control-button {
-      width: 45px;
-      height: 45px;
-      margin: 0 5px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .profile-role {
-      display: none;
-    }
-  
-    .notification-bell {
-      width: 35px;
-      height: 35px;
-    }
-  
-    .profile-pic {
-      width: 40px;
-      height: 40px;
-    }
-  
-    .caller-image {
-      width: 120px;
-      height: 120px;
-    }
-  
-    .control-button {
-      width: 40px;
-      height: 40px;
-      margin: 0 3px;
-    }
-  }
-  
-  
+}

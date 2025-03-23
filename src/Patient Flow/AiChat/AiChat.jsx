@@ -165,13 +165,13 @@ const CloseIcon = () => (
 )
 
 const AudioWaveform = () => (
-  <div className="audio-waveform">
+  <div className="ai-audio-waveform">
     {Array(20)
       .fill()
       .map((_, i) => (
         <div
           key={i}
-          className="waveform-bar"
+          className="ai-waveform-bar"
           style={{
             height: `${Math.random() * 15 + 5}px`,
             animationDelay: `${i * 0.05}s`,
@@ -358,30 +358,30 @@ function AiChat() {
 
   return (
     <div className="ai-chat-container">
-      <div className="sidebar">
-        <div className="sidebar-icons">
-          <div className="sidebar-icon active">
+      <div className="ai-sidebar">
+        <div className="ai-sidebar-icons">
+          <div className="ai-sidebar-icon active">
             <HomeIcon />
           </div>
-          <div className="sidebar-icon">
+          <div className="ai-sidebar-icon">
             <BookIcon />
           </div>
-          <div className="sidebar-icon">
+          <div className="ai-sidebar-icon">
             <BellIcon />
           </div>
-          <div className="sidebar-icon">
+          <div className="ai-sidebar-icon">
             <CalendarIcon />
           </div>
         </div>
-        <div className="user-avatar-small">
+        <div className="ai-user-avatar-small">
           <img src={Avatar || "/placeholder.svg"} alt="User" />
         </div>
       </div>
 
-      <div className="chat-main">
-        <div className="chat-header">
+      <div className="ai-chat-main">
+        <div className="ai-chat-header">
           <div className="ai-info">
-            <div className="grid-icon">
+            <div className="ai-grid-icon">
               <GridIcon />
             </div>
             <div className="ai-avatar">
@@ -390,44 +390,44 @@ function AiChat() {
             <div className="ai-details">
               <div className="ai-name">Medi AI</div>
               <div className="ai-status">
-                <span className="status-dot"></span>
-                <span className="status-text">Online</span>
+                <span className="ai-status-dot"></span>
+                <span className="ai-status-text">Online</span>
               </div>
             </div>
           </div>
 
-          <div className="user-info">
-            <div className="notification-badge">8</div>
-            <div className="user-name">Abednego</div>
-            <div className="user-verified">
+          <div className="ai-user-info">
+            <div className="ai-notification-badge">8</div>
+            <div className="ai-user-name">Abednego</div>
+            <div className="ai-user-verified">
               Verified User <VerifiedIcon />
             </div>
-            <div className="user-avatar">
+            <div className="ai-user-avatar">
               <img src={Avatar || "/placeholder.svg"} alt="User" />
             </div>
           </div>
         </div>
 
-        <div className="chat-messages">
+        <div className="ai-chat-messages">
           {chatMessages.map((msg) => (
-            <div key={msg.id} className={`message-container ${msg.sender === "ai" ? "ai-message" : "user-message"}`}>
-              <div className="message-bubble">
-                {msg.text && <div className="message-text">{msg.text}</div>}
+            <div key={msg.id} className={`ai-message-container ${msg.sender === "ai" ? "ai-message" : "ai-user-message"}`}>
+              <div className="ai-message-bubble">
+                {msg.text && <div className="ai-message-text">{msg.text}</div>}
                 {msg.hasAudio && <AudioWaveform />}
                 {msg.image && (
-                  <div className="message-image">
+                  <div className="ai-message-image">
                     <img src={msg.image || "/placeholder.svg"} alt="Attachment" />
                   </div>
                 )}
               </div>
-              <div className="message-time">{msg.time}</div>
+              <div className="ai-message-time">{msg.time}</div>
             </div>
           ))}
 
           {isTyping && (
-            <div className="message-container ai-message">
-              <div className="message-bubble typing-bubble">
-                <div className="typing-indicator">
+            <div className="ai-message-container ai-message">
+              <div className="ai-message-bubble ai-typing-bubble">
+                <div className="ai-typing-indicator">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -440,22 +440,22 @@ function AiChat() {
         </div>
 
         {imageAttachment && (
-          <div className="attachment-preview">
-            <div className="image-preview">
+          <div className="ai-attachment-preview">
+            <div className="ai-image-preview">
               <img src={imageAttachment.url || "/placeholder.svg"} alt="Attachment preview" />
             </div>
-            <div className="attachment-info">
-              <div className="attachment-name">{imageAttachment.name}</div>
-              <div className="attachment-size">{formatFileSize(imageAttachment.size)}</div>
+            <div className="ai-attachment-info">
+              <div className="ai-attachment-name">{imageAttachment.name}</div>
+              <div className="ai-attachment-size">{formatFileSize(imageAttachment.size)}</div>
             </div>
-            <button className="remove-attachment" onClick={removeAttachment}>
+            <button className="ai-remove-attachment" onClick={removeAttachment}>
               <CloseIcon />
             </button>
           </div>
         )}
 
-        <div className="chat-input-container">
-          <div className="attachment-button" onClick={handleImageClick}>
+        <div className="ai-chat-input-container">
+          <div className="ai-attachment-button" onClick={handleImageClick}>
             <ImageIcon />
           </div>
           <input
@@ -465,17 +465,17 @@ function AiChat() {
             accept="image/*"
             onChange={handleFileChange}
           />
-          <form onSubmit={handleSendMessage} className="chat-form">
+          <form onSubmit={handleSendMessage} className="ai-chat-form">
             <input
               type="text"
               placeholder="Type your message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="chat-input"
+              className="ai-chat-input"
             />
             <button
               type="submit"
-              className={`send-button ${message.trim() || imageAttachment ? "active" : ""}`}
+              className={`ai-send-button ${message.trim() || imageAttachment ? "active" : ""}`}
               disabled={!message.trim() && !imageAttachment}
             >
               <SendIcon />

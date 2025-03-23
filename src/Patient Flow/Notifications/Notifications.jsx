@@ -1,179 +1,205 @@
-import { useState } from 'react';
-import './Notifications.css';
-import { Bell, Check } from 'react-feather';
-import Avatar from '../../assets/Avatar.png';
+"use client"
+
+import { useState } from "react"
+import "./Notifications.css"
+import { Bell, Check } from "react-feather"
+import Avatar from "../../assets/Avatar.png"
+
 const Notifications = () => {
-  const [activeTab, setActiveTab] = useState('offers');
+  const [activeTab, setActiveTab] = useState("offers")
   const [notifications, setNotifications] = useState({
     healthcareReminders: true,
     blogNewsletters: true,
     productNews: true,
     newOffers: true,
-    unsubscribeAll: false
-  });
+    unsubscribeAll: false,
+  })
 
   const handleCheckboxChange = (name) => {
-    if (name === 'unsubscribeAll' && !notifications.unsubscribeAll) {
+    if (name === "unsubscribeAll" && !notifications.unsubscribeAll) {
       // If unsubscribing from all, uncheck all other options
       setNotifications({
         healthcareReminders: false,
         blogNewsletters: false,
         productNews: false,
         newOffers: false,
-        unsubscribeAll: true
-      });
-    } else if (name === 'unsubscribeAll' && notifications.unsubscribeAll) {
+        unsubscribeAll: true,
+      })
+    } else if (name === "unsubscribeAll" && notifications.unsubscribeAll) {
       // If unchecking unsubscribe all, don't change other settings
       setNotifications({
         ...notifications,
-        unsubscribeAll: false
-      });
+        unsubscribeAll: false,
+      })
     } else {
       // For other checkboxes, toggle their state and ensure unsubscribeAll is false
       setNotifications({
         ...notifications,
         [name]: !notifications[name],
-        unsubscribeAll: false
-      });
+        unsubscribeAll: false,
+      })
     }
-  };
+  }
 
   const handleSave = () => {
-    alert('Notification preferences saved!');
-  };
+    alert("Notification preferences saved!")
+  }
 
   return (
-    <div className="notifications-container">
+    <div className="Notifications-container">
       {/* Header */}
-      <header className="notifications-header">
-        <div className="header-content">
-          <div className="spacer"></div>
-          <div className="user-controls">
-            <button className="notification-btn">
+      <header className="Notifications-header">
+        <div className="Notifications-header-content">
+          <div className="Notifications-spacer"></div>
+          <div className="Notifications-user-controls">
+            <button className="Notifications-notification-btn">
               <Bell size={20} />
             </button>
-            <div className="user-profile">
-              <span className="username">Abednego</span>
-              <span className="user-status">Verified User <Check size={16} className="verified-icon" /></span>
-              <img
-                src={Avatar}
-                alt="User profile"
-                className="user-avatar"
-              />
+            <div className="Notifications-user-profile">
+              <span className="Notifications-username">Abednego</span>
+              <span className="Notifications-user-status">
+                Verified User <Check size={16} className="Notifications-verified-icon" />
+              </span>
+              <img src={Avatar || "/placeholder.svg"} alt="User profile" className="Notifications-user-avatar" />
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="notifications-main">
+      <main className="Notifications-main">
         {/* Sidebar Navigation */}
-        <nav className="notifications-nav">
+        <nav className="Notifications-nav">
           <ul>
-            <li><a href="#personal">Personal Information</a></li>
-            <li><a href="#family">Family member</a></li>
-            <li><a href="#login">Login and security</a></li>
-            <li className="active"><a href="#notification">Notification</a></li>
-            <li><a href="#permission">Permission</a></li>
-            <li><a href="#insurance">Insurance and id card</a></li>
-            <li><a href="#privacy">Privacy</a></li>
+            <li>
+              <a href="#personal">Personal Information</a>
+            </li>
+            <li>
+              <a href="#family">Family member</a>
+            </li>
+            <li>
+              <a href="#login">Login and security</a>
+            </li>
+            <li className="Notifications-active">
+              <a href="#notification">Notification</a>
+            </li>
+            <li>
+              <a href="#permission">Permission</a>
+            </li>
+            <li>
+              <a href="#insurance">Insurance and id card</a>
+            </li>
+            <li>
+              <a href="#privacy">Privacy</a>
+            </li>
           </ul>
         </nav>
 
         {/* Notifications Content */}
-        <div className="notifications-content">
-          <h1 className="page-title">Notifications</h1>
+        <div className="Notifications-content">
+          <h1 className="Notifications-page-title">Notifications</h1>
 
           {/* Tabs */}
-          <div className="notification-tabs">
+          <div className="Notifications-tabs">
             <button
-              className={`tab-button ${activeTab === 'offers' ? 'active' : ''}`}
-              onClick={() => setActiveTab('offers')}
+              className={`Notifications-tab-button ${activeTab === "offers" ? "Notifications-active" : ""}`}
+              onClick={() => setActiveTab("offers")}
             >
               Offers and Updates
             </button>
             <button
-              className={`tab-button ${activeTab === 'appointments' ? 'active' : ''}`}
-              onClick={() => setActiveTab('appointments')}
+              className={`Notifications-tab-button ${activeTab === "appointments" ? "Notifications-active" : ""}`}
+              onClick={() => setActiveTab("appointments")}
             >
               Appointments
             </button>
           </div>
 
           {/* Email Notifications */}
-          <section className="notification-section">
-            <h2 className="section-title">Email</h2>
+          <section className="Notifications-section">
+            <h2 className="Notifications-section-title">Email</h2>
 
-            <div className="notification-option">
-              <label className="checkbox-container">
+            <div className="Notifications-option">
+              <label className="Notifications-checkbox-container">
                 <input
                   type="checkbox"
                   checked={notifications.healthcareReminders}
-                  onChange={() => handleCheckboxChange('healthcareReminders')}
+                  onChange={() => handleCheckboxChange("healthcareReminders")}
                 />
-                <span className="checkbox-label">Healthcare reminders</span>
+                <span className="Notifications-checkbox-label">Healthcare reminders</span>
               </label>
-              <p className="option-description">Reminders to help you stay on top of preventative care appointments</p>
+              <p className="Notifications-option-description">
+                Reminders to help you stay on top of preventative care appointments
+              </p>
             </div>
 
-            <div className="notification-option">
-              <label className="checkbox-container">
+            <div className="Notifications-option">
+              <label className="Notifications-checkbox-container">
                 <input
                   type="checkbox"
                   checked={notifications.blogNewsletters}
-                  onChange={() => handleCheckboxChange('blogNewsletters')}
+                  onChange={() => handleCheckboxChange("blogNewsletters")}
                 />
-                <span className="checkbox-label">Blog newsletters</span>
+                <span className="Notifications-checkbox-label">Blog newsletters</span>
               </label>
-              <p className="option-description">Our latest post to our blog, Paper Gown</p>
+              <p className="Notifications-option-description">Our latest post to our blog, Paper Gown</p>
             </div>
 
-            <div className="notification-option">
-              <label className="checkbox-container">
+            <div className="Notifications-option">
+              <label className="Notifications-checkbox-container">
                 <input
                   type="checkbox"
                   checked={notifications.productNews}
-                  onChange={() => handleCheckboxChange('productNews')}
+                  onChange={() => handleCheckboxChange("productNews")}
                 />
-                <span className="checkbox-label">Product news</span>
+                <span className="Notifications-checkbox-label">Product news</span>
               </label>
-              <p className="option-description">Getting started, new features and latest product updates from MyApp</p>
+              <p className="Notifications-option-description">
+                Getting started, new features and latest product updates from MyApp
+              </p>
             </div>
 
-            <div className="notification-option">
-              <label className="checkbox-container">
+            <div className="Notifications-option">
+              <label className="Notifications-checkbox-container">
                 <input
                   type="checkbox"
                   checked={notifications.newOffers}
-                  onChange={() => handleCheckboxChange('newOffers')}
+                  onChange={() => handleCheckboxChange("newOffers")}
                 />
-                <span className="checkbox-label">MyApp new offers</span>
+                <span className="Notifications-checkbox-label">MyApp new offers</span>
               </label>
-              <p className="option-description">News, promotion s, events for you.</p>
+              <p className="Notifications-option-description">News, promotion s, events for you.</p>
             </div>
 
-            <div className="notification-option">
-              <label className="checkbox-container">
+            <div className="Notifications-option">
+              <label className="Notifications-checkbox-container">
                 <input
                   type="checkbox"
                   checked={notifications.unsubscribeAll}
-                  onChange={() => handleCheckboxChange('unsubscribeAll')}
+                  onChange={() => handleCheckboxChange("unsubscribeAll")}
                 />
-                <span className="checkbox-label">I nolonger wish to receive any future marketing emails</span>
+                <span className="Notifications-checkbox-label">
+                  I nolonger wish to receive any future marketing emails
+                </span>
               </label>
-              <p className="option-description">If you wish to unsubscribe from all marketing emails from MyApp, check the box and click the save button.</p>
+              <p className="Notifications-option-description">
+                If you wish to unsubscribe from all marketing emails from MyApp, check the box and click the save
+                button.
+              </p>
             </div>
           </section>
 
           {/* Action Buttons */}
-          <div className="action-buttons">
-            <button className="save-button" onClick={handleSave}>save</button>
-            <button className="cancel-button">Cancel</button>
+          <div className="Notifications-action-buttons">
+            <button className="Notifications-save-button" onClick={handleSave}>
+              save
+            </button>
+            <button className="Notifications-cancel-button">Cancel</button>
           </div>
         </div>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Notifications;
+export default Notifications

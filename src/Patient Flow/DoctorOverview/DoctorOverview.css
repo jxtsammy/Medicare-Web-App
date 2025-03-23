@@ -6,14 +6,14 @@
   font-family: Arial, sans-serif;
 }
 
-.doctor-overview {
+.doctor-overview-container {
   width: 100%;
   margin: 0 auto;
   background-color: #fff;
 }
 
 /* Header Styles */
-.doctor-header {
+.doctor-overview-header {
   display: flex;
   justify-content: space-between;
   align-items: end;
@@ -21,13 +21,13 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-.doctor-info {
+.doctor-overview-info {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.doctor-avatar {
+.doctor-overview-avatar {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -35,22 +35,22 @@
   margin-right: 10px;
 }
 
-.rating-container {
+.doctor-overview-rating-container {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.star-icon {
+.doctor-overview-star-icon {
   color: #ffb400;
 }
 
-.rating-text {
+.doctor-overview-rating-text {
   color: #666;
   font-size: 14px;
 }
 
-.availability-btn {
+.doctor-overview-availability-btn {
   background-color: #ffdd00;
   border: none;
   border-radius: 4px;
@@ -61,57 +61,57 @@
   transition: background-color 0.2s;
 }
 
-.availability-btn:hover {
+.doctor-overview-availability-btn:hover {
   background-color: #ffd000;
 }
 
 /* Main Content Styles */
-.main-content {
+.doctor-overview-main-content {
   display: flex;
   padding: 20px;
   background-color: #fffdf5;
   gap: 20px;
 }
 
-.left-column {
+.doctor-overview-left-column {
   flex: 2;
 }
 
-.right-column {
+.doctor-overview-right-column {
   flex: 1;
 }
 
 /* Doctor Profile Styles */
-.doctor-profile {
+.doctor-overview-profile {
   display: flex;
   align-items: flex-start;
   gap: 15px;
   margin-bottom: 20px;
 }
 
-.doctor-avatar-large {
+.doctor-overview-avatar-large {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.doctor-details h2 {
+.doctor-overview-details h2 {
   margin-bottom: 5px;
 }
 
-.doctor-details p {
+.doctor-overview-details p {
   color: #666;
   margin-bottom: 5px;
 }
 
-.communication-icons {
+.doctor-overview-communication-icons {
   display: flex;
   gap: 10px;
   margin-left: auto;
 }
 
-.icon-circle {
+.doctor-overview-icon-circle {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -123,12 +123,12 @@
   transition: background-color 0.2s;
 }
 
-.icon-circle:hover {
+.doctor-overview-icon-circle:hover {
   background-color: #ffd000;
 }
 
 /* Featured Review Styles */
-.featured-review {
+.doctor-overview-featured-review {
   display: flex;
   background-color: #fffbe5;
   padding: 20px;
@@ -136,7 +136,7 @@
   margin-bottom: 20px;
 }
 
-.review-rating {
+.doctor-overview-review-rating {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,54 +145,54 @@
   margin-right: 20px;
 }
 
-.review-rating h2 {
+.doctor-overview-review-rating h2 {
   font-size: 32px;
   margin-bottom: 5px;
 }
 
-.stars {
+.doctor-overview-stars {
   display: flex;
 }
 
-.review-content {
+.doctor-overview-review-content {
   flex: 1;
 }
 
-.review-text {
+.doctor-overview-review-text {
   font-style: italic;
   margin-bottom: 10px;
   line-height: 1.5;
 }
 
-.review-author {
+.doctor-overview-review-author {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
   font-size: 14px;
 }
 
-.review-date {
+.doctor-overview-review-date {
   color: #666;
 }
 
-.see-all-link {
+.doctor-overview-see-all-link {
   color: #666;
   text-decoration: none;
   font-size: 14px;
 }
 
-.see-all-link:hover {
+.doctor-overview-see-all-link:hover {
   text-decoration: underline;
 }
 
 /* Tabs Styles */
-.tabs {
+.doctor-overview-tabs {
   display: flex;
   border-bottom: 1px solid #e0e0e0;
   margin-bottom: 20px;
 }
 
-.tab {
+.doctor-overview-tab {
   padding: 10px 20px;
   background: none;
   border: none;
@@ -202,15 +202,15 @@
   transition: color 0.2s;
 }
 
-.tab:hover {
+.doctor-overview-tab:hover {
   color: #555;
 }
 
-.tab.active {
+.doctor-overview-tab.active {
   font-weight: bold;
 }
 
-.tab.active::after {
+.doctor-overview-tab.active::after {
   content: "";
   position: absolute;
   bottom: -1px;
@@ -221,17 +221,17 @@
 }
 
 /* Highlights Section Styles */
-.highlights-section {
+.doctor-overview-highlights-section {
   margin-bottom: 30px;
 }
 
-.highlight-item {
+.doctor-overview-highlight-item {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.highlight-icon {
+.doctor-overview-highlight-icon {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -242,57 +242,57 @@
   margin-right: 15px;
 }
 
-.highlight-img {
+.doctor-overview-highlight-img {
   width: 30px;
   height: 30px;
   object-fit: contain;
 }
 
-.highlight-text h3 {
+.doctor-overview-highlight-text h3 {
   margin-bottom: 5px;
 }
 
-.highlight-text p {
+.doctor-overview-highlight-text p {
   color: #666;
 }
 
 /* About Section Styles */
-.about-section {
+.doctor-overview-about-section {
   margin-bottom: 30px;
 }
 
-.about-section h3 {
+.doctor-overview-about-section h3 {
   margin-bottom: 15px;
 }
 
-.about-section p {
+.doctor-overview-about-section p {
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-.about-details {
+.doctor-overview-about-details {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.about-item h4 {
+.doctor-overview-about-item h4 {
   margin-bottom: 10px;
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 5px;
 }
 
-.about-item ul {
+.doctor-overview-about-item ul {
   list-style-type: none;
 }
 
-.about-item li {
+.doctor-overview-about-item li {
   margin-bottom: 5px;
   padding-left: 15px;
   position: relative;
 }
 
-.about-item li::before {
+.doctor-overview-about-item li::before {
   content: "•";
   position: absolute;
   left: 0;
@@ -300,29 +300,29 @@
 }
 
 /* Patient Reviews Section Styles */
-.patients-reviews {
+.doctor-overview-patients-reviews {
   margin-top: 30px;
 }
 
-.patients-reviews h2 {
+.doctor-overview-patients-reviews h2 {
   margin-bottom: 10px;
 }
 
-.patients-reviews > p {
+.doctor-overview-patients-reviews > p {
   color: #666;
   margin-bottom: 20px;
 }
 
-.active-section {
-  animation: fadeIn 0.5s ease-in-out;
+.doctor-overview-active-section {
+  animation: doctor-overview-fadeIn 0.5s ease-in-out;
 }
 
-@keyframes fadeIn {
+@keyframes doctor-overview-fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-.trust-banner {
+.doctor-overview-trust-banner {
   display: flex;
   align-items: center;
   background-color: #fffbe5;
@@ -331,35 +331,35 @@
   margin-bottom: 20px;
 }
 
-.shield-icon {
+.doctor-overview-shield-icon {
   color: #666;
   font-size: 24px;
   margin-right: 15px;
 }
 
-.trust-banner p {
+.doctor-overview-trust-banner p {
   font-size: 14px;
   line-height: 1.5;
 }
 
-.trust-banner a {
+.doctor-overview-trust-banner a {
   color: #666;
   text-decoration: underline;
 }
 
-.reviews-header {
+.doctor-overview-reviews-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.reviews-actions {
+.doctor-overview-reviews-actions {
   display: flex;
   gap: 10px;
 }
 
-.sort-dropdown {
+.doctor-overview-sort-dropdown {
   padding: 10px;
   border-radius: 10px;
   background-color: #fff;
@@ -369,11 +369,11 @@
   outline: none;
 }
 
-.search-container {
+.doctor-overview-search-container {
   position: relative;
 }
 
-.search-input {
+.doctor-overview-search-input {
   width: 100%;
   position: relative;
   border-radius: 10px;
@@ -385,7 +385,7 @@
   padding: 10px 40px 10px 15px;
 }
 
-.search-icon {
+.doctor-overview-search-icon {
   position: absolute;
   right: 15px;
   top: 50%;
@@ -393,25 +393,25 @@
   color: #666;
 }
 
-.search-input::placeholder {
+.doctor-overview-search-input::placeholder {
   color: #000000; /* Sets placeholder text color to black */
   opacity: 1; /* Ensures full visibility in some browsers */
 }
 
-.reviews-list {
+.doctor-overview-reviews-list {
   margin-bottom: 30px;
 }
 
-.review-item {
+.doctor-overview-review-item {
   border-bottom: 1px solid #e0e0e0;
   padding: 15px 0;
 }
 
-.review-stars {
+.doctor-overview-review-stars {
   margin-bottom: 10px;
 }
 
-.review-meta {
+.doctor-overview-review-meta {
   display: flex;
   gap: 15px;
   color: #666;
@@ -419,18 +419,18 @@
   margin-top: 10px;
 }
 
-.verified {
+.doctor-overview-verified {
   color: #0077cc;
 }
 
-.no-reviews {
+.doctor-overview-no-reviews {
   padding: 20px;
   text-align: center;
   color: #666;
   font-style: italic;
 }
 
-.see-more-btn {
+.doctor-overview-see-more-btn {
   display: block;
   width: fit-content;
   margin: 20px auto;
@@ -442,39 +442,39 @@
   transition: background-color 0.2s;
 }
 
-.see-more-btn:hover {
+.doctor-overview-see-more-btn:hover {
   background-color: #f5f5f5;
 }
 
 /* Add Review Styles */
-.add-review {
+.doctor-overview-add-review {
   margin-top: 30px;
   border-top: 1px solid #e0e0e0;
   padding-top: 20px;
 }
 
-.add-review h3 {
+.doctor-overview-add-review h3 {
   margin-bottom: 15px;
 }
 
-.add-review form {
+.doctor-overview-add-review form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.add-rating {
+.doctor-overview-add-rating {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 15px;
 }
 
-.rating-stars {
+.doctor-overview-rating-stars {
   display: flex;
 }
 
-.rating-star {
+.doctor-overview-rating-star {
   color: #ccc;
   font-size: 20px;
   cursor: pointer;
@@ -482,12 +482,12 @@
   transition: color 0.2s;
 }
 
-.rating-star:hover,
-.rating-star.active {
+.doctor-overview-rating-star:hover,
+.doctor-overview-rating-star.active {
   color: #ffb400;
 }
 
-.review-textarea {
+.doctor-overview-review-textarea {
   width: 100%;
   height: 100px;
   padding: 10px;
@@ -497,7 +497,7 @@
   resize: none;
 }
 
-.submit-review-btn {
+.doctor-overview-submit-review-btn {
   padding: 8px 20px;
   background-color: #f5e7c3;
   border: 1px solid #e0d0a8;
@@ -507,12 +507,12 @@
   align-self: flex-start;
 }
 
-.submit-review-btn:hover {
+.doctor-overview-submit-review-btn:hover {
   background-color: #f0ddb0;
 }
 
 /* Booking Card Styles */
-.booking-card {
+.doctor-overview-booking-card {
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -521,16 +521,16 @@
   top: 20px;
 }
 
-.booking-card h2 {
+.doctor-overview-booking-card h2 {
   margin-bottom: 5px;
 }
 
-.booking-card > p {
+.doctor-overview-booking-card > p {
   color: #666;
   margin-bottom: 20px;
 }
 
-.patient-type-selector {
+.doctor-overview-patient-type-selector {
   display: flex;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -538,7 +538,7 @@
   overflow: hidden;
 }
 
-.patient-btn {
+.doctor-overview-patient-btn {
   flex: 1;
   padding: 10px;
   border: none;
@@ -547,59 +547,59 @@
   transition: background-color 0.2s;
 }
 
-.patient-btn:hover {
+.doctor-overview-patient-btn:hover {
   background-color: #f9f1e0;
 }
 
-.patient-btn.active {
+.doctor-overview-patient-btn.active {
   background-color: #f5e7c3;
   font-weight: bold;
 }
 
-.booking-form {
+.doctor-overview-booking-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.form-group {
+.doctor-overview-form-group {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.form-row {
+.doctor-overview-form-row {
   display: flex;
   gap: 10px;
 }
 
-.form-group.half {
+.doctor-overview-form-group.half {
   flex: 1;
 }
 
-.form-control {
+.doctor-overview-form-control {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   transition: border-color 0.2s;
 }
 
-.form-control:focus {
+.doctor-overview-form-control:focus {
   outline: none;
   border-color: #ffb400;
 }
 
-.form-control.error {
+.doctor-overview-form-control.error {
   border-color: #ff3333;
 }
 
-.error-message {
+.doctor-overview-error-message {
   color: #ff3333;
   font-size: 12px;
   margin-top: 3px;
 }
 
-.book-btn {
+.doctor-overview-book-btn {
   background-color: #f5e7c3;
   border: none;
   border-radius: 4px;
@@ -610,56 +610,56 @@
   transition: background-color 0.2s;
 }
 
-.book-btn:hover {
+.doctor-overview-book-btn:hover {
   background-color: #f0ddb0;
 }
 
-.booking-success {
+.doctor-overview-booking-success {
   background-color: #e6f7e6;
   border-radius: 8px;
   padding: 20px;
   text-align: center;
-  animation: fadeIn 0.5s ease-in-out;
+  animation: doctor-overview-fadeIn 0.5s ease-in-out;
 }
 
-.booking-success h3 {
+.doctor-overview-booking-success h3 {
   color: #2e7d32;
   margin-bottom: 10px;
 }
 
-.booking-success p {
+.doctor-overview-booking-success p {
   margin-bottom: 10px;
   line-height: 1.5;
 }
 
 /* Responsive Styles */
 @media (max-width: 992px) {
-  .main-content {
+  .doctor-overview-main-content {
     flex-direction: column;
   }
-  
-  .right-column {
+
+  .doctor-overview-right-column {
     order: -1;
     margin-bottom: 20px;
   }
-  
-  .booking-card {
+
+  .doctor-overview-booking-card {
     position: static;
   }
 }
 
 @media (max-width: 768px) {
-  .doctor-header {
+  .doctor-overview-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
   }
-  
-  .featured-review {
+
+  .doctor-overview-featured-review {
     flex-direction: column;
   }
-  
-  .review-rating {
+
+  .doctor-overview-review-rating {
     border-right: none;
     border-bottom: 1px solid #e0e0e0;
     padding-right: 0;
@@ -670,65 +670,65 @@
     gap: 15px;
     align-items: center;
   }
-  
-  .reviews-header {
+
+  .doctor-overview-reviews-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
   }
-  
-  .reviews-actions {
+
+  .doctor-overview-reviews-actions {
     width: 100%;
     flex-direction: column;
   }
-  
-  .form-row {
+
+  .doctor-overview-form-row {
     flex-direction: column;
   }
 }
 
 @media (max-width: 576px) {
-  .doctor-profile {
+  .doctor-overview-profile {
     flex-direction: column;
   }
-  
-  .communication-icons {
+
+  .doctor-overview-communication-icons {
     margin-left: 0;
     margin-top: 15px;
   }
-  
-  .review-meta {
+
+  .doctor-overview-review-meta {
     flex-direction: column;
     gap: 5px;
   }
 }
 
 /* New review highlight */
-.new-review {
-  animation: highlightNew 2s ease-in-out;
+.doctor-overview-new-review {
+  animation: doctor-overview-highlightNew 2s ease-in-out;
   background-color: rgba(255, 221, 0, 0.1);
 }
 
-@keyframes highlightNew {
+@keyframes doctor-overview-highlightNew {
   0% { background-color: rgba(255, 221, 0, 0.3); }
   100% { background-color: rgba(255, 221, 0, 0); }
 }
 
 /* Review success message */
-.review-success {
+.doctor-overview-review-success {
   background-color: #e6f7e6;
   border-radius: 8px;
   padding: 15px;
   text-align: center;
-  animation: fadeIn 0.5s ease-in-out;
+  animation: doctor-overview-fadeIn 0.5s ease-in-out;
   margin-bottom: 20px;
 }
 
-.review-success h4 {
+.doctor-overview-review-success h4 {
   color: #2e7d32;
   margin-bottom: 10px;
 }
 
-.review-success p {
+.doctor-overview-review-success p {
   margin-bottom: 5px;
 }

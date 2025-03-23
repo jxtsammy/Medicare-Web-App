@@ -4,22 +4,22 @@ import Avatar from '../../assets/Avatar.png';
 
 const LoginSettings = () => {
   return (
-    <div className="account-settings-container">
+    <div className="login-settings-container">
       {/* Header */}
-      <header className="settings-header">
-        <div className="header-content">
-          <div className="spacer"></div>
-          <div className="user-controls">
-            <button className="notification-btn">
+      <header className="login-settings-header">
+        <div className="login-settings-header-content">
+          <div className="login-settings-spacer"></div>
+          <div className="login-settings-user-controls">
+            <button className="login-settings-notification-btn">
               <Bell size={20} />
             </button>
-            <div className="user-profile">
-              <span className="username">Abednego</span>
-              <span className="user-status">Verified User <Check size={16} className="verified-icon" /></span>
+            <div className="login-settings-user-profile">
+              <span className="login-settings-username">Abednego</span>
+              <span className="login-settings-user-status">Verified User <Check size={16} className="login-settings-verified-icon" /></span>
               <img
-                src={Avatar}
+                src={Avatar || "/placeholder.svg"}
                 alt="User profile"
-                className="user-avatar"
+                className="login-settings-user-avatar"
               />
             </div>
           </div>
@@ -27,9 +27,9 @@ const LoginSettings = () => {
       </header>
 
       {/* Main Content */}
-      <main className="settings-main">
+      <main className="login-settings-main">
         {/* Sidebar Navigation */}
-        <nav className="settings-nav">
+        <nav className="login-settings-nav">
           <ul>
             <li><a href="#personal">Personal Information</a></li>
             <li><a href="#family">Family member</a></li>
@@ -42,43 +42,43 @@ const LoginSettings = () => {
         </nav>
 
         {/* Settings Content */}
-        <div className="settings-content">
+        <div className="login-settings-content">
           {/* Login Section */}
-          <section className="settings-section">
-            <h2 className="section-title">Login</h2>
+          <section className="login-settings-section">
+            <h2 className="login-settings-section-title">Login</h2>
 
-            <div className="settings-item">
-              <div className="item-details">
+            <div className="login-settings-item">
+              <div className="login-settings-item-details">
                 <h3>Password</h3>
-                <p className="item-description">set a strong password to secure your account</p>
+                <p className="login-settings-item-description">set a strong password to secure your account</p>
               </div>
-              <div className="item-action">
-                <button className="action-button">Change password</button>
+              <div className="login-settings-item-action">
+                <button className="login-settings-action-button">Change password</button>
               </div>
             </div>
           </section>
 
           {/* Connected Account Section */}
-          <section className="settings-section">
-            <div className="settings-item">
-              <div className="item-details">
+          <section className="login-settings-section">
+            <div className="login-settings-item">
+              <div className="login-settings-item-details">
                 <h3>Connected Account</h3>
-                <p className="item-description">You have connected to Google</p>
+                <p className="login-settings-item-description">You have connected to Google</p>
               </div>
             </div>
           </section>
 
           {/* Security Section */}
-          <section className="settings-section">
-            <h2 className="section-title">Security</h2>
+          <section className="login-settings-section">
+            <h2 className="login-settings-section-title">Security</h2>
 
-            <div className="settings-item">
-              <div className="item-details">
+            <div className="login-settings-item">
+              <div className="login-settings-item-details">
                 <h3>Phone number</h3>
-                <p className="item-description">Adding and verifying phone number makes booking easier and faster</p>
+                <p className="login-settings-item-description">Adding and verifying phone number makes booking easier and faster</p>
               </div>
-              <div className="item-action">
-                <button className="action-button">Add</button>
+              <div className="login-settings-item-action">
+                <button className="login-settings-action-button">Add</button>
               </div>
             </div>
           </section>

@@ -1,218 +1,220 @@
+/* Notifications specific styling */
+
 /* Main Container */
-.notifications-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #FDFAEE;
-  }
-  
-  /* Header Styles */
-  .notifications-header {
-    background-color: #fff8dc;
-    padding: 15px 20px;
-    border-bottom: 1px solid #e6e0c0;
-  }
-  
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  
-  .user-controls {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .notification-btn {
-    background-color: transparent;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .user-profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 5px 15px;
-  }
-  
-  .username {
-    font-weight: bold;
-  }
-  
-  .user-status {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .verified-icon {
-    color: #00a884;
-    margin-left: 4px;
-  }
-  
-  .user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  /* Main Content Styles */
-  .notifications-main {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 20px;
-    gap: 40px;
-  }
-  
-  /* Sidebar Navigation */
-  .notifications-nav {
-    width: 250px;
-    flex-shrink: 0;
-  }
-  
-  .notifications-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .notifications-nav li {
-    margin-bottom: 15px;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .notifications-nav li.active {
-    border-left: 4px solid #000;
-    padding-left: 10px;
-    font-weight: bold;
-  }
-  
-  .notifications-nav a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-  }
-  
-  /* Notifications Content */
-  .notifications-content {
-    flex: 1;
-  }
-  
-  .page-title {
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
-  /* Tabs */
-  .notification-tabs {
-    display: flex;
-    margin-bottom: 30px;
-    gap: 10px;
-  }
-  
-  .tab-button {
-    padding: 8px 16px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .tab-button.active {
-    background-color: #000;
-    color: white;
-  }
-  
-  /* Notification Section */
-  .notification-section {
-    margin-bottom: 30px;
-  }
-  
-  .section-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
-  /* Notification Options */
-  .notification-option {
-    margin-bottom: 20px;
-  }
-  
-  .checkbox-container {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .checkbox-container input[type="checkbox"] {
-    margin-right: 10px;
-    width: 18px;
-    height: 18px;
-  }
-  
-  .checkbox-label {
-    font-size: 16px;
-    font-weight: 500;
-  }
-  
-  .option-description {
-    margin: 5px 0 0 28px;
-    color: #888;
-    font-size: 14px;
-  }
-  
-  /* Action Buttons */
-  .action-buttons {
-    display: flex;
-    gap: 20px;
-    margin-top: 40px;
-  }
-  
-  .save-button {
-    background-color: #ffeb3b;
-    border: none;
-    border-radius: 4px;
-    padding: 12px 40px;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: 500;
-  }
-  
-  .save-button:hover {
-    background-color: #fdd835;
-  }
-  
-  .cancel-button {
-    background-color: transparent;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 12px 40px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .cancel-button:hover {
-    background-color: #f5f5f5;
-  }
+.Notifications-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfaee;
+}
+
+/* Header Styles */
+.Notifications-header {
+  background-color: #fff8dc;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e6e0c0;
+}
+
+.Notifications-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.Notifications-user-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.Notifications-notification-btn {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Notifications-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 5px 15px;
+}
+
+.Notifications-username {
+  font-weight: bold;
+}
+
+.Notifications-user-status {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.Notifications-verified-icon {
+  color: #00a884;
+  margin-left: 4px;
+}
+
+.Notifications-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Main Content Styles */
+.Notifications-main {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+  gap: 40px;
+}
+
+/* Sidebar Navigation */
+.Notifications-nav {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.Notifications-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Notifications-nav li {
+  margin-bottom: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.Notifications-nav li.Notifications-active {
+  border-left: 4px solid #000;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.Notifications-nav a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+/* Notifications Content */
+.Notifications-content {
+  flex: 1;
+}
+
+.Notifications-page-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Tabs */
+.Notifications-tabs {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.Notifications-tab-button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.Notifications-tab-button.Notifications-active {
+  background-color: #000;
+  color: white;
+}
+
+/* Notification Section */
+.Notifications-section {
+  margin-bottom: 30px;
+}
+
+.Notifications-section-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Notification Options */
+.Notifications-option {
+  margin-bottom: 20px;
+}
+
+.Notifications-checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Notifications-checkbox-container input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.Notifications-checkbox-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.Notifications-option-description {
+  margin: 5px 0 0 28px;
+  color: #888;
+  font-size: 14px;
+}
+
+/* Action Buttons */
+.Notifications-action-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.Notifications-save-button {
+  background-color: #ffeb3b;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.Notifications-save-button:hover {
+  background-color: #fdd835;
+}
+
+.Notifications-cancel-button {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 12px 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.Notifications-cancel-button:hover {
+  background-color: #f5f5f5;
+}
