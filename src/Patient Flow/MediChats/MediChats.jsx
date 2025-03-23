@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { FaArrowLeft, FaPhone, FaVideo, FaPaperclip, FaPaperPlane } from "react-icons/fa"
+import { useState, useEffect, useRef } from "react"
+import { FaArrowLeft, FaPhone, FaVideo, FaPaperclip, FaPaperPlane, FaSearch, FaTimes } from "react-icons/fa"
 import "./MediChats.css"
 import Chat from "./assets/chatPerson.png"
 import Sarah from "./assets/Sarah.png"
@@ -10,17 +10,25 @@ import Ellis from "./assets/Ellis.png"
 import Michael from "./assets/Michael.png"
 import Greg from "./assets/Greg.png"
 import Wilson from "./assets/Wilson.png"
+
 const MediChats = () => {
   const [message, setMessage] = useState("")
   const [activeChat, setActiveChat] = useState("Florencio Dorrance")
+  const [searchTerm, setSearchTerm] = useState("")
+  const [filteredContacts, setFilteredContacts] = useState([])
+  const [attachments, setAttachments] = useState([])
+  const [showAttachmentPreview, setShowAttachmentPreview] = useState(false)
+  const fileInputRef = useRef(null)
+  const messagesEndRef = useRef(null)
 
-  const contacts = [
+  // Initial contacts data
+  const initialContacts = [
     {
       id: 1,
       name: "Elmer Laverty",
       lastMessage: "Haha oh man 🔥",
       time: "12m",
-      avatar:  Sarah,
+      avatar: Sarah,
       unread: false,
     },
     {
@@ -66,46 +74,45 @@ const MediChats = () => {
     },
   ]
 
-  // Updated messages array to include messages from different contacts
-  const messages = [
-    // Florencio Dorrance messages
-    {
-      id: 1,
-      sender: "Florencio Dorrance",
-      text: "omg, this is amazing",
-      time: "10:30 AM",
-    },
-    {
-      id: 2,
-      sender: "Florencio Dorrance",
-      text: "perfect! ✅",
-      time: "10:31 AM",
-    },
-    {
-      id: 3,
-      sender: "You",
-      text: "How are you?",
-      time: "10:35 AM",
-      isUser: true,
-    },
-    {
-      id: 4,
-      sender: "Florencio Dorrance",
-      text: "I'll be there in 2 mins ⏰",
-      time: "10:41 AM",
-    },
-    {
-      id: 5,
-      sender: "You",
-      text: "woohoooo",
-      time: "10:45 AM",
-      isUser: true,
-    },
-  ]
+  // State for contacts to allow updates
+  const [contacts, setContacts] = useState(initialContacts)
 
-  // Create a mapping of messages for each contact
-  const messagesByContact = {
-    "Florencio Dorrance": messages,
+  // Initial messages data
+  const initialMessagesByContact = {
+    "Florencio Dorrance": [
+      {
+        id: 1,
+        sender: "Florencio Dorrance",
+        text: "omg, this is amazing",
+        time: "10:30 AM",
+      },
+      {
+        id: 2,
+        sender: "Florencio Dorrance",
+        text: "perfect! ✅",
+        time: "10:31 AM",
+      },
+      {
+        id: 3,
+        sender: "You",
+        text: "How are you?",
+        time: "10:35 AM",
+        isUser: true,
+      },
+      {
+        id: 4,
+        sender: "Florencio Dorrance",
+        text: "I'll be there in 2 mins ⏰",
+        time: "10:41 AM",
+      },
+      {
+        id: 5,
+        sender: "You",
+        text: "woohoooo",
+        time: "10:45 AM",
+        isUser: true,
+      },
+    ],
     "Elmer Laverty": [
       {
         id: 1,
@@ -245,24 +252,277 @@ const MediChats = () => {
     ],
   }
 
+  // State for messages to allow updates
+  const [messagesByContact, setMessagesByContact] = useState(initialMessagesByContact)
+
+  // Filter contacts based on search term
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      setFilteredContacts(contacts)
+    } else {
+      const filtered = contacts.filter(
+        (contact) =>
+          contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          contact.lastMessage.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          // Also search in messages
+          messagesByContact[contact.name]?.some((msg) => msg.text.toLowerCase().includes(searchTerm.toLowerCase())),
+      )
+      setFilteredContacts(filtered)
+    }
+  }, [searchTerm, contacts, messagesByContact])
+
+  // Initialize filtered contacts
+  useEffect(() => {
+    setFilteredContacts(contacts)
+  }, [contacts])
+
+  // Scroll to bottom of messages when they change
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [messagesByContact, activeChat])
+
   // Function to get the correct avatar for a message
   const getMessageAvatar = (msg) => {
     if (msg.isUser) {
-      // For user messages, use a default avatar
-      return "/placeholder.svg?height=50&width=50"
+      return Wilson
     } else {
-      // For contact messages, find the contact and use their avatar
       const contact = contacts.find((c) => c.name === msg.sender)
       return contact ? contact.avatar : "/placeholder.svg?height=50&width=50"
     }
   }
 
+  // Function to format current time
+  const getCurrentTime = () => {
+    const now = new Date()
+    let hours = now.getHours()
+    const minutes = now.getMinutes().toString().padStart(2, "0")
+    const ampm = hours >= 12 ? "PM" : "AM"
+
+    hours = hours % 12
+    hours = hours ? hours : 12 // Convert 0 to 12
+
+    return `${hours}:${minutes} ${ampm}`
+  }
+
+  // Function to format relative time (e.g., "1m", "2h", "3d")
+  const getRelativeTime = (date) => {
+    const now = new Date()
+    const diff = Math.floor((now - date) / 1000) // difference in seconds
+
+    if (diff < 60) return `${diff}s`
+    if (diff < 3600) return `${Math.floor(diff / 60)}m`
+    if (diff < 86400) return `${Math.floor(diff / 3600)}h`
+    return `${Math.floor(diff / 86400)}d`
+  }
+
+  // Clear search
+  const clearSearch = () => {
+    setSearchTerm("")
+  }
+
+  // Handle file attachment
+  const handleAttachmentClick = () => {
+    fileInputRef.current.click()
+  }
+
+  // Handle file selection
+  const handleFileSelect = (e) => {
+    const files = Array.from(e.target.files)
+    if (files.length > 0) {
+      const newAttachments = files.map((file) => ({
+        id: Date.now() + Math.random().toString(36).substr(2, 9),
+        file,
+        name: file.name,
+        type: file.type,
+        url: URL.createObjectURL(file),
+        size: file.size,
+      }))
+
+      setAttachments([...attachments, ...newAttachments])
+      setShowAttachmentPreview(true)
+    }
+  }
+
+  // Remove attachment
+  const removeAttachment = (id) => {
+    const updatedAttachments = attachments.filter((attachment) => attachment.id !== id)
+    setAttachments(updatedAttachments)
+    if (updatedAttachments.length === 0) {
+      setShowAttachmentPreview(false)
+    }
+  }
+
+  // Send message with attachments
+  const sendAttachment = () => {
+    if (attachments.length > 0) {
+      // Create messages for each attachment
+      attachments.forEach((attachment) => {
+        const isImage = attachment.type.startsWith("image/")
+        const isPdf = attachment.type === "application/pdf"
+
+        let attachmentText = ""
+        if (isImage) {
+          attachmentText = `[Image: ${attachment.name}]`
+        } else if (isPdf) {
+          attachmentText = `[PDF: ${attachment.name}]`
+        } else {
+          attachmentText = `[File: ${attachment.name}]`
+        }
+
+        // Create a new message object with attachment
+        const newMessage = {
+          id: Date.now(),
+          sender: "You",
+          text: message.trim() ? message : attachmentText,
+          time: getCurrentTime(),
+          isUser: true,
+          attachment: {
+            id: attachment.id,
+            name: attachment.name,
+            type: attachment.type,
+            url: attachment.url,
+            size: attachment.size,
+          },
+        }
+
+        // Update messages for the active chat
+        const updatedMessages = {
+          ...messagesByContact,
+          [activeChat]: [...messagesByContact[activeChat], newMessage],
+        }
+
+        // Update the last message and time for the contact
+        const updatedContacts = contacts.map((contact) => {
+          if (contact.name === activeChat) {
+            return {
+              ...contact,
+              lastMessage: isImage ? "📷 Image" : isPdf ? "📄 PDF" : "📎 File",
+              time: "now",
+            }
+          }
+          return contact
+        })
+
+        // Sort contacts to put the active chat at the top
+        const sortedContacts = [...updatedContacts].sort((a, b) => {
+          if (a.name === activeChat) return -1
+          if (b.name === activeChat) return 1
+          return 0
+        })
+
+        // Update state
+        setMessagesByContact(updatedMessages)
+        setContacts(sortedContacts)
+      })
+
+      // Clear attachments and message
+      setAttachments([])
+      setShowAttachmentPreview(false)
+      setMessage("")
+    }
+  }
+
+  // Handle sending a new message
   const handleSendMessage = (e) => {
     e.preventDefault()
+
+    // If there are attachments, send them
+    if (attachments.length > 0) {
+      sendAttachment()
+      return
+    }
+
+    // Otherwise send a regular text message
     if (message.trim() !== "") {
-      // In a real app, you would add the message to the messages array
-      // and potentially send it to a backend
+      // Create a new message object
+      const newMessage = {
+        id: Date.now(),
+        sender: "You",
+        text: message,
+        time: getCurrentTime(),
+        isUser: true,
+      }
+
+      // Update messages for the active chat
+      const updatedMessages = {
+        ...messagesByContact,
+        [activeChat]: [...messagesByContact[activeChat], newMessage],
+      }
+
+      // Update the last message and time for the contact
+      const updatedContacts = contacts.map((contact) => {
+        if (contact.name === activeChat) {
+          return {
+            ...contact,
+            lastMessage: message,
+            time: "now",
+          }
+        }
+        return contact
+      })
+
+      // Sort contacts to put the active chat at the top
+      const sortedContacts = [...updatedContacts].sort((a, b) => {
+        if (a.name === activeChat) return -1
+        if (b.name === activeChat) return 1
+        return 0
+      })
+
+      // Update state
+      setMessagesByContact(updatedMessages)
+      setContacts(sortedContacts)
       setMessage("")
+
+      // Simulate a reply after a random delay (1-3 seconds)
+      if (Math.random() > 0.3) {
+        // 70% chance of reply
+        const replyDelay = Math.floor(Math.random() * 2000) + 1000
+
+        setTimeout(() => {
+          const replies = [
+            "That's interesting!",
+            "I see what you mean.",
+            "Thanks for letting me know.",
+            "Got it! 👍",
+            "I'll get back to you on that.",
+            "Sounds good!",
+            "Hmm, let me think about that.",
+            "Perfect! 😊",
+            "I appreciate your message.",
+            "Let's discuss this further.",
+          ]
+
+          const randomReply = replies[Math.floor(Math.random() * replies.length)]
+
+          const replyMessage = {
+            id: Date.now(),
+            sender: activeChat,
+            text: randomReply,
+            time: getCurrentTime(),
+          }
+
+          // Update messages with the reply
+          const updatedMessagesWithReply = {
+            ...messagesByContact,
+            [activeChat]: [...updatedMessages[activeChat], replyMessage],
+          }
+
+          // Update the last message for the contact
+          const contactsWithReply = contacts.map((contact) => {
+            if (contact.name === activeChat) {
+              return {
+                ...contact,
+                lastMessage: randomReply,
+                time: "now",
+              }
+            }
+            return contact
+          })
+
+          setMessagesByContact(updatedMessagesWithReply)
+          setContacts(contactsWithReply)
+        }, replyDelay)
+      }
     }
   }
 
@@ -281,27 +541,50 @@ const MediChats = () => {
         </div>
 
         <div className="search-container">
-          <input type="text" placeholder="Search messages" className="search-input" />
+          <div className="search-input-wrapper">
+            <FaSearch className="search-icon" />
+            <input
+              type="text"
+              placeholder="Search messages"
+              className="search-input"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            {searchTerm && (
+              <button className="clear-search" onClick={clearSearch}>
+                <FaTimes />
+              </button>
+            )}
+          </div>
+          {searchTerm && (
+            <div className="search-results-count">
+              {filteredContacts.length} {filteredContacts.length === 1 ? "result" : "results"} found
+            </div>
+          )}
         </div>
 
         <div className="contacts-list">
-          {contacts.map((contact) => (
-            <div
-              key={contact.id}
-              className={`contact-item ${activeChat === contact.name ? "active" : ""}`}
-              onClick={() => setActiveChat(contact.name)}
-            >
-              <div className="contact-avatar">
-                <img src={contact.avatar || "/placeholder.svg?height=50&width=50"} alt={contact.name} />
-                {contact.online && <span className="online-indicator"></span>}
+          {filteredContacts.length > 0 ? (
+            filteredContacts.map((contact) => (
+              <div
+                key={contact.id}
+                className={`contact-item ${activeChat === contact.name ? "active" : ""}`}
+                onClick={() => setActiveChat(contact.name)}
+              >
+                <div className="contact-avatar">
+                  <img src={contact.avatar || "/placeholder.svg?height=50&width=50"} alt={contact.name} />
+                  {contact.online && <span className="online-indicator"></span>}
+                </div>
+                <div className="contact-info">
+                  <div className="contact-name">{contact.name}</div>
+                  <div className="contact-last-message">{contact.lastMessage}</div>
+                </div>
+                <div className="contact-time">{contact.time}</div>
               </div>
-              <div className="contact-info">
-                <div className="contact-name">{contact.name}</div>
-                <div className="contact-last-message">{contact.lastMessage}</div>
-              </div>
-              <div className="contact-time">{contact.time}</div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <div className="no-results">No matching contacts or messages found</div>
+          )}
         </div>
       </div>
 
@@ -338,28 +621,98 @@ const MediChats = () => {
               )}
               <div className="message-bubble">
                 <div className="message-text">{msg.text}</div>
+                {msg.attachment && (
+                  <div className="message-attachment">
+                    {msg.attachment.type.startsWith("image/") ? (
+                      <img
+                        src={msg.attachment.url || "/placeholder.svg"}
+                        alt={msg.attachment.name}
+                        className="attachment-image"
+                        onClick={() => window.open(msg.attachment.url, "_blank")}
+                      />
+                    ) : msg.attachment.type === "application/pdf" ? (
+                      <div className="pdf-attachment" onClick={() => window.open(msg.attachment.url, "_blank")}>
+                        <div className="pdf-icon">📄</div>
+                        <div className="pdf-info">
+                          <div className="pdf-name">{msg.attachment.name}</div>
+                          <div className="pdf-size">{Math.round(msg.attachment.size / 1024)} KB</div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="file-attachment" onClick={() => window.open(msg.attachment.url, "_blank")}>
+                        <div className="file-icon">📎</div>
+                        <div className="file-info">
+                          <div className="file-name">{msg.attachment.name}</div>
+                          <div className="file-size">{Math.round(msg.attachment.size / 1024)} KB</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+                <div className="message-time">{msg.time}</div>
               </div>
               {msg.isUser && (
                 <div className="message-avatar">
-                  <img src= {Wilson} alt="You" />
+                  <img src={Wilson || "/placeholder.svg"} alt="You" />
                 </div>
               )}
             </div>
           ))}
+          <div ref={messagesEndRef} />
         </div>
 
         <form className="message-input-container" onSubmit={handleSendMessage}>
-          <button type="button" className="attachment-button">
+          <button type="button" className="attachment-button" onClick={handleAttachmentClick}>
             <FaPaperclip />
           </button>
           <input
+            type="file"
+            ref={fileInputRef}
+            style={{ display: "none" }}
+            onChange={handleFileSelect}
+            multiple
+            accept="image/*,.pdf"
+          />
+
+          {showAttachmentPreview && attachments.length > 0 && (
+            <div className="attachment-preview">
+              {attachments.map((attachment) => (
+                <div key={attachment.id} className="attachment-item">
+                  {attachment.type.startsWith("image/") ? (
+                    <div className="attachment-thumbnail">
+                      <img src={attachment.url || "/placeholder.svg"} alt={attachment.name} />
+                      <button className="remove-attachment" onClick={() => removeAttachment(attachment.id)}>
+                        ×
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="attachment-file">
+                      <span className="file-icon">📄</span>
+                      <span className="file-name">
+                        {attachment.name.length > 15 ? attachment.name.substring(0, 12) + "..." : attachment.name}
+                      </span>
+                      <button className="remove-attachment" onClick={() => removeAttachment(attachment.id)}>
+                        ×
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          <input
             type="text"
-            placeholder="Type a message"
+            placeholder={attachments.length > 0 ? "Add a caption..." : "Type a message"}
             className="message-input"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <button type="submit" className="send-button">
+          <button
+            type="submit"
+            className={`send-button ${message.trim() || attachments.length > 0 ? "active" : ""}`}
+            disabled={!message.trim() && attachments.length === 0}
+          >
             <FaPaperPlane />
           </button>
         </form>
