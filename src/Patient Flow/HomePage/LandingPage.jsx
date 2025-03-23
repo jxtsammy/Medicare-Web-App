@@ -3,27 +3,29 @@
 import { useState } from "react"
 import "./LandingPage.css"
 import { FaSearch, FaMapMarkerAlt, FaCalendarAlt, FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa"
-import medstar from './assets/medstar.png';
-import sinai from './assets/mount-sinai.png';
-import tufts from './assets/tufts.png';
-import methodist from './assets/methodist.png'
-import health from './assets/health.png'
-import montefiore from './assets/montefiore.png'
-import provider from './assets/provider.png'
-import book from './assets/book-doc.png'
-import girl from './assets/girl-doc.png'
-import cigna from './assets/cigna.png'
-import medicare from './assets/medicare.png'
-import aetna from './assets/aetna.png'
-import united from './assets/unitedhealth.png'
-import BlueCross from './assets/BlueCross.png'
-import Medicaresrc from './assets/Medicare-logo.png'
-import eye from './assets/eye.png'
-import dentist from './assets/dentist.png'
-import dermatologist from './assets/dermatologist.png'
-import doctor from './assets/doctor.png'
-import heart from './assets/heart.png'
-import psychiatrist from './assets/psychiatrist.png'
+import medstar from '../../assets/medstar.png';
+import sinai from '../../assets/mount-sinai.png';
+import tufts from '../../assets/tufts.png';
+import methodist from '../../assets/methodist.png'
+import health from '../../assets/health.png'
+import montefiore from '../../assets/montefiore.png'
+import provider from '../../assets/provider.png'
+import book from '../../assets/book-doc.png'
+import girl from '../../assets/girl-doc.png'
+import cigna from '../../assets/cigna.png'
+import medicare from '../../assets/medicare.png'
+import aetna from '../../assets/aetna.png'
+import united from '../../assets/unitedhealth.png'
+import BlueCross from '../../assets/BlueCross.png'
+import Medicaresrc from '../../assets/Medicare-logo.png'
+import eye from '../../assets/eye.png'
+import dentist from '../../assets/dentist.png'
+import dermatologist from '../../assets/dermatologist.png'
+import doctor from '../../assets/doctor.png'
+import heart from '../../assets/heart.png'
+import psychiatrist from '../../assets/psychiatrist.png'
+import help from '../../assets/helpp.png'
+import { Link } from "react-router-dom"
 
 
 const LandingPage = () => {
@@ -48,11 +50,6 @@ const LandingPage = () => {
     // In a real app, you would redirect to search results page
   }
 
-  // Toggle dropdown menus
-  const toggleBrowseDropdown = () => {
-    setBrowseOpen(!browseOpen)
-    if (loginOpen) setLoginOpen(false)
-  }
 
   const toggleLoginDropdown = () => {
     setLoginOpen(!loginOpen)
@@ -106,31 +103,6 @@ const LandingPage = () => {
             <img src={Medicaresrc} alt="Medicare Logo" className="logo-img"/>
           </div>
           <nav className="nav">
-            <div className="nav-links">
-              <div className="dropdown">
-                <button className="nav-link" onClick={toggleBrowseDropdown}>
-                  Browse <span>▼</span>
-                </button>
-                {browseOpen && (
-                  <div className="dropdown-menu">
-                    <a href="#" className="dropdown-item">
-                      Find Doctors
-                    </a>
-                    <a href="#" className="dropdown-item">
-                      Specialties
-                    </a>
-                    <a href="#" className="dropdown-item">
-                      Insurance Plans
-                    </a>
-                    <a href="#" className="dropdown-item">
-                      Health Systems
-                    </a>
-                  </div>
-                )}
-              </div>
-              <button className="nav-link">Help</button>
-              <button className="nav-link">List your practice on Medicare</button>
-            </div>
             <div className="auth-buttons">
               <div className="dropdown">
                 <button className="login-btn" onClick={toggleLoginDropdown}>
@@ -141,9 +113,9 @@ const LandingPage = () => {
                     <a href="#" className="dropdown-item" onClick={() => handleLogin()}>
                       Patient Login
                     </a>
-                    <a href="#" className="dropdown-item" onClick={() => handleLogin()}>
+                    <Link to="provider-login" className="dropdown-item">
                       Provider Login
-                    </a>
+                    </Link>
                   </div>
                 )}
               </div>
@@ -280,12 +252,12 @@ const LandingPage = () => {
       {/* Features Section */}
       <section className="features-section">
         <div className="features-container">
-          <h2 className="section-title">Let's get you a doc who gets you</h2>
+          <h2 className="section-title">Lets get you a doc who gets you</h2>
 
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-image">
-                <img src="/placeholder.svg?height=150&width=150" alt="Browse providers" />
+                <img src={help} alt="Browse providers" />
               </div>
               <h3 className="feature-title">Browse providers who take your insurance</h3>
               <button className="feature-btn" onClick={() => handleFeatureClick("specialists")}>
@@ -584,4 +556,3 @@ const LandingPage = () => {
 }
 
 export default LandingPage
-

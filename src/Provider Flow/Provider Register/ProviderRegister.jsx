@@ -22,7 +22,7 @@ function App() {
           <img src={logo} alt="medicare" className="signup-logo-img"/>
           <h1 className="signup-logo-title"><span className="signup-for-providers">for Providers</span></h1>
         </div>
-        <Link to="/"><button className="signup-sign-in-btn-header">Sign In</button></Link>
+        <Link to="/provider-login"><button className="signup-sign-in-btn-header">Sign In</button></Link>
       </header>
 
       <main className="signup-main-content">
@@ -90,7 +90,7 @@ function App() {
             </form>
 
             <p className="signup-login-prompt">
-              Already have an account? <Link to="/" className="signup-login-link">Sign In</Link>
+              Already have an account? <Link to="/provider-login" className="signup-login-link">Sign In</Link>
             </p>
           </div>
         </div>

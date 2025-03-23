@@ -38,7 +38,7 @@ h3 {
 }
 
 .section-container {
-  max-width: 1200px;
+  width: 100vw;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -166,7 +166,8 @@ h3 {
   flex: 1;
   position: relative;
   border: none;
-  background: transparent;
+  background: white;
+  color: white;
 }
 
 .search-icon {
@@ -183,6 +184,7 @@ h3 {
   border: none;
   outline: none;
   font-size: 14px;
+  background-color: white;
 }
 
 .search-btn {
@@ -699,4 +701,3 @@ h3 {
     align-items: center;
   }
 }
-

@@ -24,7 +24,7 @@ function App() {
             <span className="login-for-providers">for Providers</span>
           </h1>
         </div>
-        <Link to="/register"><button className="login-register-btn">Register</button></Link>
+        <Link to="/provider-register"><button className="login-register-btn">Register</button></Link>
       </header>
 
       <main className="login-main-content">
@@ -54,7 +54,7 @@ function App() {
           </form>
 
           <p className="login-register-prompt">
-            Dont have an account? <Link to="/register" className="login-register-link">Register</Link>
+            Dont have an account? <Link to="/provider-register" className="login-register-link">Register</Link>
           </p>
         </div>
       </main>

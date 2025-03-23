@@ -28,7 +28,7 @@ body {
 .provider-app-container {
   display: flex;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -226,7 +226,6 @@ body {
   margin-bottom: 15px;
   line-height: 1.5;
   color: var(--text-color);
-  text-wrap: wrap;
 }
 
 .provider-bio-content ul {
