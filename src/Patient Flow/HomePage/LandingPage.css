@@ -38,7 +38,7 @@ h3 {
 }
 
 .section-container {
-  max-width: 1200px;
+  width: 100vw;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -699,4 +699,3 @@ h3 {
     align-items: center;
   }
 }
-
