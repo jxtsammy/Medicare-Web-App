@@ -1,4 +1,4 @@
-import Medicare from "./PatientFlow/Medicare.jsx"
+{/*import Medicare from "./PatientFlow/Medicare.jsx"
 import Signup from "./PatientFlow/Signup.jsx"
 import Homeps from "./PatientFlow/Homeps.jsx"
 import RegisterPatient from "./PatientFlow/RegisterPatient/RegisterPatient.jsx"
@@ -14,21 +14,17 @@ import PatientVideoCall from './PatientFlow/DoctorOverview/PatientVideoCall/Pati
 import PersonalInfo from './PatientFlow/PersonalInfo/PersonalInfo.jsx';
 import MapsViewUser from './PatientFlow/MapsViewUser/MapsViewUser.jsx';
 import Maps from './PatientFlow/Maps/Maps.jsx';
-import LandingPage from "./PatientFlow/HomePage/LandingPage.jsx"
+import LandingPage from "./PatientFlow/HomePage/LandingPage.jsx"*/}
+import AiChat from "./AiChat.jsx";
+//import PatientVoiceCall from "./PatientVoiceCall.jsx" 
+
+
+
 function App() {
   return (
     <div>
-      <RegisterPatient/>
-      <PatientLogin/>
-      <DoctorOverview/>
-      <PatientVideoCall/>
-      <LoginSettings/>
-      <Notifications/>
-      <PersonalInfo/>
-      <MapsViewUser/>
-      <Maps/>
-      <LandingPage/>
       
+      <AiChat/>
     </div>
   );
 }

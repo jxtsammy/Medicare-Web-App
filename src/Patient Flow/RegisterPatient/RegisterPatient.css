@@ -1,168 +1,233 @@
-.register-container {
-    font-family: Arial, sans-serif;
-    background-color: #fff8e1;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: #fff2b8; /* Light yellow background */
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  background-color: #00a67e; /* Green color for Medicare logo */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.notification-bell {
+  width: 40px;
+  height: 40px;
+  background-color: #ffd54f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff5722;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-weight: bold;
+}
+
+.profile-role {
+  font-size: 14px;
+}
+
+/* Main content styles */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.caller-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+}
+
+.caller-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Call controls styles */
+.controls-container {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  background-color: white;
+  border-radius: 50px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.control-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.red-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.dark-button {
+  background-color: #37474f;
+  color: white;
+}
+
+.control-button:hover {
+  opacity: 0.9;
+}
+
+.control-button.active {
+  background-color: #d32f2f;
+}
+
+.phone-icon {
+  transform: rotate(135deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px;
   }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-    align-self: flex-start;
-    margin-bottom: 20px;
-  }
-  
-  .medicare-logo {
+
+  .logo {
+    width: 40px;
     height: 40px;
-    width: auto;
   }
-  
-  .form-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 30px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    margin-bottom: 100px; /* Add space for the hands image */
+
+  .logo-text {
+    font-size: 20px;
   }
-  
-  .form-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
+
+  .controls-container {
+    padding: 8px 15px;
   }
-  
-  .form-group {
-    margin-bottom: 15px;
+
+  .control-button {
+    width: 45px;
+    height: 45px;
+    margin: 0 5px;
   }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .profile-role {
+    display: none;
   }
-  
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+
+  .notification-bell {
+    width: 35px;
+    height: 35px;
   }
-  
-  .name-row {
-    display: flex;
-    gap: 15px;
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
   }
-  
-  .form-row {
-    display: flex;
-    gap: 15px;
+
+  .caller-image {
+    width: 120px;
+    height: 120px;
   }
-  
-  .half {
-    flex: 1;
+
+  .control-button {
+    width: 40px;
+    height: 40px;
+    margin: 0 3px;
   }
-  
-  .radio-group {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .radio-option {
-    display: flex;
-    align-items: center;
-  }
-  
-  .radio-option input {
-    margin-right: 5px;
-  }
-  
-  .register-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #ffeb3b;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .register-button:hover {
-    background-color: #fdd835;
-  }
-  
-  .divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  .divider::before,
-  .divider::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .divider span {
-    padding: 0 10px;
-    color: #777;
-  }
-  
-  .google-button {
-    width: 100%;
-    padding: 10px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  
-  .google-button svg {
-    margin-right: 10px;
-  }
-  
-  .login-link {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .login-link a {
-    color: #1976d2;
-    text-decoration: none;
-  }
-  
-  /* Fixed hands footer */
-  .hands-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 0;
-  }
-  
-  .hands-image {
-    width: 100%;
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
-    max-height: 100%;
-    object-fit: cover;
-  }
+}
+
