@@ -1,133 +1,97 @@
-import "./Profile-settings.css"
-import { FaCommentDots, FaCalendarAlt, FaUsers, FaCog, FaHeadset, FaMapMarkerAlt, FaPencilAlt } from "react-icons/fa"
-import { BsGrid } from "react-icons/bs"
+import { useLocation, Link } from "react-router-dom";
+import { LayoutGrid, MessageSquare, Calendar, Settings, LogOut, MapPin, Edit } from "lucide-react";
+import "./Profile-settings.css";
+import cover from '../../assets/Medimock.png';
 
-function App() {
+export default function ProfileSettings() {
+  const location = useLocation();
+  const profileData = location.state || {};
+
   return (
-    <div className="app">
+    <div className="provider-app-container">
       {/* Sidebar */}
-      <aside className="sidebar">
-        <div className="sidebar-top">
-          <nav className="sidebar-nav">
-            <ul>
-              <li>
-                <a href="#">
-                  <span className="icon-container">
-                    <BsGrid />
-                  </span>{" "}
-                  <span className="nav-text">Overview</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span className="icon-container">
-                    <FaCommentDots />
-                  </span>{" "}
-                  <span className="nav-text">Messages</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span className="icon-container">
-                    <FaCalendarAlt />
-                  </span>{" "}
-                  <span className="nav-text">Appointments</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span className="icon-container">
-                    <FaUsers />
-                  </span>{" "}
-                  <span className="nav-text">Patients</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div className="sidebar-bottom">
-          <nav className="sidebar-nav">
-            <ul>
-              <li className="active">
-                <a href="#">
-                  <span className="icon-container">
-                    <FaCog />
-                  </span>{" "}
-                  <span className="nav-text">Settings</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span className="icon-container">
-                    <FaHeadset />
-                  </span>{" "}
-                  <span className="nav-text">Support</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </aside>
+      <div className="provider-sidebar">
+        <nav className="provider-sidebar-nav">
+          <div className="provider-nav-item">
+            <Link to="/dashboard" className="provider-nav-icon">
+              <LayoutGrid size={24} />
+            </Link>
+          </div>
+          <div className="provider-nav-item">
+            <Link to="/chat" className="provider-nav-icon">
+              <MessageSquare size={24} />
+            </Link>
+          </div>
+          <div className="provider-nav-item">
+            <Link to="/appointments" className="provider-nav-icon">
+              <Calendar size={24} />
+            </Link>
+          </div>
+          <div className="provider-nav-spacer"></div>
+          <div className="provider-nav-item provider-active">
+            <Link to="/profile" className="provider-nav-icon">
+              <Settings size={24} />
+            </Link>
+          </div>
+          <div className="provider-nav-item">
+            <Link to="/" className="provider-nav-icon">
+              <LogOut size={24} />
+            </Link>
+          </div>
+        </nav>
+      </div>
 
       {/* Main Content */}
-      <main className="main-content">
-        <h1 className="page-title">Profile Settings</h1>
+      <div className="provider-main-content">
+        <h1 className="provider-page-title">Profile Settings</h1>
 
-        {/* Profile Card */}
-        <div className="profile-card">
-          <div className="profile-banner">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Desktop%20-%201-JMuxjUB2dtmpNeeGZtrBERIxAxCwf1.png"
-              alt="Medical illustration"
-              className="banner-image"
-            />
-          </div>
-          <div className="profile-info-container">
-            <div className="profile-avatar-container">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                alt="Kitty Woo Ham"
-                className="profile-avatar"
-              />
+        <div className="provider-content-scroll-area">
+          {/* Profile Card */}
+          <div className="provider-profile-card">
+            <div className="provider-profile-banner">
+              <img src={profileData.coverImage || cover} alt="Medical illustration" className="provider-banner-image" />
             </div>
-            <div className="profile-info">
-              <h2 className="profile-name">Kitty Woo Ham</h2>
-              <p className="profile-role">Family Nurse Practitioner</p>
-              <p className="profile-contact">kittywooham@gmail.com | +233 257256751</p>
 
-              <div className="profile-location">
-                <FaMapMarkerAlt className="location-icon" />
-                <span>Semarang, Indonesia</span>
+            <div className="provider-profile-info-section">
+              <div className="provider-profile-avatar-container">
+                <img src={profileData.profileImage || "https://randomuser.me/api/portraits/women/44.jpg"}
+                     alt="Profile avatar"
+                     className="provider-avatar-image" />
+              </div>
+
+              <div className="provider-profile-details">
+                <h2 className="provider-profile-name">{profileData.fullName || "Kitty Woo Ham"}</h2>
+                <p className="provider-profile-title">{profileData.speciality || "Family Nurse Practitioner"}</p>
+                <p className="provider-profile-contact">
+                  {profileData.email || "kittywooham@gmail.com"} | {profileData.phoneNumber || "+233 257256751"}
+                </p>
+              </div>
+
+              <Link to="/edit-profile">
+                <button className="provider-edit-profile-btn">
+                  <Edit size={18} />
+                  <span>Edit Profile</span>
+                </button>
+              </Link>
+            </div>
+
+            <div className="provider-profile-location-container">
+              <div className="provider-profile-location">
+                <MapPin size={16} />
+                <span>{profileData.location || "Semarang, Indonesia"}</span>
               </div>
             </div>
-            <button className="edit-profile-btn">
-              <FaPencilAlt /> Edit Profile
-            </button>
+          </div>
+
+          {/* Profile Bio */}
+          <div className="provider-profile-bio-card">
+            <h2 className="provider-bio-title">Profile Bio</h2>
+            <div className="provider-bio-content">
+              <p>{profileData.bio || "No bio available."}</p>
+            </div>
           </div>
         </div>
-
-        {/* Profile Bio */}
-        <div className="profile-bio-card">
-          <h2 className="bio-title">Profile Bio</h2>
-          <div className="bio-content">
-            <p>
-              Specific Tasks Depend On Your Speciality – For Instance, The Work Surgeons Carry Out On A Daily Basis Is
-              Completely Different From The Workload Of An Accident And Emergency (A&E) Doctor.
-            </p>
-
-            <p>Regardless Of Your Speciality, As A Hospital Doctor You Will Need To:</p>
-
-            <ul className="bio-list">
-              <li>Monitor And Provide General Care To Patients On Hospital Wards And In Outpatient Clinics</li>
-              <li>Admit Patients Requiring Special Care, Followed By Investigations And Treatment</li>
-              <li>Examine And Talk To Patients To Diagnose Their Medical Conditions</li>
-              <li>Carry Out Specific Procedures, E.G. Performing Operations And Specialist Investigations</li>
-            </ul>
-          </div>
-        </div>
-      </main>
+      </div>
     </div>
-  )
+  );
 }
-
-export default App
