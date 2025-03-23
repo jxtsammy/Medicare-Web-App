@@ -1,25 +1,38 @@
-
 import './Login.css';
 import { FaEnvelope, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
-import logo from '../../assets/Medimock-removebg-preview.png'
+import logo from '../../assets/Medimock-removebg-preview.png';
+import { Link, useNavigate } from "react-router-dom";
 
 function App() {
+
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Perform login logic here...
+
+    // Redirect to dashboard after successful login
+    navigate("/dashboard");
+  };
+
   return (
-    <div className="app">
-      <header className="header">
-        <div className="logo-container">
-					<img src={logo} alt="medicare" className='logo-imge'/>
-          <h1 className="logo-title"> <span className="for-providers">for Providers</span></h1>
+    <div className="login-app">
+      <header className="login-header">
+        <div className="login-logo-container">
+          <img src={logo} alt="medicare" className='login-logo-img' />
+          <h1 className="login-logo-title">
+            <span className="login-for-providers">for Providers</span>
+          </h1>
         </div>
-        <button className="register-btn">Register</button>
+        <Link to="/register"><button className="login-register-btn">Register</button></Link>
       </header>
 
-      <main className="main-content">
+      <main className="login-main-content">
         <div className="login-card">
-          <h2 className="welcome-text">Welcome back</h2>
+          <h2 className="login-welcome-text">Welcome back</h2>
 
           <form className="login-form">
-            <div className="form-group">
+            <div className="login-form-group">
               <label htmlFor="email">Email Address</label>
               <input
                 type="email"
@@ -28,7 +41,7 @@ function App() {
               />
             </div>
 
-            <div className="form-group">
+            <div className="login-form-group">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
@@ -37,22 +50,22 @@ function App() {
               />
             </div>
 
-            <button type="submit" className="sign-in-btn">Sign In</button>
+            <button type="submit" className="login-sign-in-btn" onClick={handleLogin}>Sign In</button>
           </form>
 
-          <p className="register-prompt">
-            Dont have an account? <a href="#" className="register-link">Register</a>
+          <p className="login-register-prompt">
+            Dont have an account? <Link to="/register" className="login-register-link">Register</Link>
           </p>
         </div>
       </main>
 
-      <footer className="footer">
-        <div className="copyright">2025 Medicare Inc</div>
-        <div className="social-icons">
-          <a href="#" className="social-icon"><FaEnvelope /></a>
-          <a href="#" className="social-icon"><FaLinkedin /></a>
-          <a href="#" className="social-icon"><FaTwitter /></a>
-          <a href="#" className="social-icon"><FaInstagram /></a>
+      <footer className="login-footer">
+        <div className="login-copyright">2025 Medicare Inc</div>
+        <div className="login-social-icons">
+          <a href="#" className="login-social-icon"><FaEnvelope /></a>
+          <a href="#" className="login-social-icon"><FaLinkedin /></a>
+          <a href="#" className="login-social-icon"><FaTwitter /></a>
+          <a href="#" className="login-social-icon"><FaInstagram /></a>
         </div>
       </footer>
     </div>

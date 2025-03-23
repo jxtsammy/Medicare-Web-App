@@ -1,21 +1,24 @@
 import { useState, useEffect, useRef } from 'react';
 import './Chat.css';
 import {
-  FaHome,
-  FaCommentDots,
-  FaCalendarAlt,
-  FaUsers,
-  FaCog,
-  FaHeadset,
-  FaBell,
-  FaChevronDown,
-  FaPaperclip,
-  FaPaperPlane,
-  FaPhone
-} from 'react-icons/fa';
+  LayoutGrid,
+  MessageSquare,
+  Calendar,
+  Settings,
+  Bell,
+  ChevronDown,
+  Paperclip,
+  Send,
+  Phone,
+  Video,
+  LogOut
+} from 'lucide-react';
+import logo from '../../assets/Medimock-removebg-preview.png';
+import { Link } from 'react-router';
 
 function App() {
   const [message, setMessage] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const [chatList, setChatList] = useState([
     {
       id: 1,
@@ -174,7 +177,7 @@ function App() {
     return `${hours}:${minutes} ${ampm}`;
   };
 
-  // Send a new message (without auto-response)
+  // Send a new message
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {
@@ -231,36 +234,38 @@ function App() {
     }
   };
 
+  // Filter chats based on search query
+  const filteredChats = chatList.filter(chat =>
+    chat.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div className="app">
+    <div className="chat-app">
       {/* Sidebar */}
-      <aside className="sidebar">
-        <div className="sidebar-top">
-          <nav className="sidebar-nav">
+      <aside className="chat-sidebar">
+        <div className="chat-sidebar-top">
+          <nav className="chat-sidebar-nav">
             <ul>
               <li>
-                <a href="#"><FaHome /> <span className="nav-text">Overview</span></a>
+                <Link to="/dashboard"><LayoutGrid size={24} color="black" /></Link>
               </li>
-              <li className="active">
-                <a href="#"><FaCommentDots /> <span className="nav-text">Messages</span></a>
-              </li>
-              <li>
-                <a href="#"><FaCalendarAlt /> <span className="nav-text">Appointments</span></a>
+              <li className="chat-active">
+                <Link to="/chat"><MessageSquare size={24} color="black" /></Link>
               </li>
               <li>
-                <a href="#"><FaUsers /> <span className="nav-text">Patients</span></a>
+                <Link to="/appointments"><Calendar size={24} color="black" /></Link>
               </li>
             </ul>
           </nav>
         </div>
-        <div className="sidebar-bottom">
-          <nav className="sidebar-nav">
+        <div className="chat-sidebar-bottom">
+          <nav className="chat-sidebar-nav">
             <ul>
               <li>
-                <a href="#"><FaCog /> <span className="nav-text">Settings</span></a>
+                <Link to="/profile"><Settings size={24} color="black" /></Link>
               </li>
               <li>
-                <a href="#"><FaHeadset /> <span className="nav-text">Support</span></a>
+                <Link to="/"><LogOut  size={24} color="black" /></Link>
               </li>
             </ul>
           </nav>
@@ -268,25 +273,23 @@ function App() {
       </aside>
 
       {/* Main Content */}
-      <main className="main-content">
+      <main className="chat-main-content">
         {/* Header */}
-        <header className="header">
-          <div className="logo-container">
-            <div className="logo-circle">
-              <span className="logo-text">MC</span>
-            </div>
-            <h1 className="logo-title">Medicare <span className="for-providers">for Providers</span></h1>
+        <header className="chat-header">
+          <div className="chat-logo-container">
+            <img src={logo} alt="medicare" className='chat-logo-img' />
+            <h1 className="chat-logo-title"><span className="chat-for-providers">for Providers</span></h1>
           </div>
-          <div className="user-profile">
-            <div className="notification">
-              <FaBell />
-              <span className="notification-badge">2</span>
+          <div className="chat-user-profile">
+            <div className="chat-notification">
+              <Bell size={24} color="black" />
+              <span className="chat-notification-badge">2</span>
             </div>
-            <div className="user-info">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" className="user-avatar" />
-              <div className="user-details">
-                <h3 className="user-name">Kitty Woo Ham</h3>
-                <p className="user-role">Family Nurse Practitioner</p>
+            <div className="chat-user-info">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" className="chat-user-avatar" />
+              <div className="chat-user-details">
+                <h3 className="chat-user-name">Kitty Woo Ham</h3>
+                <p className="chat-user-role">Family Nurse Practitioner</p>
               </div>
             </div>
           </div>
@@ -297,23 +300,25 @@ function App() {
           {/* Chat List */}
           <div className="chat-list-container">
             <div className="chat-list-header">
-              <h2 className="chat-title">Chats <FaChevronDown /></h2>
+              <h2 className="chat-title">Chats <ChevronDown size={20} color="black" /></h2>
               <span className="chat-count">12</span>
             </div>
 
             <div className="chat-search">
               <input
                 type="text"
-                placeholder="Search messages"
-                className="search-input"
+                placeholder="Search chats"
+                className="chat-search-input"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
 
             <div className="chat-list">
-              {chatList.map(chat => (
+              {filteredChats.map(chat => (
                 <div
                   key={chat.id}
-                  className={`chat-item ${chat.active ? 'active' : ''}`}
+                  className={`chat-item ${chat.active ? 'chat-active' : ''}`}
                   onClick={() => handleChatSelect(chat.id)}
                 >
                   <div className="chat-avatar-container">
@@ -322,7 +327,7 @@ function App() {
                       alt={chat.name}
                       className="chat-avatar"
                     />
-                    {chat.online && <span className="online-indicator"></span>}
+                    {chat.online && <span className="chat-online-indicator"></span>}
                   </div>
                   <div className="chat-info">
                     <div className="chat-header">
@@ -343,17 +348,19 @@ function App() {
                 <img
                   src={activeChat.avatar || "/placeholder.svg"}
                   alt={activeChat.name}
-                  className="contact-avatar"
+                  className="chat-contact-avatar"
                 />
-                <div className="contact-info">
-                  <h3 className="contact-name">{activeChat.name}</h3>
-                  {activeChat.online && <span className="contact-status">Online</span>}
+                <div className="chat-contact-info">
+                  <h3 className="chat-contact-name">{activeChat.name}</h3>
+                  {activeChat.online && <span className="chat-contact-status">Online</span>}
                 </div>
               </div>
-              <div className="call-btn-container">
-                <button className="call-btn">
-                  <FaPhone />
-                  <span className="call-btn-text">Call</span>
+              <div className="call-btn">
+                <button className="chat-call-btn">
+                  <Video size={24} color="black" />
+                </button>
+                <button className="chat-call-btn">
+                  <Phone size={24} color="black" />
                 </button>
               </div>
             </div>
@@ -362,23 +369,23 @@ function App() {
               {activeChat.messages.map(msg => (
                 <div
                   key={msg.id}
-                  className={`message ${msg.sender === 'you' ? 'sent' : 'received'}`}
+                  className={`chat-message ${msg.sender === 'you' ? 'chat-sent' : 'chat-received'}`}
                 >
                   {msg.sender === 'them' && (
                     <img
                       src={activeChat.avatar || "/placeholder.svg"}
                       alt={activeChat.name}
-                      className="message-avatar"
+                      className="chat-message-avatar"
                     />
                   )}
-                  <div className="message-bubble">
-                    <p className="message-text">{msg.text}</p>
+                  <div className="chat-message-bubble">
+                    <p className="chat-message-text">{msg.text}</p>
                   </div>
                   {msg.sender === 'you' && (
                     <img
                       src="https://randomuser.me/api/portraits/women/44.jpg"
                       alt="You"
-                      className="message-avatar"
+                      className="chat-message-avatar"
                     />
                   )}
                 </div>
@@ -386,27 +393,24 @@ function App() {
               <div ref={messagesEndRef} />
             </div>
 
-            <form className="message-input-container" onSubmit={handleSendMessage}>
-              <button type="button" className="attachment-btn">
-                <FaPaperclip />
+            <form className="chat-message-input-container" onSubmit={handleSendMessage}>
+              <button type="button" className="chat-attachment-btn">
+                <Paperclip size={24} color="black" />
               </button>
               <input
                 type="text"
                 placeholder="Type a message"
-                className="message-input"
+                className="chat-message-input"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
-              <div className="send-btn-container">
-                <button
-                  type="submit"
-                  className="send-btn"
-                  disabled={!message.trim()}
-                >
-                  <FaPaperPlane />
-                  <span className="send-btn-text">Send</span>
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="chat-send-btn"
+                disabled={!message.trim()}
+              >
+                <Send size={24} color="black" />
+              </button>
             </form>
           </div>
         </div>

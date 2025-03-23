@@ -1,97 +1,108 @@
-
-		import './Register.css';
+import './Register.css';
 import { FaEnvelope, FaLinkedin, FaTwitter, FaInstagram, FaRocket } from 'react-icons/fa';
-import logo from '../../assets/Medimock-removebg-preview.png'
+import logo from '../../assets/Medimock-removebg-preview.png';
+import { useNavigate, Link } from 'react-router-dom';
 
 function App() {
+
+  const navigate = useNavigate();
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    // Perform login logic here...
+
+    // Redirect to dashboard after successful login
+    navigate("/dashboard");
+  };
+
   return (
-    <div className="app">
-      <header className="header">
-        <div className="logo-container">
-          <img src={logo} alt="medicare" className='logo-imge'/>
-          <h1 className="logo-title"><span className="for-providers">for Providers</span></h1>
+    <div className="signup-app">
+      <header className="signup-header">
+        <div className="signup-logo-container">
+          <img src={logo} alt="medicare" className="signup-logo-img"/>
+          <h1 className="signup-logo-title"><span className="signup-for-providers">for Providers</span></h1>
         </div>
-        <button className="sign-in-btn-header">Sign In</button>
+        <Link to="/"><button className="signup-sign-in-btn-header">Sign In</button></Link>
       </header>
 
-      <main className="main-content">
-        <div className="content-container">
-          <div className="left-section">
-            <div className="rocket-icon">
-              <FaRocket className="rocket" />
-              <div className="rocket-circle"></div>
+      <main className="signup-main-content">
+        <div className="signup-content-container">
+          <div className="signup-left-section">
+            <div className="signup-rocket-icon">
+              <FaRocket className="signup-rocket" />
+              <div className="signup-rocket-circle"></div>
             </div>
-            <h2 className="get-started-text">Lets get started</h2>
-            <p className="description-text">
-              Zocdoc is the best way to reach the right patients for your practice. Its easy to join and there are no upfront fees or subscription costs.
+            <h2 className="signup-get-started-text">Lets get started</h2>
+            <p className="signup-description-text">
+              Zocdoc is the best way to reach the right patients for your practice. It’s easy to join and there are no upfront fees or subscription costs.
             </p>
           </div>
 
-          <div className="registration-card">
-            <form className="registration-form">
-              <div className="form-row">
-                <div className="form-group half">
+          <div className="signup-registration-card">
+            <form className="signup-registration-form">
+              <div className="signup-form-row">
+                <div className="signup-form-group signup-half">
                   <label htmlFor="firstName">First Name</label>
                   <input type="text" id="firstName" name="firstName" />
                 </div>
-                <div className="form-group half">
+                <div className="signup-form-group signup-half">
                   <label htmlFor="lastName">Last Name</label>
                   <input type="text" id="lastName" name="lastName" />
                 </div>
               </div>
 
-              <div className="form-group">
+              <div className="signup-form-group">
                 <label htmlFor="practiceName">Practice Name</label>
                 <input type="text" id="practiceName" name="practiceName" />
               </div>
 
-              <div className="form-group">
+              <div className="signup-form-group">
                 <label htmlFor="specialty">Your Speciality</label>
                 <input type="text" id="specialty" name="specialty" />
               </div>
 
-              <div className="form-group">
+              <div className="signup-form-group">
                 <label htmlFor="location">Location</label>
                 <input type="text" id="location" name="location" />
               </div>
 
-              <div className="form-group">
+              <div className="signup-form-group">
                 <label htmlFor="phoneNumber">Phone Number</label>
                 <input type="tel" id="phoneNumber" name="phoneNumber" />
               </div>
 
-              <div className="form-group">
+              <div className="signup-form-group">
                 <label htmlFor="email">Email Address</label>
                 <input type="email" id="email" name="email" />
               </div>
 
-              <div className="form-group">
+              <div className="signup-form-group">
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" />
               </div>
 
-              <div className="form-group">
+              <div className="signup-form-group">
                 <label htmlFor="confirmPassword">Confirm Password</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" />
               </div>
 
-              <button type="submit" className="register-btn">Register</button>
+              <button type="submit" className="signup-register-btn" onClick={handleSignup}>Register</button>
             </form>
 
-            <p className="login-prompt">
-              Already have an account? <a href="#" className="login-link">Login</a>
+            <p className="signup-login-prompt">
+              Already have an account? <Link to="/" className="signup-login-link">Sign In</Link>
             </p>
           </div>
         </div>
       </main>
 
-      <footer className="footer">
-        <div className="copyright">2025 Medicare Inc</div>
-        <div className="social-icons">
-          <a href="#" className="social-icon"><FaEnvelope /></a>
-          <a href="#" className="social-icon"><FaLinkedin /></a>
-          <a href="#" className="social-icon"><FaTwitter /></a>
-          <a href="#" className="social-icon"><FaInstagram /></a>
+      <footer className="signup-footer">
+        <div className="signup-copyright">2025 Medicare Inc</div>
+        <div className="signup-social-icons">
+          <a href="#" className="signup-social-icon"><FaEnvelope /></a>
+          <a href="#" className="signup-social-icon"><FaLinkedin /></a>
+          <a href="#" className="signup-social-icon"><FaTwitter /></a>
+          <a href="#" className="signup-social-icon"><FaInstagram /></a>
         </div>
       </footer>
     </div>

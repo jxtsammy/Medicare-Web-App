@@ -1,0 +1,380 @@
+:root {
+  --edit-provider-primary: #0d8a72;
+  --edit-provider-background: #f9f7f2;
+  --edit-provider-card-bg: #ffffff;
+  --edit-provider-text: #333333;
+  --edit-provider-text-light: #666666;
+  --edit-provider-border: #e0e0e0;
+  --edit-provider-yellow: #ffcf33;
+  --edit-provider-border-radius: 12px;
+  --edit-provider-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100vw;
+  overflow-y: auto; /* Ensure vertical scrolling is enabled */
+}
+
+body {
+  min-height: 100%;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto; /* Ensure vertical scrolling is enabled */
+  background-color: #FDFAEE;
+  position: relative; /* Add position relative */
+}
+
+.Edit-Provider-container {
+  width: 100vw;
+  min-height: 100vh; /* Ensure at least full screen height */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--edit-provider-background);
+  position: relative; /* Add position relative */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Header Styles */
+.Edit-Provider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: var(--edit-provider-card-bg);
+  box-shadow: var(--edit-provider-shadow);
+  width: 100%;
+  position: sticky; /* Change from fixed to sticky for better scrolling */
+  top: 0;
+  z-index: 100;
+}
+
+.Edit-Provider-logo {
+  display: flex;
+  align-items: center;
+}
+
+.Edit-Provider-logo-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--edit-provider-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.Edit-Provider-logo-text {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.Edit-Provider-logo-text h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--edit-provider-text);
+}
+
+.Edit-Provider-logo-text span {
+  font-size: 16px;
+  color: var(--edit-provider-text-light);
+}
+
+.Edit-Provider-user {
+  display: flex;
+  align-items: center;
+}
+
+.Edit-Provider-user-info {
+  text-align: right;
+  margin-right: 15px;
+}
+
+.Edit-Provider-user-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--edit-provider-text);
+}
+
+.Edit-Provider-user-info p {
+  font-size: 14px;
+  color: var(--edit-provider-text-light);
+}
+
+.Edit-Provider-user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.Edit-Provider-user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Form Container Styles */
+.Edit-Provider-form-container {
+  flex: 1;
+  padding: 20px 5px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.Edit-Provider-form-card {
+  background-color: var(--edit-provider-card-bg);
+  border-radius: var(--edit-provider-border-radius);
+  box-shadow: var(--edit-provider-shadow);
+  padding: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px; /* Add margin to ensure content is scrollable */
+}
+
+.Edit-Provider-section {
+  margin-bottom: 25px;
+}
+
+.Edit-Provider-section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--edit-provider-text);
+  margin-bottom: 5px;
+}
+
+.Edit-Provider-section-subtitle {
+  font-size: 14px;
+  color: var(--edit-provider-text-light);
+}
+
+.Edit-Provider-subsection-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--edit-provider-text);
+  margin-bottom: 15px;
+}
+
+/* Media Section Styles */
+.Edit-Provider-media-section {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.Edit-Provider-cover-image {
+  width: 100%;
+  height: 180px;
+  border-radius: var(--edit-provider-border-radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.Edit-Provider-cover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Edit-Provider-profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  overflow: hidden;
+  position: absolute;
+  bottom: -40px;
+  left: 30px;
+  background-color: white;
+}
+
+.Edit-Provider-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Edit-Provider-edit-button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+    border-radius: 50%;
+  background-color: var(--edit-provider-yellow);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Edit-Provider-edit-button:hover {
+  background-color: #e6b800;
+}
+
+.Edit-Provider-edit-cover {
+  top: 15px;
+  right: 15px;
+}
+
+.Edit-Provider-edit-profile {
+  bottom: -30px;
+  left: 110px;
+}
+
+/* Hidden file input */
+.Edit-Provider-hidden-input {
+  display: none;
+}
+
+/* Form Styles */
+.Edit-Provider-form {
+  margin-top: 30px;
+  padding-bottom: 20px; /* Add padding to ensure content is scrollable */
+}
+
+.Edit-Provider-form-group {
+  margin-bottom: 20px;
+}
+
+.Edit-Provider-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--edit-provider-text);
+  margin-bottom: 8px;
+}
+
+.Edit-Provider-input,
+.Edit-Provider-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--edit-provider-border);
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--edit-provider-text);
+  transition: border-color 0.2s;
+  background-color: white;
+}
+
+.Edit-Provider-input:focus,
+.Edit-Provider-textarea:focus {
+  outline: none;
+  border-color: var(--edit-provider-primary);
+}
+
+.Edit-Provider-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.Edit-Provider-form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  justify-content: flex-end;
+  padding-bottom: 40px; /* Add padding to ensure buttons are visible when scrolling */
+}
+
+.Edit-Provider-submit-button,
+.Edit-Provider-cancel-button {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.Edit-Provider-submit-button {
+  background-color: var(--edit-provider-primary);
+  color: white;
+  border: none;
+}
+
+.Edit-Provider-submit-button:hover {
+  background-color: #0a7560;
+}
+
+.Edit-Provider-cancel-button {
+  background-color: transparent;
+  color: var(--edit-provider-text);
+  border: 1px solid var(--edit-provider-border);
+}
+
+.Edit-Provider-cancel-button:hover {
+  background-color: #f5f5f5;
+}
+
+/* Ensure scrolling works on all devices */
+@media (max-height: 700px) {
+  body {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .Edit-Provider-container {
+    height: auto;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .Edit-Provider-header {
+    padding: 15px 20px;
+    position: sticky;
+  }
+
+  .Edit-Provider-logo-text span {
+    display: none;
+  }
+
+  .Edit-Provider-form-container {
+    padding: 20px;
+  }
+
+  .Edit-Provider-form-card {
+    padding: 20px;
+  }
+
+  .Edit-Provider-profile-image {
+    width: 100px;
+    height: 100px;
+    bottom: -30px;
+    left: 20px;
+  }
+
+  .Edit-Provider-form-actions {
+    flex-direction: column;
+  }
+
+  .Edit-Provider-submit-button,
+  .Edit-Provider-cancel-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .Edit-Provider-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .Edit-Provider-user {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
