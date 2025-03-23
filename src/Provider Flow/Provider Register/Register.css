@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	color: #000;
+
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fffcf0;
+	width: 100vw;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: white;
+	height: 80px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #00a67e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.logo-text {
+  font-size: 16px;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.for-providers {
+  font-weight: normal;
+}
+
+.sign-in-btn-header {
+  padding: 0.6rem 1.5rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+	width: 150px;
+}
+
+.sign-in-btn-header:hover {
+  background-color: #f5f5f5;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.content-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;
+}
+
+.logo-imge{
+	width: 150px;
+}
+
+.left-section {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+	position: relative;
+	bottom: 200px;
+}
+
+.rocket-icon {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1.5rem;
+}
+
+.rocket {
+  position: absolute;
+  font-size: 3rem;
+  color: #333;
+  z-index: 2;
+}
+
+.rocket-circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #ffeb3b;
+  border-radius: 50%;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.get-started-text {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.description-text {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.5;
+	width: 400px;
+}
+
+.registration-card {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+	border: 1px solid #000;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.form-group.half {
+  width: 50%;
+}
+
+.form-group label {
+  font-size: 1rem;
+}
+
+.form-group input {
+  padding: 0.8rem;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 1rem;
+	background-color: #ffff;
+}
+
+.register-btn {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: #ffeb3b;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.register-btn:hover {
+  background-color: #fdd835;
+}
+
+.login-prompt {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.login-link {
+  color: #0C44FB;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer Styles */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffeb3b;
+}
+
+.copyright {
+  font-weight: 500;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.social-icon:hover {
+  color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .logo-title {
+    font-size: 1.2rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-group.half {
+    width: 100%;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
