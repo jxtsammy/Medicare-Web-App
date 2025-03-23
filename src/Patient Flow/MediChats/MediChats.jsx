@@ -3,13 +3,13 @@
 import { useState, useEffect, useRef } from "react"
 import { FaArrowLeft, FaPhone, FaVideo, FaPaperclip, FaPaperPlane, FaSearch, FaTimes } from "react-icons/fa"
 import "./MediChats.css"
-import Chat from "./assets/chatPerson.png"
-import Sarah from "./assets/Sarah.png"
-import Robert from "./assets/Robert.png"
-import Ellis from "./assets/Ellis.png"
-import Michael from "./assets/Michael.png"
-import Greg from "./assets/Greg.png"
-import Wilson from "./assets/Wilson.png"
+import Chat from "../../assets/chatPerson.png"
+import Sarah from "../../assets/Sarah.png"
+import Robert from "../../assets/Robert.png"
+import Ellis from "../../assets/Ellis.png"
+import Michael from "../../assets/Michael.png"
+import Greg from "../../assets/Greg.png"
+import Wilson from "../../assets/Wilson.png"
 
 const MediChats = () => {
   const [message, setMessage] = useState("")
@@ -17,7 +17,7 @@ const MediChats = () => {
   const [searchTerm, setSearchTerm] = useState("")
   const [filteredContacts, setFilteredContacts] = useState([])
   const messagesEndRef = useRef(null)
-  
+
   // Initial contacts data
   const initialContacts = [
     {
@@ -258,11 +258,11 @@ const MediChats = () => {
       setFilteredContacts(contacts);
     } else {
       const filtered = contacts.filter(
-        contact => 
+        contact =>
           contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           contact.lastMessage.toLowerCase().includes(searchTerm.toLowerCase()) ||
           // Also search in messages
-          messagesByContact[contact.name]?.some(msg => 
+          messagesByContact[contact.name]?.some(msg =>
             msg.text.toLowerCase().includes(searchTerm.toLowerCase())
           )
       );
@@ -296,22 +296,11 @@ const MediChats = () => {
     let hours = now.getHours();
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const ampm = hours >= 12 ? 'PM' : 'AM';
-    
+
     hours = hours % 12;
     hours = hours ? hours : 12; // Convert 0 to 12
-    
-    return `${hours}:${minutes} ${ampm}`;
-  }
 
-  // Function to format relative time (e.g., "1m", "2h", "3d")
-  const getRelativeTime = (date) => {
-    const now = new Date();
-    const diff = Math.floor((now - date) / 1000); // difference in seconds
-    
-    if (diff < 60) return `${diff}s`;
-    if (diff < 3600) return `${Math.floor(diff / 60)}m`;
-    if (diff < 86400) return `${Math.floor(diff / 3600)}h`;
-    return `${Math.floor(diff / 86400)}d`;
+    return `${hours}:${minutes} ${ampm}`;
   }
 
   // Handle sending a new message
@@ -326,13 +315,13 @@ const MediChats = () => {
         time: getCurrentTime(),
         isUser: true,
       };
-      
+
       // Update messages for the active chat
       const updatedMessages = {
         ...messagesByContact,
         [activeChat]: [...messagesByContact[activeChat], newMessage],
       };
-      
+
       // Update the last message and time for the contact
       const updatedContacts = contacts.map(contact => {
         if (contact.name === activeChat) {
@@ -344,23 +333,23 @@ const MediChats = () => {
         }
         return contact;
       });
-      
+
       // Sort contacts to put the active chat at the top
       const sortedContacts = [...updatedContacts].sort((a, b) => {
         if (a.name === activeChat) return -1;
         if (b.name === activeChat) return 1;
         return 0;
       });
-      
+
       // Update state
       setMessagesByContact(updatedMessages);
       setContacts(sortedContacts);
       setMessage("");
-      
+
       // Simulate a reply after a random delay (1-3 seconds)
       if (Math.random() > 0.3) { // 70% chance of reply
         const replyDelay = Math.floor(Math.random() * 2000) + 1000;
-        
+
         setTimeout(() => {
           const replies = [
             "That's interesting!",
@@ -374,22 +363,22 @@ const MediChats = () => {
             "I appreciate your message.",
             "Let's discuss this further."
           ];
-          
+
           const randomReply = replies[Math.floor(Math.random() * replies.length)];
-          
+
           const replyMessage = {
             id: Date.now(),
             sender: activeChat,
             text: randomReply,
             time: getCurrentTime(),
           };
-          
+
           // Update messages with the reply
           const updatedMessagesWithReply = {
             ...messagesByContact,
             [activeChat]: [...updatedMessages[activeChat], replyMessage],
           };
-          
+
           // Update the last message for the contact
           const contactsWithReply = contacts.map(contact => {
             if (contact.name === activeChat) {
@@ -401,7 +390,7 @@ const MediChats = () => {
             }
             return contact;
           });
-          
+
           setMessagesByContact(updatedMessagesWithReply);
           setContacts(contactsWithReply);
         }, replyDelay);
@@ -431,10 +420,10 @@ const MediChats = () => {
         <div className="search-container">
           <div className="search-input-wrapper">
             <FaSearch className="search-icon" />
-            <input 
-              type="text" 
-              placeholder="Search messages" 
-              className="search-input" 
+            <input
+              type="text"
+              placeholder="Search messages"
+              className="search-input"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -532,8 +521,8 @@ const MediChats = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className={`send-button ${message.trim() ? 'active' : ''}`}
             disabled={!message.trim()}
           >

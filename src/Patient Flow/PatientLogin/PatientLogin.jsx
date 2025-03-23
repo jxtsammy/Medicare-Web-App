@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './PatientLogin.css';
-import medicareLogoSrc from './assets/Medicare-logo.png';
-import handslogo from './assets/hands-bond.png';
+import medicareLogoSrc from '../../assets/Medicare-logo.png';
+import handslogo from '../../assets/hands-bond.png';
 
 const PatientLogin = () => {
   const [formData, setFormData] = useState({
@@ -28,10 +28,10 @@ const PatientLogin = () => {
       <div className="logo-container">
         <img src={medicareLogoSrc || "/placeholder.svg"} alt="Medicare Logo" className="medicare-logo" />
       </div>
-      
+
       <div className="login-card">
         <h1 className="login-title">Login into your Account</h1>
-        
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -44,7 +44,7 @@ const PatientLogin = () => {
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
@@ -56,13 +56,13 @@ const PatientLogin = () => {
               required
             />
           </div>
-          
+
           <button type="submit" className="login-button">Login</button>
-          
+
           <div className="divider">
             <span>or</span>
           </div>
-          
+
           <button type="button" className="google-button">
             <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
               <g transform="matrix(1, 0, 0, 1, 0, 0)">
@@ -73,13 +73,13 @@ const PatientLogin = () => {
             </svg>
             Continue with Google
           </button>
-          
+
           <div className="signup-link">
             New to Medicare? <a href="#">Create an account</a>
           </div>
         </form>
       </div>
-      
+
       <div className="hands-footer">
         <img src={handslogo || "/placeholder.svg"} alt="Hands" className="hands-image" />
       </div>

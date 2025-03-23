@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Notifications.css';
 import { Bell, Check } from 'react-feather';
-import Avatar from './assets/Avatar.png';
+import Avatar from '../../assets/Avatar.png';
 const Notifications = () => {
   const [activeTab, setActiveTab] = useState('offers');
   const [notifications, setNotifications] = useState({
@@ -55,10 +55,10 @@ const Notifications = () => {
             <div className="user-profile">
               <span className="username">Abednego</span>
               <span className="user-status">Verified User <Check size={16} className="verified-icon" /></span>
-              <img 
+              <img
                 src={Avatar}
-                alt="User profile" 
-                className="user-avatar" 
+                alt="User profile"
+                className="user-avatar"
               />
             </div>
           </div>
@@ -83,80 +83,80 @@ const Notifications = () => {
         {/* Notifications Content */}
         <div className="notifications-content">
           <h1 className="page-title">Notifications</h1>
-          
+
           {/* Tabs */}
           <div className="notification-tabs">
-            <button 
+            <button
               className={`tab-button ${activeTab === 'offers' ? 'active' : ''}`}
               onClick={() => setActiveTab('offers')}
             >
               Offers and Updates
             </button>
-            <button 
+            <button
               className={`tab-button ${activeTab === 'appointments' ? 'active' : ''}`}
               onClick={() => setActiveTab('appointments')}
             >
               Appointments
             </button>
           </div>
-          
+
           {/* Email Notifications */}
           <section className="notification-section">
             <h2 className="section-title">Email</h2>
-            
+
             <div className="notification-option">
               <label className="checkbox-container">
-                <input 
-                  type="checkbox" 
-                  checked={notifications.healthcareReminders} 
+                <input
+                  type="checkbox"
+                  checked={notifications.healthcareReminders}
                   onChange={() => handleCheckboxChange('healthcareReminders')}
                 />
                 <span className="checkbox-label">Healthcare reminders</span>
               </label>
               <p className="option-description">Reminders to help you stay on top of preventative care appointments</p>
             </div>
-            
+
             <div className="notification-option">
               <label className="checkbox-container">
-                <input 
-                  type="checkbox" 
-                  checked={notifications.blogNewsletters} 
+                <input
+                  type="checkbox"
+                  checked={notifications.blogNewsletters}
                   onChange={() => handleCheckboxChange('blogNewsletters')}
                 />
                 <span className="checkbox-label">Blog newsletters</span>
               </label>
               <p className="option-description">Our latest post to our blog, Paper Gown</p>
             </div>
-            
+
             <div className="notification-option">
               <label className="checkbox-container">
-                <input 
-                  type="checkbox" 
-                  checked={notifications.productNews} 
+                <input
+                  type="checkbox"
+                  checked={notifications.productNews}
                   onChange={() => handleCheckboxChange('productNews')}
                 />
                 <span className="checkbox-label">Product news</span>
               </label>
               <p className="option-description">Getting started, new features and latest product updates from MyApp</p>
             </div>
-            
+
             <div className="notification-option">
               <label className="checkbox-container">
-                <input 
-                  type="checkbox" 
-                  checked={notifications.newOffers} 
+                <input
+                  type="checkbox"
+                  checked={notifications.newOffers}
                   onChange={() => handleCheckboxChange('newOffers')}
                 />
                 <span className="checkbox-label">MyApp new offers</span>
               </label>
               <p className="option-description">News, promotion s, events for you.</p>
             </div>
-            
+
             <div className="notification-option">
               <label className="checkbox-container">
-                <input 
-                  type="checkbox" 
-                  checked={notifications.unsubscribeAll} 
+                <input
+                  type="checkbox"
+                  checked={notifications.unsubscribeAll}
                   onChange={() => handleCheckboxChange('unsubscribeAll')}
                 />
                 <span className="checkbox-label">I nolonger wish to receive any future marketing emails</span>
@@ -164,7 +164,7 @@ const Notifications = () => {
               <p className="option-description">If you wish to unsubscribe from all marketing emails from MyApp, check the box and click the save button.</p>
             </div>
           </section>
-          
+
           {/* Action Buttons */}
           <div className="action-buttons">
             <button className="save-button" onClick={handleSave}>save</button>

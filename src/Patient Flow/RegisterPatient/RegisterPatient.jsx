@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './RegisterPatient.css';
-import medicareLogoSrc from './assets/Medicare-logo.png';
-import handslogo from './assets/hands.png';
+import { useState } from 'react';
+import '../../RegisterPatient.css';
+import medicareLogoSrc from '../../assets/Medicare-logo.png';
+import handslogo from '../../assets/hands.png';
 
 const RegisterPatient = () => {
   const [formData, setFormData] = useState({
@@ -32,11 +32,11 @@ const RegisterPatient = () => {
     <div className="register-container">
       <div className="logo-container">
         <img src={medicareLogoSrc || "/placeholder.svg"} alt="Medicare Logo" className="medicare-logo" />
-      </div>    
-      
+      </div>
+
       <div className="form-card">
         <h1 className="form-title">Create an account</h1>
-        
+
         <form onSubmit={handleSubmit}>
           <div className="name-row">
             <div className="form-group half">
@@ -50,7 +50,7 @@ const RegisterPatient = () => {
                 required
               />
             </div>
-            
+
             <div className="form-group half">
               <label htmlFor="lastName">Legal last name</label>
               <input
@@ -63,7 +63,7 @@ const RegisterPatient = () => {
               />
             </div>
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
@@ -75,7 +75,7 @@ const RegisterPatient = () => {
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
@@ -87,7 +87,7 @@ const RegisterPatient = () => {
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="dateOfBirth">Date of Birth</label>
             <input
@@ -100,7 +100,7 @@ const RegisterPatient = () => {
               required
             />
           </div>
-          
+
           <div className="form-row">
             <div className="form-group half">
               <label>Sex</label>
@@ -129,7 +129,7 @@ const RegisterPatient = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="form-group half">
               <label htmlFor="nationalId">National ID No</label>
               <input
@@ -141,13 +141,13 @@ const RegisterPatient = () => {
               />
             </div>
           </div>
-          
+
           <button type="submit" className="register-button">Register</button>
-          
+
           <div className="divider">
             <span>or</span>
           </div>
-          
+
           <button type="button" className="google-button">
             <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
               <g transform="matrix(1, 0, 0, 1, 0, 0)">
@@ -158,13 +158,13 @@ const RegisterPatient = () => {
             </svg>
             Continue with Google
           </button>
-          
+
           <div className="login-link">
             Already have an account? <a href="#">Log in</a>
           </div>
         </form>
       </div>
-      
+
       <div className="hands-footer">
         <img src={handslogo || "/placeholder.svg"} alt="Hands" className="hands-image" />
       </div>

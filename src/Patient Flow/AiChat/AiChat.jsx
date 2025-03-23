@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect } from "react"
 import "./AiChat.css"
-import people from "./assets/People.png"
-import Avatar from "./assets/Avatar.png"
+import people from "../../assets/People.png"
+import Avatar from "../../assets/Avatar.png"
 
 // Icons as React components
 const HomeIcon = () => (
@@ -488,4 +488,3 @@ function AiChat() {
 }
 
 export default AiChat
-

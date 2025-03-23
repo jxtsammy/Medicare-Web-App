@@ -1,18 +1,15 @@
 "use client"
-import kitty from './assets/kitty-woo.png';
-import calendar from './assets/calendar.png';
-import celebrate from './assets/celebrate.png';
-import time from './assets/time.png';
-import { useState, useEffect } from "react"
+import kitty from '../../assets/kitty-woo.png';
+import calendar from '../../assets/calendar.png';
+import celebrate from '../../assets/celebrate.png';
+import time from '../../assets/time.png';
+import { useState} from "react"
 import {
   FaStar,
   FaStarHalf,
   FaCommentDots,
   FaPhoneAlt,
   FaShieldAlt,
-  FaCalendarAlt,
-  FaClock,
-  FaThumbsUp,
   FaSearch
 } from "react-icons/fa"
 import "./DoctorOverview.css"
@@ -91,7 +88,7 @@ const DoctorOverview = () => {
 
   // Filter and sort reviews based on search term and sort option
   const filteredReviews = reviews
-    .filter(review => 
+    .filter(review =>
       review.text.toLowerCase().includes(searchTerm.toLowerCase()) ||
       review.reviewer.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -143,7 +140,7 @@ const DoctorOverview = () => {
       alert("Please select a star rating before submitting your review.");
       return;
     }
-    
+
     if (userReview.trim() === "") {
       alert("Please write a review before submitting.");
       return;
@@ -167,16 +164,16 @@ const DoctorOverview = () => {
 
     // Add the new review to the beginning of the reviews array
     setReviews([newReview, ...reviews]);
-    
+
     // Show success message
     setReviewSubmitSuccess(true);
-    
+
     // Make sure the new review is visible by setting the active tab to reviews
     setActiveTab("reviews");
-    
+
     // Ensure we're showing enough reviews to see the new one
     setVisibleReviews(Math.max(visibleReviews, 1));
-    
+
     // Reset form after 2 seconds
     setTimeout(() => {
       setUserRating(0);
@@ -195,7 +192,7 @@ const DoctorOverview = () => {
       ...bookingForm,
       [name]: value
     });
-    
+
     // Clear error for this field when user types
     if (formErrors[name]) {
       setFormErrors({
@@ -207,45 +204,45 @@ const DoctorOverview = () => {
 
   const validateForm = () => {
     const errors = {};
-    
+
     if (!bookingForm.fullName.trim()) {
       errors.fullName = "Full name is required";
     }
-    
+
     if (!bookingForm.dateIntended.trim()) {
       errors.dateIntended = "Date is required";
     } else if (!/^\d{2}\/\d{2}\/\d{2}$/.test(bookingForm.dateIntended)) {
       errors.dateIntended = "Date must be in dd/mm/yy format";
     }
-    
+
     if (!bookingForm.phoneNumber.trim()) {
       errors.phoneNumber = "Phone number is required";
     } else if (!/^\d{10}$/.test(bookingForm.phoneNumber.replace(/\D/g, ''))) {
       errors.phoneNumber = "Please enter a valid 10-digit phone number";
     }
-    
+
     if (!bookingForm.condition.trim()) {
       errors.condition = "Condition is required";
     }
-    
+
     return errors;
   }
 
   const handleBookingSubmit = (e) => {
     e.preventDefault();
-    
+
     const errors = validateForm();
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
       return;
     }
-    
+
     // In a real app, you would send this to your backend
     console.log("Booking submitted:", bookingForm);
-    
+
     // Show success message
     setSubmitSuccess(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setBookingForm({
@@ -386,7 +383,7 @@ const DoctorOverview = () => {
             <div className="about-section">
               <h3>About Dr. Kitty Woo Ham</h3>
               <p>
-                Dr. Kitty Woo Ham is a board-certified Family Nurse Practitioner with over 10 years of experience in primary care. 
+                Dr. Kitty Woo Ham is a board-certified Family Nurse Practitioner with over 10 years of experience in primary care.
                 She specializes in preventive care, chronic disease management, and holistic health approaches.
               </p>
               <div className="about-details">
@@ -433,7 +430,7 @@ const DoctorOverview = () => {
             <div className="reviews-header">
               <h3>{filteredReviews.length} reviews</h3>
               <div className="reviews-actions">
-                <select 
+                <select
                   className="sort-dropdown"
                   value={sortOption}
                   onChange={(e) => setSortOption(e.target.value)}
@@ -444,10 +441,10 @@ const DoctorOverview = () => {
                   <option value="lowest-rating">Lowest rating</option>
                 </select>
                 <div className="search-container">
-                  <input 
-                    type="text" 
-                    placeholder="Search" 
-                    className="search-input" 
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    className="search-input"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
@@ -491,8 +488,8 @@ const DoctorOverview = () => {
                     <span>Add star rating:</span>
                     <div className="rating-stars">
                       {[1, 2, 3, 4, 5].map((star) => (
-                        <FaStar 
-                          key={`rating-${star}`} 
+                        <FaStar
+                          key={`rating-${star}`}
                           className={`rating-star ${(hoverRating || userRating) >= star ? 'active' : ''}`}
                           onClick={() => handleRatingClick(star)}
                           onMouseEnter={() => handleRatingHover(star)}
@@ -501,8 +498,8 @@ const DoctorOverview = () => {
                       ))}
                     </div>
                   </div>
-                  <textarea 
-                    placeholder="Add your review here" 
+                  <textarea
+                    placeholder="Add your review here"
                     className="review-textarea"
                     value={userReview}
                     onChange={(e) => setUserReview(e.target.value)}
@@ -544,8 +541,8 @@ const DoctorOverview = () => {
               <form className="booking-form" onSubmit={handleBookingSubmit}>
                 <div className="form-group">
                   <label>Full Name</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     className={`form-control ${formErrors.fullName ? 'error' : ''}`}
                     name="fullName"
                     value={bookingForm.fullName}
@@ -556,9 +553,9 @@ const DoctorOverview = () => {
 
                 <div className="form-group">
                   <label>Date Intended</label>
-                  <input 
-                    type="text" 
-                    placeholder="dd/mm/yy" 
+                  <input
+                    type="text"
+                    placeholder="dd/mm/yy"
                     className={`form-control ${formErrors.dateIntended ? 'error' : ''}`}
                     name="dateIntended"
                     value={bookingForm.dateIntended}
@@ -569,8 +566,8 @@ const DoctorOverview = () => {
 
                 <div className="form-group">
                   <label>Phone Number</label>
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
                     className={`form-control ${formErrors.phoneNumber ? 'error' : ''}`}
                     name="phoneNumber"
                     value={bookingForm.phoneNumber}
@@ -582,8 +579,8 @@ const DoctorOverview = () => {
                 <div className="form-row">
                   <div className="form-group half">
                     <label>Condition</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       className={`form-control ${formErrors.condition ? 'error' : ''}`}
                       name="condition"
                       value={bookingForm.condition}
@@ -593,8 +590,8 @@ const DoctorOverview = () => {
                   </div>
                   <div className="form-group half">
                     <label>Additional Info (Optional)</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       className="form-control"
                       name="additionalInfo"
                       value={bookingForm.additionalInfo}

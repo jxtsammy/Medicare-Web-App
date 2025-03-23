@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react"
 import "./Dashboard.css"
-import medicareLogoSrc from './assets/Medicare-logo.png';
-import profilepic from './assets/profile-pic.png';
+import medicareLogoSrc from '../../assets/Medicare-logo.png';
+import profilepic from '../../assets/profile-pic.png';
 
 // Icons as simple components
 const BellIcon = () => (
@@ -234,7 +234,7 @@ const ProviderCard = ({ name, title, rating, reviews, onClick }) => {
   return (
     <div className="provider-card" onClick={onClick}>
       <div className="provider-info">
-        <img src={profilepic || "/placeholder.svg"} alt={name} className="provider-image" />  
+        <img src={profilepic || "/placeholder.svg"} alt={name} className="provider-image" />
         <div className="chat-icon">
           <ChatIcon />
         </div>
@@ -330,7 +330,7 @@ const Dashboard = () => {
   // Apply sorting to providers
   const sortProviders = (providers, option) => {
     const sortedProviders = [...providers];
-    
+
     switch(option) {
       case "rating":
         // Sort by rating (highest first)
@@ -347,48 +347,48 @@ const Dashboard = () => {
           sortedProviders.sort((a, b) => {
             let aScore = 0;
             let bScore = 0;
-            
+
             // Check doctor/specialty match
             if (searchDoctor) {
-              if (a.name.toLowerCase().includes(searchDoctor.toLowerCase()) || 
+              if (a.name.toLowerCase().includes(searchDoctor.toLowerCase()) ||
                   a.title.toLowerCase().includes(searchDoctor.toLowerCase()) ||
                   a.specialties.some(s => s.toLowerCase().includes(searchDoctor.toLowerCase()))) {
                 aScore += 3;
               }
-              if (b.name.toLowerCase().includes(searchDoctor.toLowerCase()) || 
+              if (b.name.toLowerCase().includes(searchDoctor.toLowerCase()) ||
                   b.title.toLowerCase().includes(searchDoctor.toLowerCase()) ||
                   b.specialties.some(s => s.toLowerCase().includes(searchDoctor.toLowerCase()))) {
                 bScore += 3;
               }
             }
-            
+
             // Check condition match
             if (searchCondition) {
-              const aConditionMatches = a.conditions.filter(c => 
+              const aConditionMatches = a.conditions.filter(c =>
                 c.toLowerCase().includes(searchCondition.toLowerCase())).length;
-              const bConditionMatches = b.conditions.filter(c => 
+              const bConditionMatches = b.conditions.filter(c =>
                 c.toLowerCase().includes(searchCondition.toLowerCase())).length;
-              
+
               aScore += aConditionMatches * 2;
               bScore += bConditionMatches * 2;
             }
-            
+
             // Check location match
             if (searchLocation) {
-              const aLocationMatches = a.locations.filter(l => 
+              const aLocationMatches = a.locations.filter(l =>
                 l.toLowerCase().includes(searchLocation.toLowerCase())).length;
-              const bLocationMatches = b.locations.filter(l => 
+              const bLocationMatches = b.locations.filter(l =>
                 l.toLowerCase().includes(searchLocation.toLowerCase())).length;
-              
+
               aScore += aLocationMatches;
               bScore += bLocationMatches;
             }
-            
+
             // If scores are equal, sort by rating
             if (aScore === bScore) {
               return parseFloat(b.rating) - parseFloat(a.rating);
             }
-            
+
             return bScore - aScore;
           });
         } else {
@@ -397,44 +397,44 @@ const Dashboard = () => {
         }
         break;
     }
-    
+
     return sortedProviders;
   };
 
   // Search function
   const handleSearch = () => {
     setIsSearching(true)
-    
+
     // Filter providers based on search criteria
     const results = allProviders.filter(provider => {
       // Check if provider name or specialty matches search doctor
-      const doctorMatch = searchDoctor === "" || 
+      const doctorMatch = searchDoctor === "" ||
         provider.name.toLowerCase().includes(searchDoctor.toLowerCase()) ||
         provider.title.toLowerCase().includes(searchDoctor.toLowerCase()) ||
-        provider.specialties.some(specialty => 
+        provider.specialties.some(specialty =>
           specialty.toLowerCase().includes(searchDoctor.toLowerCase())
         );
-      
+
       // Check if provider treats the condition
       const conditionMatch = searchCondition === "" ||
-        provider.conditions.some(condition => 
+        provider.conditions.some(condition =>
           condition.toLowerCase().includes(searchCondition.toLowerCase())
         );
-      
+
       // Check if provider is in the location
       const locationMatch = searchLocation === "" ||
-        provider.locations.some(location => 
+        provider.locations.some(location =>
           location.toLowerCase().includes(searchLocation.toLowerCase())
         );
-      
+
       // Return true only if all specified criteria match
       return doctorMatch && conditionMatch && locationMatch;
     });
-    
+
     // Apply sorting to the filtered results
     const sortedResults = sortProviders(results, sortOption);
     setFilteredProviders(sortedResults);
-    
+
     // Simulate search delay for better UX
     setTimeout(() => {
       setIsSearching(false);
@@ -445,7 +445,7 @@ const Dashboard = () => {
   const handleSortChange = (e) => {
     const newSortOption = e.target.value;
     setSortOption(newSortOption);
-    
+
     // Apply the new sort to the current filtered providers
     const sortedProviders = sortProviders(filteredProviders, newSortOption);
     setFilteredProviders(sortedProviders);
@@ -552,15 +552,15 @@ const Dashboard = () => {
       <div className="providers-section">
         <div className="providers-header">
           <h2>
-            {isSearching 
-              ? "Searching..." 
-              : filteredProviders.length === 0 
-                ? "No providers found" 
+            {isSearching
+              ? "Searching..."
+              : filteredProviders.length === 0
+                ? "No providers found"
                 : `${filteredProviders.length} Providers Found`}
           </h2>
           {filteredProviders.length > 0 && !isSearching && (
             <div className="sort-options">
-              <select 
+              <select
                 className="sort-dropdown"
                 value={sortOption}
                 onChange={handleSortChange}
@@ -572,7 +572,7 @@ const Dashboard = () => {
             </div>
           )}
         </div>
-        
+
         {isSearching ? (
           <div className="loading-spinner">
             <div className="spinner"></div>
@@ -611,7 +611,7 @@ const Dashboard = () => {
                 <div className="rating">
                   <StarIcon />
                   <span>
-                    {allProviders.find(p => p.id === showProviderDetails)?.rating} - 
+                    {allProviders.find(p => p.id === showProviderDetails)?.rating} -
                     {allProviders.find(p => p.id === showProviderDetails)?.reviews} reviews
                   </span>
                 </div>
@@ -624,21 +624,21 @@ const Dashboard = () => {
                   <span key={index} className="specialty-tag">{specialty}</span>
                 ))}
               </div>
-              
+
               <h3>Conditions Treated</h3>
               <div className="conditions-list">
                 {allProviders.find(p => p.id === showProviderDetails)?.conditions.map((condition, index) => (
                   <span key={index} className="condition-tag">{condition}</span>
                 ))}
               </div>
-              
+
               <h3>Locations</h3>
               <div className="locations-list">
                 {allProviders.find(p => p.id === showProviderDetails)?.locations.map((location, index) => (
                   <p key={index}>{location}</p>
                 ))}
               </div>
-              
+
               <div className="action-buttons">
                 <button className="book-appointment-btn">Book Appointment</button>
                 <button className="contact-btn">Contact Provider</button>
@@ -649,42 +649,42 @@ const Dashboard = () => {
       )}
 
       <nav className="bottom-nav">
-        <button 
+        <button
           className={`nav-item ${activeNav === "home" ? "active" : ""}`}
           onClick={() => setActiveNav("home")}
         >
           <HomeIcon />
           <span>Home</span>
         </button>
-        <button 
+        <button
           className={`nav-item ${activeNav === "chat" ? "active" : ""}`}
           onClick={() => setActiveNav("chat")}
         >
           <ChatIcon />
           <span>Chat</span>
         </button>
-        <button 
+        <button
           className={`nav-item ${activeNav === "map" ? "active" : ""}`}
           onClick={() => setActiveNav("map")}
         >
           <MapIcon />
           <span>Map</span>
         </button>
-        <button 
+        <button
           className={`nav-item ${activeNav === "notifications" ? "active" : ""}`}
           onClick={() => setActiveNav("notifications")}
         >
           <BellIcon />
           <span>Alerts</span>
         </button>
-        <button 
+        <button
           className={`nav-item ${activeNav === "calendar" ? "active" : ""}`}
           onClick={() => setActiveNav("calendar")}
         >
           <CalendarIcon />
           <span>Calendar</span>
         </button>
-        <button 
+        <button
           className={`nav-item ${activeNav === "profile" ? "active" : ""}`}
           onClick={() => setActiveNav("profile")}
         >

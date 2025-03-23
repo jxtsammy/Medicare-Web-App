@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './PatientVideoCall.css';
-import medicareLogoSrc from './assets/Medicare-logo.png';
-import kitty from './assets/kitty-woo.png';
-import video from './assets/21.png';
-import doc from './assets/doc.png';
-import { 
-  Mic, MicOff, Video, VideoOff, Phone, 
-  MoreVertical, Monitor, Bell 
+import medicareLogoSrc from '../../assets/Medicare-logo.png';
+import kitty from '../../assets/kitty-woo.png';
+import video from '../../assets/21.png';
+import doc from '../../assets/doc.png';
+import {
+  Mic, MicOff, Video, VideoOff, Phone,
+  MoreVertical, Monitor, Bell
 } from 'react-feather';
 
 const PatientVideoCall = () => {
@@ -39,16 +39,16 @@ const PatientVideoCall = () => {
         <div className="logo">
           <img src={medicareLogoSrc || "/placeholder.svg"} alt="Medicare Logo" className="medicare-logo" />
         </div>
-        
+
         <div className="user-info">
           <div className="notification">
             <Bell size={20} />
           </div>
           <div className="provider-info">
-            <img 
+            <img
               src={kitty}
-              alt="Provider" 
-              className="provider-avatar" 
+              alt="Provider"
+              className="provider-avatar"
             />
             <div className="provider-details">
               <div className="provider-name">Kitty Woo Ham</div>
@@ -62,46 +62,46 @@ const PatientVideoCall = () => {
       <main className="video-area">
         {/* Provider Video (Main) */}
         <div className="main-video">
-          <img 
+          <img
             src= {doc}
-            alt="Provider Video" 
-            className="provider-video" 
+            alt="Provider Video"
+            className="provider-video"
           />
         </div>
 
         {/* Patient Video (PIP) */}
         <div className="patient-video-container">
-          <img 
+          <img
             src={video}
-            alt="Patient Video" 
-            className="patient-video" 
+            alt="Patient Video"
+            className="patient-video"
           />
         </div>
 
         {/* Call Controls */}
         <div className="call-controls">
-          <button 
-            className={`control-button ${isMuted ? 'active' : ''}`} 
+          <button
+            className={`control-button ${isMuted ? 'active' : ''}`}
             onClick={toggleMute}
           >
             {isMuted ? <MicOff size={24} /> : <Mic size={24} />}
           </button>
-          
-          <button 
-            className={`control-button ${isVideoOff ? 'active' : ''}`} 
+
+          <button
+            className={`control-button ${isVideoOff ? 'active' : ''}`}
             onClick={toggleVideo}
           >
             {isVideoOff ? <VideoOff size={24} /> : <Video size={24} />}
           </button>
-          
+
           <button className="control-button">
             <Monitor size={24} />
           </button>
-          
+
           <button className="control-button">
             <MoreVertical size={24} />
           </button>
-          
+
           <button className="control-button end-call" onClick={endCall}>
             <Phone size={24} />
           </button>

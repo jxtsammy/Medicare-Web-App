@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Maps.css';
-import baby from './assets/baby.png';
-import Michael from './assets/Michael.png';
-import Sarah from './assets/Sarah.png';
-import Wilson from './assets/Wilson.png';
-import Robert from './assets/Robert.png';
-import Ellis from './assets/Ellis.png';
-import People from './assets/People.png';
-import kitty from './assets/kitty-woo.png';
-import { 
+import baby from '../../assets/baby.png';
+import Michael from '../../assets/Michael.png';
+import Sarah from '../../assets/Sarah.png';
+import Wilson from '../../assets/Wilson.png';
+import Robert from '../../assets/Robert.png';
+import Ellis from '../../assets/Ellis.png';
+import People from '../../assets/People.png';
+import kitty from '../../assets/kitty-woo.png';
+import {
   Home, Calendar, Bell, MessageSquare, Package, User, ShoppingBag, MapPin
 } from 'react-feather';
 
 const Maps = () => {
   const [selectedProvider, setSelectedProvider] = useState(null);
-  
+
   // Sample provider data
   const providers = [
     {
@@ -92,41 +92,41 @@ const Maps = () => {
       {/* Static Map Background */}
       <div className="map-background">
         {/* You can replace this with an actual map image */}
-        <img 
-          src="/placeholder.svg?height=1000&width=1500" 
-          alt="Map" 
-          className="map-image" 
+        <img
+          src="/placeholder.svg?height=1000&width=1500"
+          alt="Map"
+          className="map-image"
         />
-        
+
         {/* User Location Marker */}
         <div className="user-marker">
           <div className="marker-pin"></div>
           <div className="marker-label">You</div>
         </div>
-        
+
         {/* Provider Markers */}
         {providers.map(provider => (
-          <div 
-            key={provider.id} 
-            className="provider-marker" 
+          <div
+            key={provider.id}
+            className="provider-marker"
             style={{ top: provider.position.top, left: provider.position.left }}
             onClick={() => handleProviderClick(provider)}
           >
-            <img 
-              src={provider.image || "/placeholder.svg"} 
-              alt={provider.name} 
-              className="marker-image" 
+            <img
+              src={provider.image || "/placeholder.svg"}
+              alt={provider.name}
+              className="marker-image"
             />
           </div>
         ))}
 
         {/* Special Location Markers */}
         {specialLocations.map(location => (
-          <div 
-            key={location.id} 
-            className="special-marker" 
-            style={{ 
-              top: location.position.top, 
+          <div
+            key={location.id}
+            className="special-marker"
+            style={{
+              top: location.position.top,
               left: location.position.left,
               backgroundColor: location.color
             }}
@@ -163,15 +163,15 @@ const Maps = () => {
       {/* Provider Carousel */}
       <div className="provider-carousel">
         {providers.map(provider => (
-          <div 
-            key={provider.id} 
+          <div
+            key={provider.id}
             className={`carousel-item ${selectedProvider?.id === provider.id ? 'selected' : ''}`}
             onClick={() => handleProviderClick(provider)}
           >
-            <img 
-              src={provider.image || "/placeholder.svg"} 
-              alt={provider.name} 
-              className="carousel-image" 
+            <img
+              src={provider.image || "/placeholder.svg"}
+              alt={provider.name}
+              className="carousel-image"
             />
             <div className="online-indicator"></div>
           </div>

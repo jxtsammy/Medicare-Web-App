@@ -1,7 +1,6 @@
-import React from 'react';
 import './LoginSettings.css';
 import { Bell, Check } from 'react-feather';
-import Avatar from './assets/Avatar.png';
+import Avatar from '../../assets/Avatar.png';
 
 const LoginSettings = () => {
   return (
@@ -17,10 +16,10 @@ const LoginSettings = () => {
             <div className="user-profile">
               <span className="username">Abednego</span>
               <span className="user-status">Verified User <Check size={16} className="verified-icon" /></span>
-              <img 
+              <img
                 src={Avatar}
-                alt="User profile" 
-                className="user-avatar" 
+                alt="User profile"
+                className="user-avatar"
               />
             </div>
           </div>
@@ -47,7 +46,7 @@ const LoginSettings = () => {
           {/* Login Section */}
           <section className="settings-section">
             <h2 className="section-title">Login</h2>
-            
+
             <div className="settings-item">
               <div className="item-details">
                 <h3>Password</h3>
@@ -72,7 +71,7 @@ const LoginSettings = () => {
           {/* Security Section */}
           <section className="settings-section">
             <h2 className="section-title">Security</h2>
-            
+
             <div className="settings-item">
               <div className="item-details">
                 <h3>Phone number</h3>

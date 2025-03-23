@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './PatientVoiceCall.css';
-import medicare from "./assets/medicare-logo.png"
-import kitty from "./assets/kitty-woo.png"
-import Ellipse from "./assets/Ellipse.png"
+import medicare from "../../assets/medicare-logo.png"
+import kitty from "../../assets/kitty-woo.png"
+import Ellipse from "../../assets/Ellipse.png"
 
 // Icons as React components
 const MuteIcon = () => (
@@ -52,13 +52,6 @@ const BellIcon = () => (
   </svg>
 );
 
-const MedicareIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="20" cy="20" r="20" fill="#009879" />
-    <text x="20" y="25" textAnchor="middle" fill="white" fontWeight="bold" fontSize="14">MC</text>
-  </svg>
-);
-
 function PatientVoiceCall() {
   const [isMuted, setIsMuted] = useState(false);
   const [isVideoOff, setIsVideoOff] = useState(false);
@@ -67,7 +60,7 @@ function PatientVoiceCall() {
   const toggleMute = () => setIsMuted(!isMuted);
   const toggleVideo = () => setIsVideoOff(!isVideoOff);
   const toggleScreenShare = () => setIsScreenSharing(!isScreenSharing);
-  
+
   return (
     <div className="patient-call-container">
       <header className="call-header">
@@ -80,10 +73,10 @@ function PatientVoiceCall() {
             <span className="notification-badge">3</span>
           </div>
           <div className="provider-info">
-            <img 
-              src={kitty} 
-              alt="Provider" 
-              className="provider-avatar" 
+            <img
+              src={kitty}
+              alt="Provider"
+              className="provider-avatar"
             />
             <div className="provider-details">
               <div className="provider-name">Kitty Woo Ham</div>
@@ -95,30 +88,30 @@ function PatientVoiceCall() {
 
       <main className="call-content">
         <div className="patient-avatar-container">
-          <img 
+          <img
             src={Ellipse}
-            alt="Patient" 
-            className="patient-avatar" 
+            alt="Patient"
+            className="patient-avatar"
           />
         </div>
       </main>
 
       <footer className="call-controls">
         <div className="controls-container">
-          <button 
-            className={`control-button ${isMuted ? 'active' : ''}`} 
+          <button
+            className={`control-button ${isMuted ? 'active' : ''}`}
             onClick={toggleMute}
           >
             <MuteIcon />
           </button>
-          <button 
-            className={`control-button ${isVideoOff ? 'active' : ''}`} 
+          <button
+            className={`control-button ${isVideoOff ? 'active' : ''}`}
             onClick={toggleVideo}
           >
             <VideoIcon />
           </button>
-          <button 
-            className={`control-button ${isScreenSharing ? 'active' : ''}`} 
+          <button
+            className={`control-button ${isScreenSharing ? 'active' : ''}`}
             onClick={toggleScreenShare}
           >
             <ScreenShareIcon />

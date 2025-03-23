@@ -1,6 +1,5 @@
-import React from 'react';
-import Avatar from './assets/Avatar.png';
-import './PersonalInfo.css';
+import Avatar from '../../assets/Avatar.png';
+import '../../PersonalInfo.css';
 import { Bell, Check } from 'react-feather';
 
 const PersonalInfo = () => {
@@ -17,10 +16,10 @@ const PersonalInfo = () => {
             <div className="user-profile">
               <span className="username">Abednego</span>
               <span className="user-status">Verified User <Check size={16} className="verified-icon" /></span>
-              <img 
+              <img
                 src={Avatar}
-                alt="User profile" 
-                className="user-avatar" 
+                alt="User profile"
+                className="user-avatar"
               />
             </div>
           </div>
@@ -44,7 +43,7 @@ const PersonalInfo = () => {
         {/* Personal Information Content */}
         <div className="personal-info-content">
           <h1 className="page-title">Personal Information</h1>
-          
+
           {/* Full Name */}
           <div className="info-item">
             <div className="info-details">
@@ -53,7 +52,7 @@ const PersonalInfo = () => {
             </div>
             <button className="action-button">Edit</button>
           </div>
-          
+
           {/* Phone Number */}
           <div className="info-item">
             <div className="info-details">
@@ -64,7 +63,7 @@ const PersonalInfo = () => {
             </div>
             <button className="action-button">Add</button>
           </div>
-          
+
           {/* Email Address */}
           <div className="info-item">
             <div className="info-details">
@@ -73,7 +72,7 @@ const PersonalInfo = () => {
               <p className="info-description">To secure your email, please verify your email address.</p>
             </div>
           </div>
-          
+
           {/* Address */}
           <div className="info-item">
             <div className="info-details">
@@ -82,7 +81,7 @@ const PersonalInfo = () => {
             </div>
             <button className="action-button">Add</button>
           </div>
-          
+
           {/* Sex */}
           <div className="info-item">
             <div className="info-details">
@@ -91,7 +90,7 @@ const PersonalInfo = () => {
             </div>
             <button className="action-button">Edit</button>
           </div>
-          
+
           {/* More Sex and Gender Info */}
           <div className="info-item">
             <div className="info-details">
@@ -99,7 +98,7 @@ const PersonalInfo = () => {
               <p className="info-value">Add more sex and gender info (optional)</p>
             </div>
           </div>
-          
+
           {/* Date of Birth */}
           <div className="info-item">
             <div className="info-details">
