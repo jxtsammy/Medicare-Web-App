@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProviderLogin from "./Provider Flow/Provider Login/ProviderLogin";
 import ProviderRegister from "./Provider Flow/Provider Register/ProviderRegister";
-import Dashboard from "./Provider Flow/Provider Dashboard/Dashboard";
+import ProviderDashboard from "./Provider Flow/Provider Dashboard/Dashboard";
 import Appointment from "./Provider Flow/Appointments/Appointment";
 import Chat from "./Provider Flow/Provider Chat/Chat";
 import Profile from "./Provider Flow/Profile Settings/Profile-settings";
@@ -27,8 +27,8 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />} />
         <Route path="/provider-login" element={<ProviderLogin />} />
-        <Route path="/provider-register" element={<ProviderRegister />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/register" element={<ProviderRegister />} />
+        <Route path="/dashboard" element={<ProviderDashboard />} />
         <Route path="/appointments" element={<Appointment />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/profile" element={<Profile />} />
