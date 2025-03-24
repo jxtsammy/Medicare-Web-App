@@ -63,23 +63,6 @@ const SendIcon = () => (
   </svg>
 );
 
-const VerifiedIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="#4CAF50"
-    stroke="white"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-  </svg>
-);
-
 const GridIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -282,18 +265,26 @@ function AiChat() {
               <HomeIcon />
             </div>
           </Link>
+          <Link to="/user-chats">
           <div className="sidebar-icon">
             <MessageSquare />
           </div>
+          </Link>
+          <Link>
           <div className="sidebar-icon">
             <BellIcon />
           </div>
+          </Link>
+          <Link to="/user-settings">
           <div className="sidebar-icon">
             <User />
           </div>
+          </Link>
+          <Link to="/map">
           <div className="sidebar-icon">
             <Map />
           </div>
+          </Link>
         </div>
         <div className="user-avatar-small">
           <img src={Avatar || "/placeholder.svg"} alt="User" />
@@ -315,17 +306,6 @@ function AiChat() {
                 <span className="status-dot"></span>
                 <span className="status-text">Online</span>
               </div>
-            </div>
-          </div>
-
-          <div className="user-info">
-            <div className="notification-badge">8</div>
-            <div className="user-name">Abednego</div>
-            <div className="user-verified">
-              Verified User <VerifiedIcon />
-            </div>
-            <div className="user-avatar">
-              <img src={Avatar || "/placeholder.svg"} alt="User" />
             </div>
           </div>
         </div>

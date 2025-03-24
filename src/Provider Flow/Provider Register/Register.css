@@ -35,7 +35,6 @@ html, body {
   align-items: center;
   padding: 1rem 2rem;
   border-bottom: 1px solid #e5e5e5;
-  margin-top: 650px;
 }
 
 /* Add padding to prevent content from being hidden under the header */
@@ -89,6 +88,18 @@ html, body {
 .signup-logo-img {
   width: 150px;
 }
+
+
+/* Add these styles to your existing CSS file */
+
+.signup-error-message {
+  color: #e53935;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+
 
 /* Left Section */
 .signup-left-section {

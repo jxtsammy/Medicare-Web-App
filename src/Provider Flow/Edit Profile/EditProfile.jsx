@@ -202,14 +202,7 @@ export default function EditProviderProfile() {
                 id="bio"
                 className="Edit-Provider-textarea"
                 rows={6}
-                defaultValue="
-                  Specific tasks depend on your specialty – for instance, the work surgeons carry out on a daily basis is completely different
-from the workload of an accident and emergency (A&E) doctor.
-
-Regardless of your speciality, as a hospital doctor you'll need to:
-
-· monitor and provide general care to patients on hospital wards and in outpatient clinics · admit patients requiring special care, followed by investigations and treatment · examine and talk to patients to diagnose their medical conditions · carry out specific procedures, e.g. performing operations and specialist investigations
-                "
+                defaultValue=""
               ></textarea>
             </div>
 

@@ -130,10 +130,12 @@ const MedicareDoctors = () => {
         <div className="medicare-doctors-logo-container">
           <img src={logo} alt="medicare-logo" className="medi-logo"/>
         </div>
+        <Link to="/">
         <div className="medicare-doctors-header-actions">
           <button className="medicare-doctors-notification-button"><Bell size={20} /></button>
           <button className="medicare-doctors-logout-button">Logout</button>
         </div>
+        </Link>
       </header>
 
       {/* Main content */}

@@ -149,7 +149,7 @@ export default function UserProfile() {
             <span className="user-status">Verified User ✓</span>
           </div>
           <div className="avatar-container">
-            <img src={profileImage || "/placeholder.svg"} alt="Profile" className="avatar-image" />
+            <img src={profileImage || "../../assets/Medimock-removebg-preview.png'"} alt="Profile" className="avatar-image" />
             <button className="avatar-edit-button" onClick={handleImageClick}>
               <Camera size={16} />
             </button>
@@ -168,7 +168,7 @@ export default function UserProfile() {
       <div className="profile-summary">
         <div className="profile-info-row">
           <div className="profile-image-container">
-            <img src={profileImage || "/placeholder.svg"} alt="Profile" className="profile-image" />
+            <img src={profileImage || "../../assets/Medimock-removebg-preview.png'"} alt="Profile" className="profile-image" />
             <button className="profile-image-edit" onClick={handleImageClick}>
               <Camera size={16} />
             </button>

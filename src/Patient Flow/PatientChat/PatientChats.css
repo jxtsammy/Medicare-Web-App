@@ -135,7 +135,7 @@
 .chat-app-chat-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: -10px;
+  margin-bottom: 5px;
 }
 
 .chat-app-chat-name {

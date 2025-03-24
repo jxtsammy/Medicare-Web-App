@@ -56,7 +56,7 @@ const initialChats = [
   {
     id: 4,
     name: 'Titus Kitamura',
-    avatar: 'https://i.pravatar.cc/150?img=4',
+    avatar: 'https://i.pravatar.cc/150?img=25',
     lastMessage: 'omg, this is amazing',
     time: '5h',
     messages: [
