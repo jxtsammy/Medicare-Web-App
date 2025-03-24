@@ -47,11 +47,11 @@ export default function Dashboard() {
       </nav>
 
       <div className="dashboard-bottom-nav">
-        <a href="/profile" className="dashboard-nav-item">
+        <Link to="/profile" className="dashboard-nav-item">
           <Settings size={20} />
           <span>Settings</span>
-        </a>
-        <Link href="/" className="dashboard-nav-item">
+        </Link>
+        <Link to="/" className="dashboard-nav-item">
           <LogOut size={20} />
           <span>Logout</span>
         </Link>

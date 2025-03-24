@@ -1,0 +1,169 @@
+.video-call-with-feeds-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-call-with-feeds-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: 60px;
+}
+
+.video-call-with-feeds-logo {
+  width: 180px;
+  margin-right: 10px;
+}
+
+.video-call-with-feeds-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.video-call-with-feeds-timer {
+  margin-left: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.video-call-with-feeds-content {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-call-with-feeds-main-video {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-call-with-feeds-remote-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-call-with-feeds-my-video {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video-call-with-feeds-local-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-call-with-feeds-video-disabled {
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-call-with-feeds-video-off-placeholder {
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.video-call-with-feeds-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background-color: #fff;
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.video-call-with-feeds-control-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.video-call-with-feeds-control-button:hover {
+  background-color: #e0e0e0;
+}
+
+.video-call-with-feeds-control-active {
+  background-color: #ff5252;
+  color: white;
+}
+
+.video-call-with-feeds-control-active:hover {
+  background-color: #ff1744;
+}
+
+.video-call-with-feeds-end-button {
+  background-color: #ff5252;
+  color: white;
+}
+
+.video-call-with-feeds-end-button:hover {
+  background-color: #ff1744;
+}
+
+.video-call-with-feeds-more-button {
+  background-color: #424242;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .video-call-with-feeds-controls {
+    padding: 10px 20px;
+  }
+
+  .video-call-with-feeds-control-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .video-call-with-feeds-my-video {
+    width: 120px;
+    height: 90px;
+    top: 70px;
+  }
+}

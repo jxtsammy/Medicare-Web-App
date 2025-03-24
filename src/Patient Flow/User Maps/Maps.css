@@ -1,0 +1,269 @@
+.doctor-map-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.doctor-map-sidebar {
+  width: 70px;
+  height: 70%;
+  background-color: #ffd700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  z-index: 10;
+  position: relative;
+  left: 25px;
+  top: 75px;
+  border-radius: 50px;
+}
+
+.doctor-map-sidebar-button {
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.doctor-map-sidebar-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Map Content */
+.doctor-map-content {
+  flex-grow: 1;
+  position: relative;
+  height: 100%;
+}
+
+/* User Marker */
+.doctor-map-user-marker {
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.doctor-map-user-marker:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #000;
+}
+
+.doctor-map-user-marker-text {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Doctor Markers */
+.doctor-map-doctor-marker {
+  position: relative;
+  cursor: pointer;
+}
+
+.doctor-map-doctor-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.doctor-map-online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Doctor Info Card */
+.doctor-map-info-card {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.doctor-map-info-card-content {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.doctor-map-info-card-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.doctor-map-info-card-details {
+  flex-grow: 1;
+}
+
+.doctor-map-info-card-name {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.doctor-map-info-card-specialty {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.doctor-map-info-card-rating {
+  display: flex;
+  align-items: center;
+}
+
+.doctor-map-info-card-rating-star {
+  color: #ffd700;
+  margin-right: 5px;
+}
+
+.doctor-map-info-card-rating-number {
+  font-weight: bold;
+  color: #ffd700;
+  margin-right: 5px;
+}
+
+.doctor-map-info-card-rating-count {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.doctor-map-info-card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.doctor-map-info-card-action-button {
+  border: none;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.doctor-map-info-card-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Bottom Navigation */
+.doctor-map-bottom-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.doctor-map-bottom-nav-item {
+  cursor: pointer;
+}
+
+.doctor-map-bottom-nav-item-active .doctor-map-bottom-nav-avatar {
+  border: 3px solid #ffd700;
+}
+
+.doctor-map-bottom-nav-avatar-container {
+  position: relative;
+}
+
+.doctor-map-bottom-nav-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.doctor-map-bottom-nav-online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .doctor-map-sidebar {
+    width: 60px;
+  }
+
+  .doctor-map-sidebar-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .doctor-map-info-card-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .doctor-map-info-card-name {
+    font-size: 1.2rem;
+  }
+
+  .doctor-map-bottom-nav-avatar {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,136 @@
+.video-call-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff9c4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.video-call-header {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-bottom: 20px;
+  height: 60px;
+}
+
+.video-call-logo {
+  width: 180px;
+  margin-right: 10px;
+}
+
+.video-call-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.video-call-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.video-call-avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-call-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.video-call-status {
+  text-align: center;
+}
+
+.video-call-status-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.video-call-timer {
+  font-size: 1rem;
+  color: #666;
+}
+
+.video-call-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background-color: #fff;
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.video-call-control-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.video-call-control-button:hover {
+  background-color: #e0e0e0;
+}
+
+.video-call-control-active {
+  background-color: #ff5252;
+  color: white;
+}
+
+.video-call-control-active:hover {
+  background-color: #ff1744;
+}
+
+.video-call-end-button {
+  background-color: #ff5252;
+  color: white;
+}
+
+.video-call-end-button:hover {
+  background-color: #ff1744;
+}
+
+.video-call-more-button {
+  background-color: #424242;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .video-call-controls {
+    padding: 10px 20px;
+  }
+
+  .video-call-control-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .video-call-avatar {
+    width: 120px;
+    height: 120px;
+  }
+}

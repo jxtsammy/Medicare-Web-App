@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.medicare-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #fff8d6;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+.logo-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: start;
+  height: 60px;
+}
+
+.medi-logo{
+  width: 180px;
+}
+
+.form-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 550px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-bottom: 40px;
+}
+
+.form-card h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #ffff;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+}
+
+.radio-option input[type="radio"] {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #ffeb3b;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.register-btn:hover {
+  background-color: #ffd600;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider span {
+  padding: 0 10px;
+  color: #777;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.google-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.login-link a {
+  color: #000;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.hands-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200'%3E%3Cg%3E%3Cpath fill='%23ffccbc' d='M0,200 L30,170 Q40,150 50,170 L70,200 Z'/%3E%3Cpath fill='%23ffab91' d='M60,200 L90,160 Q100,140 110,160 L130,200 Z'/%3E%3Cpath fill='%23e57373' d='M120,200 L150,170 Q160,150 170,170 L190,200 Z'/%3E%3Cpath fill='%23ef9a9a' d='M180,200 L210,160 Q220,140 230,160 L250,200 Z'/%3E%3Cpath fill='%23ffccbc' d='M240,200 L270,170 Q280,150 290,170 L310,200 Z'/%3E%3Cpath fill='%23bf360c' d='M300,200 L330,160 Q340,140 350,160 L370,200 Z'/%3E%3Cpath fill='%23ffab91' d='M360,200 L390,170 Q400,150 410,170 L430,200 Z'/%3E%3Cpath fill='%23e57373' d='M420,200 L450,160 Q460,140 470,160 L490,200 Z'/%3E%3Cpath fill='%23ef9a9a' d='M480,200 L510,170 Q520,150 530,170 L550,200 Z'/%3E%3Cpath fill='%23ffccbc' d='M540,200 L570,160 Q580,140 590,160 L610,200 Z'/%3E%3Cpath fill='%23bf360c' d='M600,200 L630,170 Q640,150 650,170 L670,200 Z'/%3E%3Cpath fill='%23ffab91' d='M660,200 L690,160 Q700,140 710,160 L730,200 Z'/%3E%3Cpath fill='%23e57373' d='M720,200 L750,170 Q760,150 770,170 L790,200 Z'/%3E%3Cpath fill='%23ef9a9a' d='M780,200 L810,160 Q820,140 830,160 L850,200 Z'/%3E%3Cpath fill='%23ffccbc' d='M840,200 L870,170 Q880,150 890,170 L910,200 Z'/%3E%3Cpath fill='%23bf360c' d='M900,200 L930,160 Q940,140 950,160 L970,200 Z'/%3E%3Cpath fill='%23ffab91' d='M960,200 L990,170 Q1000,150 1010,170 L1030,200 Z'/%3E%3Cpath fill='%23e57373' d='M1020,200 L1050,160 Q1060,140 1070,160 L1090,200 Z'/%3E%3Cpath fill='%23ef9a9a' d='M1080,200 L1110,170 Q1120,150 1130,170 L1150,200 Z'/%3E%3Cpath fill='%23ffccbc' d='M1140,200 L1170,160 Q1180,140 1190,160 L1210,200 Z'/%3E%3C/g%3E%3Cg transform='translate(15, 10)'%3E%3Crect x='30' y='150' width='20' height='40' fill='%23283593' rx='5' /%3E%3Crect x='130' y='150' width='20' height='40' fill='%231565c0' rx='5' /%3E%3Crect x='230' y='150' width='20' height='40' fill='%23283593' rx='5' /%3E%3Crect x='330' y='150' width='20' height='40' fill='%231565c0' rx='5' /%3E%3Crect x='430' y='150' width='20' height='40' fill='%23283593' rx='5' /%3E%3Crect x='530' y='150' width='20' height='40' fill='%231565c0' rx='5' /%3E%3Crect x='630' y='150' width='20' height='40' fill='%23283593' rx='5' /%3E%3Crect x='730' y='150' width='20' height='40' fill='%231565c0' rx='5' /%3E%3Crect x='830' y='150' width='20' height='40' fill='%23283593' rx='5' /%3E%3Crect x='930' y='150' width='20' height='40' fill='%231565c0' rx='5' /%3E%3Crect x='1030' y='150' width='20' height='40' fill='%23283593' rx='5' /%3E%3Crect x='1130' y='150' width='20' height='40' fill='%231565c0' rx='5' /%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-card h2 {
+    font-size: 24px;
+  }
+}

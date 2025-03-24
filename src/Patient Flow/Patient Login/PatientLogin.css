@@ -1,0 +1,278 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.medicare-login-container {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #fff8d6;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header */
+.medicare-login-header {
+  padding: 20px;
+}
+
+.medicare-login-logo-container {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.medicare-login-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #0d9473;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.medicare-login-logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Main content */
+.medicare-login-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  position: relative;
+  z-index: 1; /* Add z-index as requested */
+}
+
+.medicare-login-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.medicare-login-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Form */
+.medicare-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.medicare-login-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.medicare-login-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.medicare-login-input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.medicare-login-button {
+  background-color: #ffeb3b;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.medicare-login-button:hover {
+  background-color: #fdd835;
+}
+
+/* Divider */
+.medicare-login-divider {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.medicare-login-divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.medicare-login-divider-text {
+  padding: 0 10px;
+  color: #666;
+}
+
+/* Google button */
+.medicare-login-google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.medicare-login-google-button:hover {
+  background-color: #f5f5f5;
+}
+
+.medicare-login-google-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sign up text */
+.medicare-login-signup-text {
+  text-align: center;
+  font-size: 16px;
+}
+
+.medicare-login-signup-link {
+  color: #0d9473;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* Footer with hands illustration */
+.medicare-login-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.medicare-login-hands-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Hand elements */
+.medicare-login-hand {
+  width: 60px;
+  height: 150px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  position: relative;
+  bottom: -50px; /* Start partially off-screen */
+  transform-origin: bottom center;
+}
+
+/* Different hand colors to represent diversity */
+.medicare-login-hand-1 {
+  background-color: #f8d5c2;
+  transform: translateY(10px) rotate(-5deg);
+}
+
+.medicare-login-hand-2 {
+  background-color: #c58c65;
+  transform: translateY(15px) rotate(3deg);
+}
+
+.medicare-login-hand-3 {
+  background-color: #e6b89c;
+  transform: translateY(8px) rotate(-2deg);
+}
+
+.medicare-login-hand-4 {
+  background-color: #a56336;
+  transform: translateY(12px) rotate(4deg);
+}
+
+.medicare-login-hand-5 {
+  background-color: #f1c27d;
+  transform: translateY(5px) rotate(-3deg);
+}
+
+.medicare-login-hand-6 {
+  background-color: #8d5524;
+  transform: translateY(7px) rotate(2deg);
+}
+
+.medicare-login-hand-7 {
+  background-color: #ffdbac;
+  transform: translateY(9px) rotate(-4deg);
+}
+
+.medicare-login-hand-8 {
+  background-color: #c68642;
+  transform: translateY(11px) rotate(5deg);
+}
+
+.medicare-login-hand-9 {
+  background-color: #e0ac69;
+  transform: translateY(6px) rotate(-1deg);
+}
+
+.medicare-login-hand-10 {
+  background-color: #774d26;
+  transform: translateY(14px) rotate(1deg);
+}
+
+.medicare-login-hand-11 {
+  background-color: #ffdfc4;
+  transform: translateY(13px) rotate(-6deg);
+}
+
+.medicare-login-hand-12 {
+  background-color: #d2996c;
+  transform: translateY(4px) rotate(6deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .medicare-login-card {
+    padding: 30px 20px;
+  }
+
+  .medicare-login-title {
+    font-size: 24px;
+  }
+
+  .medicare-login-hand {
+    width: 40px; /* Smaller hands on mobile */
+  }
+}
