@@ -132,7 +132,6 @@ const MedicareDoctors = () => {
         </div>
         <Link to="/">
         <div className="medicare-doctors-header-actions">
-          <button className="medicare-doctors-notification-button"><Bell size={20} /></button>
           <button className="medicare-doctors-logout-button">Logout</button>
         </div>
         </Link>

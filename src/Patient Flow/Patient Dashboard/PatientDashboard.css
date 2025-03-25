@@ -4,6 +4,11 @@
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+
+}
+
+inputs{
+  border: none;
 }
 
 
@@ -57,23 +62,11 @@
   gap: 15px;
 }
 
-.medicare-doctors-notification-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
 .medicare-doctors-logout-button {
-  padding: 10px 20px;
+  padding: 10px 25px;
   border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: transparent;
+  border: 1px solid black;
+  background-color: #ffff;
   font-size: 16px;
   cursor: pointer;
 }

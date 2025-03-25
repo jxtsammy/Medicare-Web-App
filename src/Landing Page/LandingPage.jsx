@@ -81,11 +81,16 @@ const LandingPage = () => {
                 </button>
                 {isLoginDropdownOpen && (
                   <div className="landing-page-dropdown-menu">
+                    <label className="lable-txt">Patient Authentication</label>
                     <Link to="/patient-login" className="landing-page-dropdown-item" >
                       Patient Login
                     </Link>
+                    <label className="lable-txt">Provider Authentication</label>
                     <Link to="provider-login" className="landing-page-dropdown-item">
                       Provider Login
+                    </Link>
+                    <Link to="provider-register" className="landing-page-dropdown-item">
+                      Provider Registration
                     </Link>
                   </div>
                 )}

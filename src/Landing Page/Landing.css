@@ -99,14 +99,16 @@
 .landing-page-dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 50px;
   background-color: white;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  min-width: 180px;
+  min-width: 300px;
   z-index: 100;
-  padding: 8px 0;
+  padding: 8px 20px;
   margin-top: 5px;
+  border: 1px solid #000;
+  border-top-right-radius: 0;
 }
 
 .landing-page-dropdown-item {
@@ -114,10 +116,11 @@
   padding: 8px 16px;
   color: #333;
   transition: background-color 0.2s;
+  margin-bottom: -10px;
 }
 
 .landing-page-dropdown-item:hover {
-  background-color: #f5f5f5;
+  color: #088a6a;
 }
 
 /* Hero Section */
@@ -129,6 +132,13 @@
 .landing-page-hero h1 {
   font-size: 60px;
   margin-bottom: 30px;
+}
+
+.lable-txt{
+  margin-top: 20px;
+  font-weight: bold;
+  margin-bottom: -5px;
+  font-size: 17px;
 }
 
 .landing-page-search-form {
@@ -151,7 +161,7 @@
 
 .landing-page-search-icon {
   position: absolute;
-  left: 15px;
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
   color: #777;
