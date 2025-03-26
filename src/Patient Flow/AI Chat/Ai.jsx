@@ -6,7 +6,6 @@ import people from "../../assets/People.png";
 import Avatar from "../../assets/Avatar.png";
 import {Map, User, MessageSquare} from 'lucide-react';
 import { Link } from "react-router";
-import axios from "axios";
 
 
 // Icons as React components
@@ -172,24 +171,27 @@ function AiChat() {
       setIsTyping(true);
 
       try {
-        const response = await axios.post(
-          "https://openrouter.ai/api/v1/chat/completions",
-          {
-            model: "deepseek/deepseek-r1:free", // Try a different model if needed
-            messages: [{ role: "user", content: newMessage.text }],
+        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer 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`, // Replace with your actual API key
           },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer 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`
-            },
-          }
-        );
+          body: JSON.stringify({
+            model: "deepseek/deepseek-r1:free",
+            messages: [{ role: "user", content: newMessage.text }],
+          }),
+        });
 
-        console.log("API Response:", response.data); // Debugging step
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
-        if (response.data.choices && response.data.choices.length > 0) {
-          const aiResponseText = response.data.choices[0]?.message?.content || "No response received.";
+        const data = await response.json();
+        console.log("API Response:", data); // Debugging step
+
+        if (data.choices && data.choices.length > 0) {
+          const aiResponseText = data.choices[0]?.message?.content || "No response received.";
 
           const aiResponse = {
             id: Date.now() + 1,
@@ -209,6 +211,8 @@ function AiChat() {
       }
     }
   };
+
+
 
 
   const getCurrentTime = () => {

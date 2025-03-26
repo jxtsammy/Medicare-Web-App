@@ -4,6 +4,7 @@ import { useState, useRef } from "react"
 import { Bell, Camera, Trash2, Save } from "lucide-react"
 import "./UserSettings.css"
 import logo from '../../assets/Medimock-removebg-preview.png'
+import profile from '../../assets/Medimock-removebg-preview.png'
 import { useNavigate } from 'react-router-dom';
 
 export default function UserProfile() {
@@ -69,7 +70,13 @@ export default function UserProfile() {
     }
   }
 
-  const handleSaveAll = () => {
+  const handleSaveAll = (field) => {
+    setUserData({
+      ...userData,
+      [field]: tempValue,
+    })
+    setEditingField(null)
+
     // Save all changes to the server
     console.log("Saving all changes:", userData)
     alert("Changes saved successfully!")
@@ -149,7 +156,7 @@ export default function UserProfile() {
             <span className="user-status">Verified User ✓</span>
           </div>
           <div className="avatar-container">
-            <img src={profileImage || "../../assets/Medimock-removebg-preview.png'"} alt="Profile" className="avatar-image" />
+            <img src={profileImage || profile} alt="Profile" className="avatar-image" />
             <button className="avatar-edit-button" onClick={handleImageClick}>
               <Camera size={16} />
             </button>
@@ -168,7 +175,7 @@ export default function UserProfile() {
       <div className="profile-summary">
         <div className="profile-info-row">
           <div className="profile-image-container">
-            <img src={profileImage || "../../assets/Medimock-removebg-preview.png'"} alt="Profile" className="profile-image" />
+            <img src={profileImage || profile} alt="Profile" className="profile-image" />
             <button className="profile-image-edit" onClick={handleImageClick}>
               <Camera size={16} />
             </button>

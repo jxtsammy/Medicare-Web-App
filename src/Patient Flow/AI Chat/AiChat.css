@@ -220,7 +220,10 @@
 .ai-message .message-bubble {
   background-color: #ffe082;
   border-bottom-left-radius: 4px;
-  flex-wrap: wrap;
+  word-wrap: break-word;   /* Ensures long words break */
+  white-space: pre-wrap;   /* Preserves new lines and wraps text */
+  overflow-wrap: break-word; /* Prevents overflow issues */
+  max-width: 70%;
 }
 
 .user-message .message-bubble {
